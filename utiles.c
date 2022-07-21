@@ -1,18 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   utiles.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/06 17:33:41 by tmejri            #+#    #+#             */
-/*   Updated: 2022/07/20 16:19:05 by tmejri           ###   ########.fr       */
+/*   Created: 2022/07/21 15:06:15 by tas               #+#    #+#             */
+/*   Updated: 2022/07/21 15:07:50 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+int	ft_atoi(const char *nptr)
+{
+	int		res;
+	int		i;
+	int		sign;
+
+	i = 0;
+	res = 0;
+	sign = 1;
+	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == ' ')
+		i++;
+	if (nptr[i] == '+' || nptr[i] == '-')
+	{
+		if (nptr[i] == '-')
+			sign = -sign;
+		i++;
+	}
+	while (nptr[i] >= '0' && nptr[i] <= '9')
+	{
+		res = (res * 10) + (nptr[i] - 48);
+		i++;
+	}
+	return (res * sign);
+}
+
+size_t	ft_strlen(char *str)
+{
+	size_t	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
+
+char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*dest;
 	size_t	i;

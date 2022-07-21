@@ -3,15 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 15:50:01 by tmejri            #+#    #+#             */
-/*   Updated: 2022/07/20 16:19:05 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/07/21 14:42:56 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
+
+# include <string.h>
+# include <stdlib.h>
+# include <stddef.h>
+# include <unistd.h>
 
 # define INT_MIN -2147483648
 # define INT_MAX 2147483647
@@ -32,6 +37,10 @@ void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 int		ft_atoi(const char *nptr);
-char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strjoin(char *s1, char *s2);
+int check_intru(int argc, char *argv[]);
+// static size_t	nb_word(const char *s, char c);
+// static char	*ft_copy(char *dest, char const *s, char c);
+char	**ft_split(char *s, char c);
 
 #endif
