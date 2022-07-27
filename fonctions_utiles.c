@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utiles.c                                           :+:      :+:    :+:   */
+/*   fonctions_utiles.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 15:06:15 by tas               #+#    #+#             */
-/*   Updated: 2022/07/21 15:07:50 by tas              ###   ########.fr       */
+/*   Updated: 2022/07/23 10:55:42 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_atoi(const char *nptr)
+long int	ft_atoi(char *nptr)
 {
-	int		res;
-	int		i;
-	int		sign;
+	long int		res;
+	long int		i;
+	long int		sign;
 
 	i = 0;
 	res = 0;

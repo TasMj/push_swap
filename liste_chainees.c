@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   liste_chainees.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 17:33:40 by tmejri            #+#    #+#             */
-/*   Updated: 2022/06/30 12:10:55 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/07/25 18:02:31 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,11 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 			*lst = tmp;
 		}
 	}
+}
+
+void	*del(void *elt)
+{
+	
 }
 
 void	ft_lstdelone(t_list *lst, void (*del)(void*))

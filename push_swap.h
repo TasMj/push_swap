@@ -6,7 +6,7 @@
 /*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 15:50:01 by tmejri            #+#    #+#             */
-/*   Updated: 2022/07/21 14:42:56 by tas              ###   ########.fr       */
+/*   Updated: 2022/07/25 16:45:47 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,15 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
-int		ft_atoi(const char *nptr);
+void	del_lst(t_list *list);
+long int	ft_atoi(char *nptr);
 char	*ft_strjoin(char *s1, char *s2);
-int check_intru(int argc, char *argv[]);
+int		check_intru(int argc, char *argv[]);
 // static size_t	nb_word(const char *s, char c);
 // static char	*ft_copy(char *dest, char const *s, char c);
 char	**ft_split(char *s, char c);
+char	*creat_list(char *str);
+int		check_intru(int argc, char *argv[]);
+int		check_int(int argc, char **argv);
 
 #endif
