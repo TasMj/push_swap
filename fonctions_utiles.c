@@ -6,7 +6,7 @@
 /*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 15:06:15 by tas               #+#    #+#             */
-/*   Updated: 2022/07/23 10:55:42 by tas              ###   ########.fr       */
+/*   Updated: 2022/07/28 15:40:16 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,26 @@ long int	ft_atoi(char *nptr)
 	return (res * sign);
 }
 
-size_t	ft_strlen(char *str)
+int	ft_strlen(char *str)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	while (str[i])
 		i++;
+	return (i);
+}
+
+int	size_nb(int nb)
+{
+	int	i;
+
+	i = 0;
+	while (nb != 0)
+	{
+		nb = nb / 10;
+		i++;
+	}
 	return (i);
 }
 
@@ -70,5 +83,28 @@ char	*ft_strjoin(char *s1, char *s2)
 		j++;
 	}
 	dest[i] = '\0';
+	return (dest);
+}
+
+char	*ft_resize(char *src, int start)
+{
+	int		i;
+	int		j;
+    char    *dest;
+
+	i = 0;
+    j = start;
+    dest = malloc(sizeof(char) * ft_strlen(src) - start + 1);
+    if (!dest || !src)
+        return (NULL);
+    else
+    {
+	    while (src[j])
+        {
+            dest[i] = src[j];
+            i++;
+            j++;
+        }
+    }
 	return (dest);
 }

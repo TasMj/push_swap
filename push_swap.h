@@ -6,7 +6,7 @@
 /*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 15:50:01 by tmejri            #+#    #+#             */
-/*   Updated: 2022/07/28 14:31:51 by tas              ###   ########.fr       */
+/*   Updated: 2022/07/28 15:37:15 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,8 @@ char	**ft_split(char *s, char c);
 char	*creat_list(char *str);
 int		check_intru(int argc, char *argv[]);
 int		check_int(int argc, char **argv);
+int		size_nb(int nb);
+char	*ft_resize(char *src, int start);
+int		ft_strlen(char *str);
 
 #endif

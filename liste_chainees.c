@@ -6,7 +6,7 @@
 /*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 17:33:40 by tmejri            #+#    #+#             */
-/*   Updated: 2022/07/28 14:33:32 by tas              ###   ########.fr       */
+/*   Updated: 2022/07/28 14:40:38 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,14 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	}
 }
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
-{
-	if (lst)
-	{
-		new->next = *lst;
-		*lst = new;
-	}
-}
+// void	ft_lstadd_front(t_list **lst, t_list *new)
+// {
+// 	if (lst)
+// 	{
+// 		new->next = *lst;
+// 		*lst = new;
+// 	}
+// }
 
 // void	ft_lstclear(t_list **lst, void (*del)(void*))
 // {
