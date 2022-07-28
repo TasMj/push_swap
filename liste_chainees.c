@@ -6,7 +6,7 @@
 /*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 17:33:40 by tmejri            #+#    #+#             */
-/*   Updated: 2022/07/25 18:02:31 by tas              ###   ########.fr       */
+/*   Updated: 2022/07/28 14:33:32 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,44 +37,44 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 	}
 }
 
-void	ft_lstclear(t_list **lst, void (*del)(void*))
-{
-	t_list	*tmp;
+// void	ft_lstclear(t_list **lst, void (*del)(void*))
+// {
+// 	t_list	*tmp;
 
-	if (lst && del)
-	{
-		while (lst && *lst)
-		{
-			tmp = (*lst)->next;
-			ft_lstdelone(*lst, del);
-			*lst = tmp;
-		}
-	}
-}
+// 	if (lst && del)
+// 	{
+// 		while (lst && *lst)
+// 		{
+// 			tmp = (*lst)->next;
+// 			ft_lstdelone(*lst, del);
+// 			*lst = tmp;
+// 		}
+// 	}
+// }
 
-void	*del(void *elt)
-{
+// void	*del(void *elt)
+// {
 	
-}
+// }
 
-void	ft_lstdelone(t_list *lst, void (*del)(void*))
-{
-	if (lst && del)
-	{
-		(*del)(lst->content);
-		free(lst);
-	}
-}
+// void	ft_lstdelone(t_list *lst, void (*del)(void*))
+// {
+// 	if (lst && del)
+// 	{
+// 		(*del)(lst->content);
+// 		free(lst);
+// 	}
+// }
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
-{
-	if (lst && f)
-	{
-		while (lst)
-		{
-			f(lst->content);
-			lst = lst->next;
-		}
-	}
-}
+// void	ft_lstiter(t_list *lst, void (*f)(void *))
+// {
+// 	if (lst && f)
+// 	{
+// 		while (lst)
+// 		{
+// 			f(lst->content);
+// 			lst = lst->next;
+// 		}
+// 	}
+// }
 
