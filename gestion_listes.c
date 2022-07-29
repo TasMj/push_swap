@@ -6,14 +6,15 @@
 /*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 11:18:23 by tas               #+#    #+#             */
-/*   Updated: 2022/07/28 15:44:31 by tas              ###   ########.fr       */
+/*   Updated: 2022/07/28 15:46:37 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
 
-
+// Dans le cas où argc = 2 (ex: "1 2 3")
+// découpage de l'argv et attribution aux contents de la liste
 void    *decomposer_arg(int argc, char **argv)
 {
     char    *stockage;
