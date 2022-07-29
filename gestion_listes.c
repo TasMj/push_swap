@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   gestion_listes.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 11:18:23 by tas               #+#    #+#             */
-/*   Updated: 2022/07/28 15:46:37 by tas              ###   ########.fr       */
+/*   Updated: 2022/07/29 14:33:01 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,11 +75,11 @@ void    *attribution_arg(int argc, char *argv[])
     return (list_stack_a);
 }
 
-#include <stdio.h>
-int main(int argc, char **argv)
-{
-    t_list  *list;
-    list = attribution_arg(argc, argv);
-    printf("%p\n", list);
-    return (0);
-}
+// #include <stdio.h>
+// int main(int argc, char **argv)
+// {
+//     t_list  *list;
+//     list = attribution_arg(argc, argv);
+//     printf("%p\n", list);
+//     return (0);
+// }
