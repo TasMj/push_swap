@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   deplacement.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 15:49:44 by tas               #+#    #+#             */
-/*   Updated: 2022/07/29 14:57:29 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/07/31 17:14:22 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,36 +33,54 @@ void  swap(t_list *list)
 // swap les 2 premiers elts du haut de la stack A
 void    *sa(t_list *list_stack_a)
 {
+    if (!list_stack_a)
+        return (NULL);
+    if (list_stack_a->next == NULL);
+        return (NULL);
     swap(list_stack_a);
     return (list_stack_a);
+}
+
+// swap les 2 premiers elts du haut de la stack B
+void    *sb(t_list *list_stack_b)
+{
+    if (!list_stack_b)
+        return (NULL);
+    if (list_stack_b->next == NULL);
+        return (NULL);
+    swap(list_stack_b);
+    return (list_stack_b);
+}
+
+// // swap les 2 premiers elts du haut des stacks A et B
+void    ss(t_list *list_stack_a, t_list *list_stack_b)
+{
+    if (!list_stack_a || !list_stack_b)
+        return (NULL);
+    if (list_stack_a->next == NULL || list_stack_b->next == NULL);
+        return (NULL);
+    sa(list_stack_a);
+    sb(list_stack_b);
 }
 
 #include <stdio.h>
 
 int main(int argc, char **argv)
 {
-    t_list  *ma_list;
-    t_list  *adress;
+    t_list  **ma_list;
+    void    *list;
+    // t_list  *list;
 
-    adress = &ma_list;
+    list = &ma_list;
+    printf("%p\n", ma_list);
     ma_list = attribution_arg(argc, argv);
-    ma_list = sa(ma_list);
-    while (ma_list)
-    {
-        printf("%d\n", ma_list->content);
-    }
-    return (adress);
+    // sa(ma_list);
+    // while (ma_list)
+    // {
+    //     printf("%d\n", ma_list->content);
+    //     ma_list = ma_list->next;
+    // }
+    // // printf("%p\n", *ma_list);
+    printf("%p\n", ma_list);
+    return (0);
 }
-
-
-
-// // swap les 2 premiers elts du haut de la stack B
-// void    sb(int a, int b)
-
-// // swap les 2 premiers elts du haut des stacks A et B
-// void    ss()
-
-// ***** OU ALORS ******
-
-// void    swap(t_list stack) // marche pour A et B
-

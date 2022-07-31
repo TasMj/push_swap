@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   gestion_listes.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 11:18:23 by tas               #+#    #+#             */
-/*   Updated: 2022/07/29 14:33:01 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/07/31 01:40:49 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void    *decomposer_arg(int argc, char **argv)
 }
 
 // donner chacun des arguments au content d'une liste
-void    *attribution_arg(int argc, char *argv[])
+void    *attribution_arg(int argc, char **argv)
 {
     int     i;
     int     nb;
@@ -66,6 +66,7 @@ void    *attribution_arg(int argc, char *argv[])
         {
             free (start);
             nb = ft_atoi(argv[i]);
+            printf("%d\n", nb);
             start = ft_lstnew(nb);
             ft_lstadd_back(list_stack_a, start);
             i++;
@@ -75,11 +76,11 @@ void    *attribution_arg(int argc, char *argv[])
     return (list_stack_a);
 }
 
-// #include <stdio.h>
-// int main(int argc, char **argv)
-// {
-//     t_list  *list;
-//     list = attribution_arg(argc, argv);
-//     printf("%p\n", list);
-//     return (0);
-// }
+#include <stdio.h>
+int main(int argc, char **argv)
+{
+    t_list  *list;
+    list = attribution_arg(argc, argv);
+    printf("%p\n", list);
+    return (0);
+}
