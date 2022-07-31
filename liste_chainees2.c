@@ -6,22 +6,55 @@
 /*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 12:10:35 by tmejri            #+#    #+#             */
-/*   Updated: 2022/07/31 17:27:42 by tas              ###   ########.fr       */
+/*   Updated: 2022/07/31 17:50:54 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*ft_lstlast(t_list *lst)
-{
-	while (lst)
-	{
-		if (lst->next == NULL)
-			return (lst);
-		lst = lst->next;
-	}
-	return (lst);
-}
+// void	ft_lstclear(t_list **lst, void (*del)(void*))
+// {
+// 	t_list	*tmp;
+
+// 	if (lst && del)
+// 	{
+// 		while (lst && *lst)
+// 		{
+// 			tmp = (*lst)->next;
+// 			ft_lstdelone(*lst, del);
+// 			*lst = tmp;
+// 		}
+// 	}
+// }
+
+// void	*del(void *elt)
+// {
+	
+// }
+
+// void	ft_lstdelone(t_list *lst, void (*del)(void*))
+// {
+// 	if (lst && del)
+// 	{
+// 		(*del)(lst->content);
+// 		free(lst);
+// 	}
+// }
+
+
+
+// void	ft_lstiter(t_list *lst, void (*f)(void *))
+// {
+// 	if (lst && f)
+// 	{
+// 		while (lst)
+// 		{
+// 			f(lst->content);
+// 			lst = lst->next;
+// 		}
+// 	}
+// }
+
 
 // t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 // {
@@ -50,30 +83,6 @@ t_list	*ft_lstlast(t_list *lst)
 // 	return (the_list);
 // }
 
-t_list	*ft_lstnew(int content)
-{
-	t_list	*ma_liste;
-
-	ma_liste = malloc(sizeof(t_list));
-	if (!ma_liste)
-		return (NULL);
-	ma_liste->content = content;
-	ma_liste->next = NULL;
-	return (ma_liste);
-}
-
-int	ft_lstsize(t_list *lst)
-{
-	int	i;
-
-	i = 0;
-	while (lst)
-	{
-		lst = lst->next;
-		i++;
-	}
-	return (i);
-}
 
 // void del_lst(t_list *list)
 // {
