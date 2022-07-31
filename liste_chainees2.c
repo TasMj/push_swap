@@ -6,7 +6,7 @@
 /*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 12:10:35 by tmejri            #+#    #+#             */
-/*   Updated: 2022/07/28 14:42:15 by tas              ###   ########.fr       */
+/*   Updated: 2022/07/31 17:27:42 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,18 +62,18 @@ t_list	*ft_lstnew(int content)
 	return (ma_liste);
 }
 
-// int	ft_lstsize(t_list *lst)
-// {
-// 	int	i;
+int	ft_lstsize(t_list *lst)
+{
+	int	i;
 
-// 	i = 0;
-// 	while (lst)
-// 	{
-// 		lst = lst->next;
-// 		i++;
-// 	}
-// 	return (i);
-// }
+	i = 0;
+	while (lst)
+	{
+		lst = lst->next;
+		i++;
+	}
+	return (i);
+}
 
 // void del_lst(t_list *list)
 // {
