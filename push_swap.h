@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 15:50:01 by tmejri            #+#    #+#             */
-/*   Updated: 2022/07/31 17:47:47 by tas              ###   ########.fr       */
+/*   Updated: 2022/08/01 17:52:53 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 
 typedef struct s_list
 {
+	struct s_list	*premier;
 	int			content;
 	struct s_list	*next;
 }		t_list;
@@ -51,8 +52,8 @@ char		*ft_resize(char *src, int start);
 int			ft_strlen(char *str);
 void    	*decomposer_arg(int argc, char **argv);
 void    	*attribution_arg(int argc, char **argv);
-void  		swap(t_list *list);
-void    	*sa(t_list *list_stack_a);
+void  		swap(t_list **list);
+void    	*sa(t_list **list_stack_a);
 void    	*sb(t_list *list_stack_b);
 void    	ss(t_list *list_stack_a, t_list *list_stack_b);
 void    	pa(t_list **list_stack_a, t_list *first_elt_b);

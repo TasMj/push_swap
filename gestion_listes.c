@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   gestion_listes.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 11:18:23 by tas               #+#    #+#             */
-/*   Updated: 2022/07/31 17:47:53 by tas              ###   ########.fr       */
+/*   Updated: 2022/08/01 18:18:13 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ void    *attribution_arg(int argc, char **argv)
 {
     int     i;
     int     nb;
+    t_list  *ptr;
     t_list  *start;
     t_list  **list_stack_a;
 
@@ -61,13 +62,20 @@ void    *attribution_arg(int argc, char **argv)
         i = 2;
         nb = ft_atoi(argv[1]);
         start = ft_lstnew(nb);
+        printf("%d\n", nb);
         ft_lstadd_back(list_stack_a, start);
+        start->premier = start;
+        ptr = start->premier;
+        // (*list_stack_a)->premier = start;
+        // ptr = (*list_stack_a)->premier;
+        printf("\nadresse du premier : %p\n\n", (*list_stack_a)->premier);
         while (argc > 2)
         {
-            free (start);
             nb = ft_atoi(argv[i]);
             printf("%d\n", nb);
             start = ft_lstnew(nb);
+            start->premier = ptr;
+            // (*list_stack_a)->premier = ptr;
             ft_lstadd_back(list_stack_a, start);
             i++;
             argc--;
@@ -76,11 +84,11 @@ void    *attribution_arg(int argc, char **argv)
     return (list_stack_a);
 }
 
-#include <stdio.h>
-int main(int argc, char **argv)
-{
-    t_list  *list;
-    list = attribution_arg(argc, argv);
-    printf("%p\n", list);
-    return (0);
-}
+// #include <stdio.h>
+// int main(int argc, char **argv)
+// {
+//     t_list  *list;
+//     list = attribution_arg(argc, argv);
+//     printf("%p\n", list);
+//     return (0);
+// }

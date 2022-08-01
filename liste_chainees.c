@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   liste_chainees.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 17:33:40 by tmejri            #+#    #+#             */
-/*   Updated: 2022/07/31 17:50:23 by tas              ###   ########.fr       */
+/*   Updated: 2022/08/01 18:19:00 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,23 @@ int	ft_lstsize(t_list *lst)
 	return (i);
 }
 
+#include <stdio.h>
+int main(int argc, char **argv)
+{
+    t_list  **list;
+	// t_list	*tmp;
+	
+    list = attribution_arg(argc, argv);
+	printf("**********retour au main*************\n");
+	for (int i = 0; i < 3; i++)
+	{
+		printf("address: %p\n", (*list));
+		printf("content: %d\n", (*list)->content);
+		(*list) = (*list)->next;
+	}
+	(*list) = (*list)->premier;
+	printf("aled %p\n", (*list)->premier);
+	printf("content: %d\n", (*list)->content);
 
-
+    return (0);
+}
