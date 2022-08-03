@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   gestion_listes.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 11:18:23 by tas               #+#    #+#             */
-/*   Updated: 2022/08/01 18:18:13 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/08/02 12:02:17 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void    *decomposer_arg(int argc, char **argv)
     char    *stockage;
     int     nb;
     int     i;
+    t_list  *ptr;
     t_list  *start;
     t_list  **list_stack_a;
 
@@ -32,11 +33,19 @@ void    *decomposer_arg(int argc, char **argv)
     while (stockage[i])
     {
         nb = ft_atoi(stockage);
-        i = size_nb(nb) + 1;
+        printf("%d\n", nb);
         start = ft_lstnew(nb);
         ft_lstadd_back(list_stack_a, start);
+        if (i == 0)
+        {
+            start->premier = start;
+            ptr = start->premier;
+        }
+        else
+            start->premier = ptr;
+        printf("add prem : %p\n", start->premier);
+        i = size_nb(nb) + 1;
         stockage = ft_resize(stockage, i);
-        free (start);
     }
     return (list_stack_a);
 }
@@ -66,8 +75,6 @@ void    *attribution_arg(int argc, char **argv)
         ft_lstadd_back(list_stack_a, start);
         start->premier = start;
         ptr = start->premier;
-        // (*list_stack_a)->premier = start;
-        // ptr = (*list_stack_a)->premier;
         printf("\nadresse du premier : %p\n\n", (*list_stack_a)->premier);
         while (argc > 2)
         {
@@ -75,7 +82,6 @@ void    *attribution_arg(int argc, char **argv)
             printf("%d\n", nb);
             start = ft_lstnew(nb);
             start->premier = ptr;
-            // (*list_stack_a)->premier = ptr;
             ft_lstadd_back(list_stack_a, start);
             i++;
             argc--;
