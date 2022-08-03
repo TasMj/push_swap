@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   deplacement_push.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 16:44:40 by tas               #+#    #+#             */
-/*   Updated: 2022/08/02 12:46:17 by tas              ###   ########.fr       */
+/*   Updated: 2022/08/03 13:04:55 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,37 +38,32 @@ void    *pa(t_list **list_stack_a, t_list **list_stack_b)
 //     //suppr le premier elt
 // }
 
-#include <stdio.h>
+// #include <stdio.h>
 
-int main()
-{
-    t_list  **ma_list;
-    t_list  **ma_list2;
+// int main()
+// {
+//     t_list  **ma_list;
+//     t_list  **ma_list2;
     
-    ma_list = malloc(sizeof(t_list));
-    ma_list2 = malloc(sizeof(t_list));
+//     ma_list = malloc(sizeof(t_list));
+//     ma_list2 = malloc(sizeof(t_list));
     
-    (*ma_list) = (*ma_list)->premier;
-    (*ma_list) = (*ma_list)->next;
-    (*ma_list)->content = 2;
-    (*ma_list) = (*ma_list)->next;
-    (*ma_list)->content = 3;
-    
-    (*ma_list2)->content = 4;
-    (*ma_list2) = (*ma_list2)->next;
-    (*ma_list2)->content = 5;
-    (*ma_list2) = (*ma_list2)->next;
-    (*ma_list2)->content = 6;
-    
-    // ma_list = attribution_arg(argc, argv);
-    printf("\n*************************\n");
-    pa(ma_list, ma_list2);
-    for (int i = 0; i < 3; i++)
-	{
-		printf("content: %d\n   %d\n", (*ma_list)->content, (*ma_list2)->content);
-		(*ma_list) = (*ma_list)->next;
-		(*ma_list2) = (*ma_list2)->next;
-	}
+//     attribution_arg(ma_list);
 
-    return (0);
-}
+//     (*ma_list2)->content = 4;
+//     (*ma_list2) = (*ma_list2)->next;
+//     (*ma_list2)->content = 5;
+//     (*ma_list2) = (*ma_list2)->next;
+//     (*ma_list2)->content = 6;
+    
+//         // printf("\n*************************\n");
+//         // pa(ma_list, ma_list2);
+//         // for (int i = 0; i < 3; i++)
+//         // {
+//         // 	printf("content: %d\n   %d\n", (*ma_list)->content, (*ma_list2)->content);
+//         // 	(*ma_list) = (*ma_list)->next;
+//         // 	(*ma_list2) = (*ma_list2)->next;
+//         // }
+
+//     return (0);
+// }

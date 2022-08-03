@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   deplacement_swap.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 15:49:44 by tas               #+#    #+#             */
-/*   Updated: 2022/08/02 12:23:23 by tas              ###   ########.fr       */
+/*   Updated: 2022/08/03 16:24:54 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ void swap(t_list **list)
     t_list  *tmp;
     t_list  *tmp2;
 
-    tmp = ft_lstnew((*list)->content); //on stock le premier nombre ds une tmp   
+    tmp = ft_lstnew((*list)->content);
 	(*list) = (*list)->next;
-    tmp2 = ft_lstnew((*list)->content); // on stock le 2eme nb dans tmp2
-    (*list)->content = tmp->content; // on donne au 2eme elt de la liste la valeur de tmp (1er elt)
-    (*list) = (*list)->premier; //retour au debut de la liste (enfin je crois)
-    (*list)->content = tmp2->content; // on donne au 1er elt de la liste la valeur de tmp2 (2er elt)
+    tmp2 = ft_lstnew((*list)->content);
+    (*list)->content = tmp->content;
+    (*list) = (*list)->premier;
+    (*list)->content = tmp2->content;
 }
 
 // swap les 2 premiers elts du haut de la stack A
@@ -67,12 +67,14 @@ int main(int argc, char **argv)
 
     ma_list = attribution_arg(argc, argv);
     printf("\n*************************\n");
-    sa(ma_list);
-    for (int i = 0; i < 3; i++)
-	{
-		printf("content: %d\n", (*ma_list)->content);
+
+    // sa(ma_list);
+    // for (int i = 0; i < argc - 1; i++)
+	// {
+        printf("addr_next: %p\n",(*ma_list)->premier);
+		// printf("content: %d\n", (*ma_list)->content);
 		(*ma_list) = (*ma_list)->next;
-	}
+	// }
 
     return (0);
 }
