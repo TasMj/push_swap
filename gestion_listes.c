@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   gestion_listes.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 11:18:23 by tas               #+#    #+#             */
-/*   Updated: 2022/08/03 16:35:31 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/08/05 10:23:00 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,9 @@
 // découpage de l'argv et attribution aux contents de la liste
 void    *decomposer_arg(int argc, char **argv)
 {
-    char    *stockage;
+    char    **stockage;
     int     nb;
     int     i;
-	int		size_char;
     t_list  *ptr;
     t_list  *start;
     t_list  **list_stack_a;
@@ -28,27 +27,29 @@ void    *decomposer_arg(int argc, char **argv)
     list_stack_a = malloc(sizeof(t_list) * argc);
     if (!list_stack_a)
 		return (NULL);
-	i = 0;
-    stockage = argv[1];
-	size_char = ft_strlen(stockage);
-    nb = 0;
+	i = 1;
+    stockage = ft_split(argv[1], ' ');
+    nb = ft_atoi(stockage[0]);
+    start = ft_lstnew(nb);
+    ft_lstadd_back(list_stack_a, start);
+    start->premier = start;
+    ptr = start->premier;
+    printf("content: %d\n", start->content);
+    printf("addr_prem: %p\n",start->premier);
+    printf("ADD: %p\n",start);
+    printf("addr_next: %p\n\n",start->next);
     while (stockage[i])
     {
-        nb = ft_atoi(stockage);
-        printf("%d\n", nb);
+        nb = ft_atoi(stockage[i]);
         start = ft_lstnew(nb);
+        start->premier = ptr;
         ft_lstadd_back(list_stack_a, start);
-        if (ft_strlen(stockage + i) == size_char)
-        {
-            start->premier = start;
-            ptr = start->premier;
-        }
-        else
-            start->premier = ptr;
-        printf("add prem : %p\n", start->premier);
-        i = size_nb(nb) + 1;
-        stockage = ft_resize(stockage, i);
-        i = 0;
+        printf("content: %d\n", start->content);
+        printf("addr_prem: %p\n",start->premier);
+        printf("ADD: %p\n",start);
+        printf("addr_next: %p\n\n",start->next);
+        i++;
+        printf("%d\n", ft_lstbefore((*list_stack_a), i));
     }
     return (list_stack_a);
 }
@@ -63,9 +64,7 @@ void    *attribution_arg(int argc, char **argv)
     t_list  **list_stack_a;
 
     if (argc == 2)
-    {
         decomposer_arg(argc, argv);
-    }
     else
     {
         list_stack_a = malloc(sizeof(t_list) * argc);

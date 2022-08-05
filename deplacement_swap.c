@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   deplacement_swap.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 15:49:44 by tas               #+#    #+#             */
-/*   Updated: 2022/08/03 16:24:54 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/08/04 13:24:53 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,13 +69,14 @@ int main(int argc, char **argv)
     printf("\n*************************\n");
 
     // sa(ma_list);
-    // for (int i = 0; i < argc - 1; i++)
-	// {
-        printf("addr_next: %p\n",(*ma_list)->premier);
-		// printf("content: %d\n", (*ma_list)->content);
+    for (int i = 0; i < argc - 1; i++)
+	{
+		printf("content: %d\n", (*ma_list)->content);
+        printf("addr_prem: %p\n",(*ma_list)->premier);
+        printf("ADD: %p\n",(*ma_list));
+        printf("addr_next: %p\n\n",(*ma_list)->next);
 		(*ma_list) = (*ma_list)->next;
-	// }
-
+    }
     return (0);
 }
 
