@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   gestion_listes.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 11:18:23 by tas               #+#    #+#             */
-/*   Updated: 2022/08/05 10:23:00 by tas              ###   ########.fr       */
+/*   Updated: 2022/08/05 16:04:02 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 // Dans le cas où argc = 2 (ex: "1 2 3")
 // découpage de l'argv et attribution aux contents de la liste
-void    *decomposer_arg(int argc, char **argv)
+t_list  **decomposer_arg(int argc, char **argv)
 {
     char    **stockage;
     int     nb;
@@ -34,28 +34,19 @@ void    *decomposer_arg(int argc, char **argv)
     ft_lstadd_back(list_stack_a, start);
     start->premier = start;
     ptr = start->premier;
-    printf("content: %d\n", start->content);
-    printf("addr_prem: %p\n",start->premier);
-    printf("ADD: %p\n",start);
-    printf("addr_next: %p\n\n",start->next);
     while (stockage[i])
     {
         nb = ft_atoi(stockage[i]);
         start = ft_lstnew(nb);
         start->premier = ptr;
         ft_lstadd_back(list_stack_a, start);
-        printf("content: %d\n", start->content);
-        printf("addr_prem: %p\n",start->premier);
-        printf("ADD: %p\n",start);
-        printf("addr_next: %p\n\n",start->next);
         i++;
-        printf("%d\n", ft_lstbefore((*list_stack_a), i));
     }
     return (list_stack_a);
 }
 
 // donner chacun des arguments au content d'une liste
-void    *attribution_arg(int argc, char **argv)
+t_list  **attribution_arg(int argc, char **argv)
 {
     int     i;
     int     nb;
@@ -64,7 +55,7 @@ void    *attribution_arg(int argc, char **argv)
     t_list  **list_stack_a;
 
     if (argc == 2)
-        decomposer_arg(argc, argv);
+        list_stack_a = decomposer_arg(argc, argv);
     else
     {
         list_stack_a = malloc(sizeof(t_list) * argc);
@@ -73,15 +64,12 @@ void    *attribution_arg(int argc, char **argv)
         i = 2;
         nb = ft_atoi(argv[1]);
         start = ft_lstnew(nb);
-        printf("%d\n", nb);
         ft_lstadd_back(list_stack_a, start);
         start->premier = start;
         ptr = start->premier;
-        printf("\nadresse du premier : %p\n\n", (*list_stack_a)->premier);
         while (argc > 2)
         {
             nb = ft_atoi(argv[i]);
-            printf("%d\n", nb);
             start = ft_lstnew(nb);
             start->premier = ptr;
             ft_lstadd_back(list_stack_a, start);

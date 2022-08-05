@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 15:50:01 by tmejri            #+#    #+#             */
-/*   Updated: 2022/08/05 10:26:30 by tas              ###   ########.fr       */
+/*   Updated: 2022/08/05 14:47:46 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ int			check_int(int argc, char **argv);
 int			size_nb(int nb);
 char		*ft_resize(char *src, int start);
 int			ft_strlen(char *str);
-void    	*decomposer_arg(int argc, char **argv);
-void    	*attribution_arg(int argc, char **argv);
+t_list		**decomposer_arg(int argc, char **argv);
+t_list		**attribution_arg(int argc, char **argv);
 void  		swap(t_list **list);
 void    	*sa(t_list **list_stack_a);
 void    	*sb(t_list **list_stack_b);
