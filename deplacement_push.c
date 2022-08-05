@@ -6,64 +6,84 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 16:44:40 by tas               #+#    #+#             */
-/*   Updated: 2022/08/03 13:04:55 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/08/05 18:09:28 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 // push le first elt de b dans la stack A
-void    *pa(t_list **list_stack_a, t_list **list_stack_b)
+// void    *pa(t_list **list_stack_a, t_list **list_stack_b)
+// {
+//     if (!list_stack_a || !list_stack_b)
+//         return (NULL);
+//     if ((*list_stack_b)->next == NULL)
+//         return (NULL);
+//     ft_lstadd_front(list_stack_a, (*list_stack_b));
+//     return (list_stack_a);
+//     // ft_lstdelone(list_stack_a, del_lst);
+// }
+
+// // push le first elt de a dans la stack B
+// A ---> B
+void    pb(t_list **list_stack_b, t_list **list_stack_a)
 {
-    if (!list_stack_a || !list_stack_b)
-        return (NULL);
-    if ((*list_stack_b)->next == NULL)
-        return (NULL);
-    ft_lstadd_front(list_stack_a, (*list_stack_b));
-    return (list_stack_a);
-    // ft_lstdelone(list_stack_a, del_lst);
+    // if (!list_stack_b || !list_stack_a)
+    //     return (NULL);
+//    t_list  *tmp;
+    
+    if (list_stack_a)
+    {
+        //tmp = *list_stack_a;
+        
+        ft_lstadd_front(list_stack_b, ft_lstnew((*list_stack_a)->content));
+        *list_stack_a = (*list_stack_a)->next;
+    }
+    // (*list_stack_a) = (*list_stack_a)->next;
+    // ft_lstadd_front(list_stack_b, (*list_stack_a)->premier);
+    // (*list_stack_a)->premier = (*list_stack_a)->next;
 }
 
-// // push le first elt de badans la stack B
-// void    pb(t_list **list_stack_b, t_list *first_elt_a)
-// {
-//     t_list  list_b;
-    
-//     list_stack_b = &list_b;    
-//     if (!list_stack_b || !first_elt_a)
-//         return (NULL);
-//     if (list_b.next == NULL)
-//         return (NULL);
-//     ft_lstadd_front(list_stack_b, first_elt_a);
-//     //suppr le premier elt
-// }
+#include <stdio.h>
 
-// #include <stdio.h>
-
-// int main()
-// {
-//     t_list  **ma_list;
-//     t_list  **ma_list2;
-    
-//     ma_list = malloc(sizeof(t_list));
-//     ma_list2 = malloc(sizeof(t_list));
-    
-//     attribution_arg(ma_list);
-
-//     (*ma_list2)->content = 4;
-//     (*ma_list2) = (*ma_list2)->next;
-//     (*ma_list2)->content = 5;
-//     (*ma_list2) = (*ma_list2)->next;
-//     (*ma_list2)->content = 6;
-    
-//         // printf("\n*************************\n");
-//         // pa(ma_list, ma_list2);
-//         // for (int i = 0; i < 3; i++)
-//         // {
-//         // 	printf("content: %d\n   %d\n", (*ma_list)->content, (*ma_list2)->content);
-//         // 	(*ma_list) = (*ma_list)->next;
-//         // 	(*ma_list2) = (*ma_list2)->next;
-//         // }
-
-//     return (0);
-// }
+int main(int argc, char **argv)
+{
+    t_list  **a;
+    t_list  **b;
+  
+    b = malloc(sizeof(t_list));
+    t_list *tmp;
+  
+    a = attribution_arg(argc, argv);
+    tmp = *a;
+    printf("*****stack A avant push*****\n");
+    while (*a)
+    {
+ 	    printf("content: %d\n", (*a)->content);
+ 	    (*a) = (*a)->next;
+	}
+    printf("\n");
+    printf("*****Stack B avant push*****\n");
+    while (*b)
+    {
+        printf("content: %d\n", (*b)->content);
+        *b = (*b)->next;
+    }
+    printf("\n");
+    printf("*****stack A apres push*****\n");
+    *a = tmp;
+    pb(b, a);
+    while (*a)
+    {
+ 	    printf("content: %d\n", (*a)->content);
+ 	    (*a) = (*a)->next;
+	}
+    printf("\n");
+    printf("*****Stack B apres push*****\n");
+    while (*b)
+    {
+        printf("content: %d\n", (*b)->content);
+        *b = (*b)->next;
+    }
+    return (0);
+}

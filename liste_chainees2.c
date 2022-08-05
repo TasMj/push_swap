@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   liste_chainees2.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 12:10:35 by tmejri            #+#    #+#             */
-/*   Updated: 2022/07/31 17:50:54 by tas              ###   ########.fr       */
+/*   Updated: 2022/08/05 17:08:55 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,20 +27,15 @@
 // 	}
 // }
 
-// void	*del(void *elt)
-// {
-	
-// }
 
-// void	ft_lstdelone(t_list *lst, void (*del)(void*))
+// void	ft_lstdelone(t_list *lst, void (*del)(int*))
 // {
-// 	if (lst && del)
-// 	{
-// 		(*del)(lst->content);
-// 		free(lst);
-// 	}
+	// if (lst && del)
+	// {
+		// (*del)(lst->content);
+		// free(lst);
+	// }
 // }
-
 
 
 // void	ft_lstiter(t_list *lst, void (*f)(void *))
@@ -81,19 +76,4 @@
 // 		lst = lst->next;
 // 	}
 // 	return (the_list);
-// }
-
-
-// void del_lst(t_list *list)
-// {
-// 	void	*a_supprimer;
-//     // if (!list)
-//     //     return (NULL);
-
-//     if (list->content != NULL)
-//     {
-//         a_supprimer = list->content;
-//         list->content = list->next;
-//         free(a_supprimer);
-//     }
 // }
