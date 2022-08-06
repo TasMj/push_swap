@@ -6,107 +6,31 @@
 /*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 13:06:24 by tmejri            #+#    #+#             */
-/*   Updated: 2022/08/04 11:19:47 by tas              ###   ########.fr       */
+/*   Updated: 2022/08/06 19:39:00 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// void    *copy_content(t_list *list_to_copy)
-// {
-//     t_list  *new_list;
+#include "push_swap.h"
 
-//     new_list = malloc(sizeof(t_list));
-//     if (!new_list)
-//         return (NULL);
-//     new_list->content = list_to_copy->content;
-// }
-
-
-
-int main()
-
-t_list *list;
-
-while (i < contenu total)
-list = lstadd(&list, ft_lstnew(str[i]));
-i++;
-fonction(&list);
-
-list->contenu
-void    fonctionquifaitdestrucsdanslaliste(t_list **list)
-[
-    fonction2(list);
-    (*list)->contenu;
-    (*list)->next;
-]
-
-void(fonction(t_list **list))
-
-
-
-
-
-
-void    *decomposer_arg(int argc, char **argv)
+void    *ft_print(t_list **list)
 {
-    char    *stockage;
-    int     nb;
-    int     i;
-	int		size_char;
-    t_list  *ptr;
-    t_list  *start;
-    t_list  **list_stack_a;
-
-    list_stack_a = malloc(sizeof(t_list) * argc);
-    if (!list_stack_a)
-		return (NULL);
-	i = 0;
-    stockage = argv[1];
-	size_char = ft_strlen(stockage);
-    nb = 0;
-    while (stockage[i])
+    while (*list)
     {
-        nb = ft_atoi(stockage);
-        printf("%d\n", nb);
-        start = ft_lstnew(nb);
-        ft_lstadd_back(list_stack_a, start);
-        if (ft_strlen(stockage + i) == size_char)
-        {
-            start->premier = start;
-            ptr = start->premier;
-        }
-        else
-            start->premier = ptr;
-        printf("add prem : %p\n", start->premier);
-        i = size_nb(nb) + 1;
-        stockage = ft_resize(stockage, i);
-        i = 0;
+        printf("content: %d\n", (*list)->content);
+        (*list) = (*list)->next;
     }
-    return (list_stack_a);
+    return (list);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+void    *ft_print_all(t_list **list)
+{
+    while (*list)
+    {
+        printf("content: %d\n", (*list)->content);
+        printf("ADD: %p\n", (*list));
+        printf("add_prem: %p\n", (*list)->premier);
+        printf("add_next: %p\n\n", (*list)->next);
+        (*list) = (*list)->next;
+    }
+    return (list);
+}
