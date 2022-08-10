@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+    /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   trash.c                                            :+:      :+:    :+:   */
@@ -34,3 +34,34 @@ void    *ft_print_all(t_list **list)
     }
     return (list);
 }
+
+//MAIN PUSH
+
+// #include <stdio.h>
+
+// int main(int argc, char **argv)
+// {
+//     t_list  **a;
+//     t_list  **b;
+  
+//     b = malloc(sizeof(t_list));
+//     t_list *tmp;
+  
+//     a = attribution_arg(argc, argv);
+//     tmp = *a;
+//     printf("*****stack A avant push*****\n");
+//     a = ft_print(a);
+//     printf("\n");
+//     printf("*****Stack B avant push*****\n");
+//     printf("\n");
+//     b = ft_print(b);
+//     printf("*****stack A apres push*****\n");
+//     *a = tmp;
+//     pa(b, a);
+//     pa(b, a);
+//     a = ft_print(a);
+//     printf("\n");
+//     printf("*****Stack B apres push*****\n");
+//     b = ft_print(b);
+//     return (0);
+// }

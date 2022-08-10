@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 15:50:01 by tmejri            #+#    #+#             */
-/*   Updated: 2022/08/06 19:39:56 by tas              ###   ########.fr       */
+/*   Updated: 2022/08/10 13:14:18 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ void    	*sb(t_list **list_stack_b);
 void    	ss(t_list **list_stack_a, t_list **list_stack_b);
 void    	pa(t_list **list_stack_a, t_list **list_stack_b);
 void   		pb(t_list **list_stack_b, t_list **list_stack_a);
-void    	*ra(t_list *list_stack_a);
-void    	*rb(t_list *list_stack_b);
+t_list    	**ra(t_list **list_stack_a);
+t_list    **rb(t_list **list_stack_b);
 void	    rr(t_list *list_stack_a, t_list *list_stack_b);
 void    	*rra(t_list *list_stack_a);
 void    	*rrb(t_list *list_stack_b);
