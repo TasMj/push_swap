@@ -6,7 +6,7 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 17:20:54 by tas               #+#    #+#             */
-/*   Updated: 2022/08/11 12:50:52 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/08/11 12:52:27 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,34 +72,4 @@ void    rrr(t_list **list_stack_a, t_list **list_stack_b)
 {
     rra(list_stack_a);
     rrb(list_stack_b);
-}
-
-int main(int argc, char **argv)
-{
-    t_list  **a;
-    t_list  **b;
-  
-    b = malloc(sizeof(t_list));
-    t_list *tmp;
-  
-    a = attribution_arg(argc, argv);
-    tmp = *a;
-    printf("*****stack A avant push*****\n");
-    a = ft_print(a);
-    printf("\n");
-    printf("*****Stack B avant push*****\n");
-    printf("\n");
-    b = ft_print(b);
-    printf("*****stack A apres push*****\n");
-    *a = tmp;
-    pa(b, a);
-    pa(b, a);
-    pa(b, a);
-    pa(b, a);
-    rrr(b, a);
-    a = ft_print(a);
-    printf("\n");
-    printf("*****Stack B apres push*****\n");
-    b = ft_print(b);
-    return (0);
 }
