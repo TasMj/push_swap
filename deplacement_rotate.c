@@ -6,7 +6,7 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 17:16:22 by tas               #+#    #+#             */
-/*   Updated: 2022/08/10 13:15:29 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/08/11 11:25:21 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,32 +57,10 @@ t_list    **rb(t_list **list_stack_b)
     return (list_stack_b);
 }
 
-// // décale de 1 pour stack a et stack b
-// void    rr(t_list *list_stack_a, t_list *list_stack_b)
-// {
-//     if (!list_stack_a || !list_stack_b)
-//         return (NULL);
-//     if (list_stack_a->next == NULL || list_stack_b->next == NULL);
-//         return (NULL);
-//     ra(list_stack_a);
-//     rb(list_stack_b);
-// }
-
-#include <stdio.h>
-
-int main(int argc, char **argv)
+// décale de 1 pour stack a et stack b
+void    rr(t_list **list_stack_a, t_list **list_stack_b)
 {
-    t_list  **a;
-    t_list  *tmp;
-
-    a = attribution_arg(argc, argv);
-    tmp = *a;
-    printf("*****Stack A avant rotate*****\n\n");
-    a = ft_print(a);
-    printf("\n*****stack A apres rotate*****\n\n");
-    *a = tmp;
-    rb(a);
-    a = ft_print_all(a);
-    return (0);
+    ra(list_stack_a);
+    rb(list_stack_b);
 }
 

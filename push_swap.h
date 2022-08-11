@@ -6,7 +6,7 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 15:50:01 by tmejri            #+#    #+#             */
-/*   Updated: 2022/08/10 13:14:18 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/08/11 12:49:07 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,11 +59,11 @@ void    	ss(t_list **list_stack_a, t_list **list_stack_b);
 void    	pa(t_list **list_stack_a, t_list **list_stack_b);
 void   		pb(t_list **list_stack_b, t_list **list_stack_a);
 t_list    	**ra(t_list **list_stack_a);
-t_list    **rb(t_list **list_stack_b);
-void	    rr(t_list *list_stack_a, t_list *list_stack_b);
-void    	*rra(t_list *list_stack_a);
-void    	*rrb(t_list *list_stack_b);
-void    	rrr(t_list *list_stack_a, t_list *list_stack_b);
+t_list    	**rb(t_list **list_stack_b);
+void	    rr(t_list **list_stack_a, t_list **list_stack_b);
+t_list    	**rra(t_list **list_stack_a);
+t_list    	**rrb(t_list **list_stack_b);
+void	    rrr(t_list **list_stack_a, t_list **list_stack_b);
 void		ft_swap(t_list *first, t_list *second);
 void    	*ft_print_all(t_list **list);
 void    	*ft_print(t_list **list);

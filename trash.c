@@ -37,7 +37,6 @@ void    *ft_print_all(t_list **list)
 
 //MAIN PUSH
 
-// #include <stdio.h>
 
 // int main(int argc, char **argv)
 // {
@@ -64,4 +63,41 @@ void    *ft_print_all(t_list **list)
 //     printf("*****Stack B apres push*****\n");
 //     b = ft_print(b);
 //     return (0);
+// }
+
+// MAIN ROTATE
+
+// int main(int argc, char **argv)
+// {
+//     t_list  **a;
+//     t_list  *tmp;
+
+//     a = attribution_arg(argc, argv);
+//     tmp = *a;
+//     printf("*****Stack A avant rotate*****\n\n");
+//     a = ft_print(a);
+//     printf("\n*****stack A apres rotate*****\n\n");
+//     *a = tmp;
+//     rb(a);
+//     a = ft_print_all(a);
+//     return (0);
+// }
+
+
+// MAIN RRR
+
+// int main(int argc, char **argv)
+// {
+    // t_list  **a;
+    // // t_list  *tmp;
+
+    // a = attribution_arg(argc, argv);
+    // tmp = *a;
+    // printf("*****Stack A avant rotate*****\n\n");
+    // a = ft_print(a);
+    // printf("\n*****stack A apres rotate*****\n\n");
+    // *a = tmp;
+    // rrb(a);
+    // a = ft_print(a);
+    // return (0);
 // }
