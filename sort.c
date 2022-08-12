@@ -6,7 +6,7 @@
 /*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 13:16:33 by tmejri            #+#    #+#             */
-/*   Updated: 2022/08/12 19:02:08 by tas              ###   ########.fr       */
+/*   Updated: 2022/08/13 01:04:40 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,10 @@ t_list	**ft_sort_int_tab(t_list **list_stack)
 		(*list_stack) = (*list_stack)->premier;
 		tmp = (*list_stack)->next;
 		size--;
-		rra(list_stack);
-		pb(b, list_stack);
-		(*list_stack) = (*list_stack)->next;
 	}
 	(*list_stack) = (*list_stack)->premier;
+	rra(list_stack);
+	pb(b, list_stack);
 	printf("c = %d\n", c);
 	printf("\nSTACK B\n");
 	ft_print(b);
