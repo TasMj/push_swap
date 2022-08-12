@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 15:50:01 by tmejri            #+#    #+#             */
-/*   Updated: 2022/08/11 12:49:07 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/08/12 15:29:51 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,4 +68,6 @@ void		ft_swap(t_list *first, t_list *second);
 void    	*ft_print_all(t_list **list);
 void    	*ft_print(t_list **list);
 
+// SORTING
+t_list	**ft_sort_int_tab(t_list **list_stack);
 #endif

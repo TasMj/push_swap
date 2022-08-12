@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   deplacement_rotate2.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 17:20:54 by tas               #+#    #+#             */
-/*   Updated: 2022/08/11 12:52:27 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/08/11 14:55:15 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ t_list    **rra(t_list **list_stack_a)
         (*list_stack_a)->premier = tmp;
         (*list_stack_a) = (*list_stack_a)->next;
     }
-    
     (*list_stack_a)->next = NULL;
     (*list_stack_a) = last;
     return (list_stack_a);
@@ -73,3 +72,4 @@ void    rrr(t_list **list_stack_a, t_list **list_stack_b)
     rra(list_stack_a);
     rrb(list_stack_b);
 }
+
