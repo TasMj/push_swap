@@ -6,7 +6,7 @@
 /*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 13:16:33 by tmejri            #+#    #+#             */
-/*   Updated: 2022/08/17 17:10:52 by tas              ###   ########.fr       */
+/*   Updated: 2022/08/18 18:06:38 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,30 @@ int	empty_list(t_list **list)
 	}
 	return (0);
 }
+//garde en memoire la valeur de l'unité de chaque contente
+void	stockage_unite(t_list **list)
+{
+	(*list)->stockage = 0;
+	while ((*list)->next != NULL)
+	{
+		(*list)->stockage = (*list)->stockage * 10 + unite((*list)->content);
+		printf("AAAAAAAAAAAAAAAAA %d AAAAAAAAAAAAAAAAA\n", (*list)->stockage);
+		(*list) = (*list)->next;
+	}
+	(*list)->stockage = (*list)->stockage * 10 + unite((*list)->content);
+	printf("AAAAAAAAAAAAAAAAA %d AAAAAAAAAAAAAAAAA\n", (*list)->stockage);
+	(*list) = (*list)->premier;
+}
+
+void	rotate_stockage(t_list **list, int i)
+{
+	while (i > 0)
+	{
+		while ((*list)->next != NULL)
+			ra(list);
+		i--;
+	}
+}
 
 // compare unité puis dizaine puis centaine
 t_list	**ft_bubble_sort(t_list **list_stack)
@@ -107,6 +131,7 @@ t_list	**ft_bubble_sort(t_list **list_stack)
 
 	size = ft_lstsize((*list_stack));
 	tmp = (*list_stack)->next;
+	(*list_stack)->stockage = 0;
 	while (size >= 0)
 	{
 		while ((*list_stack)->next != NULL)
@@ -118,7 +143,7 @@ t_list	**ft_bubble_sort(t_list **list_stack)
 			comp_b = unite(div_b);
 			printf("div_a [%d]---> %d\n", div_a, comp_a);
 			printf("div_b [%d]---> %d\n\n", div_b, comp_b);
-			if (comp_a < comp_b)
+			if (comp_a > comp_b)
 				ft_swap((*list_stack), tmp);
 			(*list_stack) = (*list_stack)->next;
 			tmp = (*list_stack)->next;
@@ -128,6 +153,7 @@ t_list	**ft_bubble_sort(t_list **list_stack)
 		tmp = (*list_stack)->next;
 		size--;
 	}
+	stockage_unite(list_stack);
 	(*list_stack) = (*list_stack)->premier;
 	return (list_stack);
 }
@@ -135,25 +161,21 @@ t_list	**ft_bubble_sort(t_list **list_stack)
 t_list	**ft_the_tri(t_list **list_stack)
 {
 	t_list	**new_list;
-	int		size;
+	new_list = ft_bubble_sort(list_stack);
+	new_list = divise_content(new_list);
+	new_list =ft_bubble_sort(new_list);
+	new_list = divise_content(new_list);
+	new_list =ft_bubble_sort(new_list);
 
-	size = ft_lstsize((*list_stack));
-	ft_bubble_sort(list_stack);
-	new_list = list_stack;
-	while (ordre_croissant(list_stack) != 0)
-	{
-		while (size > 0)
-		{
-			new_list = divise_content(new_list);
-			ft_bubble_sort(new_list);
-			size--;	
-		}
-		if (empty_list(new_list) == 1)
-			break;
-	}
+	rotate_stockage(new_list, 3);
+	
 	(*new_list) = (*new_list)->premier;
 	return (new_list);
 }
+
+
+
+
 
 int main(int argc, char **argv)
 {

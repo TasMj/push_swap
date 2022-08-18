@@ -6,7 +6,7 @@
 /*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 15:50:01 by tmejri            #+#    #+#             */
-/*   Updated: 2022/08/17 16:25:23 by tas              ###   ########.fr       */
+/*   Updated: 2022/08/18 17:14:13 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@
 typedef struct s_list
 {
 	struct s_list	*premier;
-	int			content;
+	int				content;
+	int				stockage;
 	struct s_list	*next;
 }		t_list;
 
