@@ -35,6 +35,64 @@ void    *ft_print_all(t_list **list)
     return (list);
 }
 
+// t_list	**ft_bubble_sort(t_list **list_stack)
+// {
+// 	t_list	*tmp;
+// 	int		size;
+// 	int		comp_a;
+// 	int		comp_b;
+// 	int		div_a;
+// 	int		div_b;
+
+// 	size = ft_lstsize((*list_stack));
+// 	tmp = (*list_stack)->next;
+// 	while (size >= 0)
+// 	{
+// 		while ((*list_stack)->next != NULL)
+// 		{
+// 			div_a = (*list_stack)->content;
+// 			div_b = tmp->content;
+// 			printf("A: %d   B:%d\n",div_a, div_b);
+// 			comp_a = unite(div_a);
+// 			comp_b = unite(div_b);
+// 			printf("div_a [%d]---> %d\n", div_a, comp_a);
+// 			printf("div_b [%d]---> %d\n\n", div_b, comp_b);
+// 			if (comp_a < comp_b)
+// 				ft_swap((*list_stack), tmp);
+// 			(*list_stack) = (*list_stack)->next;
+// 			tmp = (*list_stack)->next;
+// 		}
+// 		printf("***TOUR***\n");
+// 		(*list_stack) = (*list_stack)->premier;
+// 		tmp = (*list_stack)->next;
+// 		size--;
+		
+// 	}
+// 	(*list_stack) = (*list_stack)->premier;
+// 	return (list_stack);
+// }
+
+// void	ft_rev_int_tab(t_list **list_stack)
+// {
+// 	int	i;
+// 	int size;
+// 	int	cal;
+// 	t_list	*tmp;
+
+// 	tmp = (*list_stack)->next;
+// 	size = ft_lstsize(list_stack);
+// 	cal = size - 1;
+// 	i = 0;
+// 	while (i < (size / 2))
+// 	{
+// 		ft_swap((*list_stack), tmp);
+// 		(*list_stack) = (*list_stack)->next;
+// 		tmp = (*list_stack)->next;
+// 		i++;
+// 		cal--;
+// 	}
+// }
+
 //MAIN PUSH
 
 
@@ -100,4 +158,21 @@ void    *ft_print_all(t_list **list)
     // rrb(a);
     // a = ft_print(a);
     // return (0);
+// }
+
+// MAIN FT_SORT_IN_TAB
+
+// int main(int argc, char **argv)
+// {
+// 	t_list	**list;
+
+// 	list = attribution_arg(argc, argv);
+	
+// 	printf("\n******sorting process******\n\n");
+// 	ft_sort_int_tab(list);
+
+// 	printf("\n******after sort******\n\n");
+// 	printf("STACK A\n");
+// 	list = ft_print(list);
+	
 // }
