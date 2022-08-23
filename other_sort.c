@@ -6,7 +6,7 @@
 /*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 02:12:07 by tas               #+#    #+#             */
-/*   Updated: 2022/08/22 04:19:47 by tas              ###   ########.fr       */
+/*   Updated: 2022/08/23 16:18:50 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,8 @@
 // swap a et b si a > b, sinon renvoie la liste de départ
 t_list  **sort_for_2(t_list **list)
 {
-    t_list  *nxt;
-
-    nxt = (*list)->next;
-    if ((*list)->content > nxt->content)
+    (*list) = (*list)->premier;
+    if ((*list)->content > (*list)->next->content)
     {
         sa(list);
         write(1, "sa\n", 3);

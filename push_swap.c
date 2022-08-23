@@ -6,7 +6,7 @@
 /*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 17:28:11 by tmejri            #+#    #+#             */
-/*   Updated: 2022/08/22 04:21:13 by tas              ###   ########.fr       */
+/*   Updated: 2022/08/23 17:20:45 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,42 +19,40 @@ void *push_swap(int argc, char **argv)
     t_list  **list;
     
     if (check_int(argc, argv) != 0)
+    {
         write(2, "Error\n", 6);
+        return (NULL);
+    }
     else
     {
         list = attribution_arg(argc, argv);
         if (check_doublon(list) != 0)
-            write(2, "Error\n", 6);
-        if (argc < 3)
         {
-            list = sort_for_2(list); // voir pq sa ne s'affiche pas
-            printf("d");
+            write(2, "Error\n", 6);
+            return (NULL);
         }
-        // if (argc < 4)
-        // {
-            
-        // }
-        // if (argc < 5)
-        // {
-            
-        // }
-        // if (argc < 100)
-        // {
-            
-        // }
-        // if (argc > 500)
-        // {
-            
-        // }
+        if (argc < 4)
+        {
+            list = sort_for_2(list);
+        }
+        else if (argc < 100)
+        {
+            // list = ft_bubble_sort(list);
+            list = ft_radix(list);
+        }
+        else if (argc > 100)
+        {
+            list = ft_radix(list);
+        }
     }
-    return (0);
+    return (list);
 }
 
 
-// int main(int argc, char **argv)
-// {
-//     push_swap(argc, argv);
-// }
+int main(int argc, char **argv)
+{
+    push_swap(argc, argv);
+}
 
 
 

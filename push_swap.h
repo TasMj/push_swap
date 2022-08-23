@@ -6,7 +6,7 @@
 /*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 15:50:01 by tmejri            #+#    #+#             */
-/*   Updated: 2022/08/22 23:14:01 by tas              ###   ########.fr       */
+/*   Updated: 2022/08/23 17:19:01 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,7 @@ int		unite(int a);
 int		ordre_croissant(t_list **list_stack);
 t_list	**divise_content(t_list **list);
 void	stockage_unite(t_list **list);
+void	compare_unite(t_list **list_stack);
 t_list	**ft_pre_radix(t_list **list_stack);
 t_list	**ft_radix(t_list **list_stack);
 
