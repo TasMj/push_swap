@@ -6,13 +6,13 @@
 /*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/07 18:06:38 by tmejri            #+#    #+#             */
-/*   Updated: 2022/07/21 14:42:28 by tas              ###   ########.fr       */
+/*   Updated: 2022/08/22 01:11:18 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static size_t	nb_word(char *s, char c)
+size_t	nb_word(char *s, char c)
 {
 	size_t	n;
 	size_t	i;
@@ -35,7 +35,7 @@ static size_t	nb_word(char *s, char c)
 	return (compteur);
 }
 
-static char	*ft_copy(char *dest, char *s, char c)
+char	*ft_copy(char *dest, char *s, char c)
 {
 	size_t	i;
 

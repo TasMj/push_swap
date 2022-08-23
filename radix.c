@@ -1,52 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.c                                             :+:      :+:    :+:   */
+/*   radix.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 13:16:33 by tmejri            #+#    #+#             */
-/*   Updated: 2022/08/18 18:06:38 by tas              ###   ########.fr       */
+/*   Updated: 2022/08/23 00:13:31 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-// t_list	**ft_sort_int_tab(t_list **list_stack)
-// {
-// 	t_list	*tmp;
-// 	t_list	**b;
-// 	int		size;
-// 	int		c;
-
-// 	c = 0;
-//     b = malloc(sizeof(t_list));
-// 	tmp = (*list_stack)->next;
-// 	size = ft_lstsize((*list_stack));
-// 	while (size > 0)
-// 	{
-// 		while ((*list_stack)->next != NULL)
-// 		{
-// 			printf("list: [%d],  tmp: [%d] | size: %d\n", (*list_stack)->content, tmp->content, size);
-// 			if ((*list_stack)->content > tmp->content)
-// 			{
-// 				ft_swap((*list_stack), tmp);
-// 				c++;
-// 			}
-// 			(*list_stack) = (*list_stack)->next;
-// 			tmp = (*list_stack)->next;
-// 		}
-// 		printf("###############################\n");
-// 		(*list_stack) = (*list_stack)->premier;
-// 		tmp = (*list_stack)->next;
-// 		size--;
-// 	}
-// 	(*list_stack) = (*list_stack)->premier;
-// 	printf("c = %d\n", c);
-// 	printf("\nSTACK B\n");
-// 	ft_print(b);
-// 	return (list_stack);
-// }
 
 int unite(int a)
 {
@@ -85,42 +49,21 @@ t_list	**divise_content(t_list **list)
 	return (list);
 }
 
-int	empty_list(t_list **list)
-{
-	while ((*list)->next != NULL)
-	{
-		if ((*list)->content != 0)
-			return (1);
-	}
-	return (0);
-}
 //garde en memoire la valeur de l'unité de chaque contente
 void	stockage_unite(t_list **list)
 {
-	(*list)->stockage = 0;
+	(*list) = (*list)->premier;
 	while ((*list)->next != NULL)
 	{
-		(*list)->stockage = (*list)->stockage * 10 + unite((*list)->content);
-		printf("AAAAAAAAAAAAAAAAA %d AAAAAAAAAAAAAAAAA\n", (*list)->stockage);
+		(*list)->stockage = (*list)->content;
 		(*list) = (*list)->next;
 	}
-	(*list)->stockage = (*list)->stockage * 10 + unite((*list)->content);
-	printf("AAAAAAAAAAAAAAAAA %d AAAAAAAAAAAAAAAAA\n", (*list)->stockage);
+	(*list)->stockage = (*list)->content;
 	(*list) = (*list)->premier;
 }
 
-void	rotate_stockage(t_list **list, int i)
-{
-	while (i > 0)
-	{
-		while ((*list)->next != NULL)
-			ra(list);
-		i--;
-	}
-}
-
 // compare unité puis dizaine puis centaine
-t_list	**ft_bubble_sort(t_list **list_stack)
+t_list	**ft_pre_radix(t_list **list_stack)
 {
 	t_list	*tmp;
 	int		size;
@@ -128,53 +71,61 @@ t_list	**ft_bubble_sort(t_list **list_stack)
 	int		comp_b;
 	int		div_a;
 	int		div_b;
+	int 	standby;
+	int		c;
 
+	standby = 0;
 	size = ft_lstsize((*list_stack));
 	tmp = (*list_stack)->next;
-	(*list_stack)->stockage = 0;
 	while (size >= 0)
 	{
 		while ((*list_stack)->next != NULL)
 		{
 			div_a = (*list_stack)->content;
 			div_b = tmp->content;
-			printf("A: %d   B:%d\n",div_a, div_b);
 			comp_a = unite(div_a);
 			comp_b = unite(div_b);
-			printf("div_a [%d]---> %d\n", div_a, comp_a);
-			printf("div_b [%d]---> %d\n\n", div_b, comp_b);
 			if (comp_a > comp_b)
-				ft_swap((*list_stack), tmp);
+			{
+				sa(list_stack);
+				c++;
+				standby = (*list_stack)->stockage;
+				(*list_stack)->stockage = tmp->stockage;
+				tmp->stockage = standby;
+			}
 			(*list_stack) = (*list_stack)->next;
 			tmp = (*list_stack)->next;
 		}
-		printf("***TOUR***\n");
 		(*list_stack) = (*list_stack)->premier;
 		tmp = (*list_stack)->next;
 		size--;
 	}
-	stockage_unite(list_stack);
 	(*list_stack) = (*list_stack)->premier;
+	printf("c: %d\n", c);
 	return (list_stack);
 }
 
-t_list	**ft_the_tri(t_list **list_stack)
+t_list	**ft_radix(t_list **list_stack)
 {
 	t_list	**new_list;
-	new_list = ft_bubble_sort(list_stack);
-	new_list = divise_content(new_list);
-	new_list =ft_bubble_sort(new_list);
-	new_list = divise_content(new_list);
-	new_list =ft_bubble_sort(new_list);
-
-	rotate_stockage(new_list, 3);
 	
+	stockage_unite(list_stack);
+	new_list = ft_pre_radix(list_stack);
+	while (ordre_croissant(list_stack) != 0)
+	{
+		new_list = divise_content(new_list);
+		new_list =ft_pre_radix(new_list);
+	}
+	(*new_list) = (*new_list)->premier;
+	while ((*new_list)->next != NULL)
+	{
+		(*new_list)->content = (*new_list)->stockage;
+		(*new_list) = (*new_list)->next;	
+	}
+	(*new_list)->content = (*new_list)->stockage;
 	(*new_list) = (*new_list)->premier;
 	return (new_list);
 }
-
-
-
 
 
 int main(int argc, char **argv)
@@ -183,9 +134,7 @@ int main(int argc, char **argv)
 
 	list = attribution_arg(argc, argv);
 	
-	printf("\n******sorting process******\n\n");
-	ft_the_tri(list);
-	printf("\n******after sort******\n\n");
+	ft_radix(list);
 	printf("STACK A\n");
 	list = ft_print_all(list);
 }

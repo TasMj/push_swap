@@ -10,6 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+///////////////////////////////////////////////////////////
+//                                                       //
+//     A FAIRE POUR FINIR LE PRJET                       //
+//                                                       //
+//  X  1) finir mon bubble sort                          //
+//     2) adapter mon radix avec les fonctions du sujet  //
+//     3) adapter mon bubble avec les fonctions du sujet //
+//     4) gerer les leaks                                //
+//     5) voir si c'est assez opti                       //
+//     6) fonction 25 lignes                             //
+//     7) norminer                                       //
+//                                                       //
+///////////////////////////////////////////////////////////
+
+
 #include "push_swap.h"
 
 void    *ft_print(t_list **list)
@@ -29,7 +44,8 @@ void    *ft_print_all(t_list **list)
         printf("content: %d\n", (*list)->content);
         printf("ADD: %p\n", (*list));
         printf("add_prem: %p\n", (*list)->premier);
-        printf("add_next: %p\n\n", (*list)->next);
+        printf("add_next: %p\n", (*list)->next);
+        printf("stockage: %d\n\n", (*list)->stockage);
         (*list) = (*list)->next;
     }
     return (list);

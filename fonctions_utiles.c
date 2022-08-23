@@ -6,7 +6,7 @@
 /*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 15:06:15 by tas               #+#    #+#             */
-/*   Updated: 2022/07/28 15:40:16 by tas              ###   ########.fr       */
+/*   Updated: 2022/08/22 03:44:31 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,9 @@ long int	ft_atoi(char *nptr)
 	sign = 1;
 	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == ' ')
 		i++;
-	if (nptr[i] == '+' || nptr[i] == '-')
+	if (nptr[i] == '-')
 	{
-		if (nptr[i] == '-')
-			sign = -sign;
+		sign = -sign;
 		i++;
 	}
 	while (nptr[i] >= '0' && nptr[i] <= '9')
@@ -108,3 +107,8 @@ char	*ft_resize(char *src, int start)
     }
 	return (dest);
 }
+
+// int main()
+// {
+// 	printf("%ld\n", ft_atoi("0"));
+// }
