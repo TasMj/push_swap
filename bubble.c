@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bubble.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 17:34:16 by tas               #+#    #+#             */
-/*   Updated: 2022/08/23 20:59:44 by tas              ###   ########.fr       */
+/*   Updated: 2022/08/24 20:59:57 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,7 @@ t_list	**ft_bubble_sort(t_list **list_stack)
 {
 	t_list	*tmp;
 	int		size;
-	int		c;
 
-	c = 0;
 	(*list_stack) = (*list_stack)->premier;
 	size = ft_lstsize((*list_stack));
 	tmp = (*list_stack)->next;
@@ -30,7 +28,6 @@ t_list	**ft_bubble_sort(t_list **list_stack)
 			{
 				sa(list_stack);
 				write(1, "sa\n", 3);
-				c++;
 			}
 			(*list_stack) = (*list_stack)->next;
 			tmp = (*list_stack)->next;
@@ -40,7 +37,6 @@ t_list	**ft_bubble_sort(t_list **list_stack)
 		size--;
 	}
 	(*list_stack) = (*list_stack)->premier;
-	printf("c = %d\n", c);
 	return (list_stack);
 }
 

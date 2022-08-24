@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 17:28:11 by tmejri            #+#    #+#             */
-/*   Updated: 2022/08/23 20:59:32 by tas              ###   ########.fr       */
+/*   Updated: 2022/08/24 20:59:28 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,9 @@ void *push_swap(int argc, char **argv)
         else if (argc < 100)
         {
             list = ft_bubble_sort(list);
-        	list = ft_print(list);
         }
-            // list = ft_radix(list);
-        // else if (argc > 100)
-            // list = ft_radix(list);
+        else if (argc > 100)
+            list = ft_radix(list);
     }
     return (list);
 }

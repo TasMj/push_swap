@@ -25,31 +25,31 @@
 ///////////////////////////////////////////////////////////
 
 
-#include "push_swap.h"
+// #include "push_swap.h"
 
-void    *ft_print(t_list **list)
-{
-    while (*list)
-    {
-        printf("content: %d\n", (*list)->content);
-        (*list) = (*list)->next;
-    }
-    return (list);
-}
+// void    *ft_print(t_list **list)
+// {
+//     while (*list)
+//     {
+//         printf("content: %d\n", (*list)->content);
+//         (*list) = (*list)->next;
+//     }
+//     return (list);
+// }
 
-void    *ft_print_all(t_list **list)
-{
-    while (*list)
-    {
-        printf("content: %d\n", (*list)->content);
-        printf("ADD: %p\n", (*list));
-        printf("add_prem: %p\n", (*list)->premier);
-        printf("add_next: %p\n", (*list)->next);
-        printf("stockage: %d\n\n", (*list)->stockage);
-        (*list) = (*list)->next;
-    }
-    return (list);
-}
+// void    *ft_print_all(t_list **list)
+// {
+//     while (*list)
+//     {
+//         printf("content: %d\n", (*list)->content);
+//         printf("ADD: %p\n", (*list));
+//         printf("add_prem: %p\n", (*list)->premier);
+//         printf("add_next: %p\n", (*list)->next);
+//         printf("stockage: %d\n\n", (*list)->stockage);
+//         (*list) = (*list)->next;
+//     }
+//     return (list);
+// }
 
 // t_list	**ft_bubble_sort(t_list **list_stack)
 // {

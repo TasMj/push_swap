@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   radix.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 13:16:33 by tmejri            #+#    #+#             */
-/*   Updated: 2022/08/23 18:10:33 by tas              ###   ########.fr       */
+/*   Updated: 2022/08/24 21:01:08 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,7 +126,7 @@ t_list	**ft_radix(t_list **list_stack)
 	}
 	(*new_list)->content = (*new_list)->stockage;
 	(*new_list) = (*new_list)->premier;
-	new_list = ft_print(new_list);
+	// new_list = ft_print(new_list);
 	return (new_list);
 }
 

@@ -1,4 +1,4 @@
-# **************************************************************************** #
+	# **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
@@ -12,10 +12,10 @@
 
 NAME			= push_swap
 
-SRCS	= bubble.c deplacement_push.c deplacement_swap.c deplacement_rotate.c /
-		deplacement_revrotate.c fonctions_utiles.c ft_split.c gestion_listes.c /
-		initialisation.c liste_chainees.c other_sort.c push_swap.c /
-		radix.c trash.c	/
+SRCS	= bubble.c deplacement_push.c deplacement_swap.c deplacement_rotate.c \
+		deplacement_revrotate.c fonctions_utiles.c ft_split.c gestion_listes.c \
+		initialisation.c liste_chainees.c other_sort.c push_swap.c \
+		radix.c	\
 
 OBJS			= ${SRCS:.c=.o}
 
@@ -26,7 +26,7 @@ CFLAGS			= -Wall -Wextra -Werror -I.
 all:			${NAME}
 
 ${NAME}:		${OBJS}
-						ar rcs ${NAME} ${OBJS}
+						${CC} ${CFLAGS} ${OBJS} -o ${NAME}
 
 clean:
 						${RM} ${OBJS}
