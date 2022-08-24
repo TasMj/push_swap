@@ -6,7 +6,7 @@
 /*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 17:34:16 by tas               #+#    #+#             */
-/*   Updated: 2022/08/23 16:30:44 by tas              ###   ########.fr       */
+/*   Updated: 2022/08/23 20:59:44 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,18 @@
 t_list	**ft_bubble_sort(t_list **list_stack)
 {
 	t_list	*tmp;
-	t_list	**b;
 	int		size;
 	int		c;
 
 	c = 0;
 	(*list_stack) = (*list_stack)->premier;
 	size = ft_lstsize((*list_stack));
-    b = malloc(sizeof(t_list));
 	tmp = (*list_stack)->next;
-	printf("size: %d\n", size);
 	while (size > 1)
 	{
 		while ((*list_stack)->next != NULL)
 		{
-			if ((*list_stack)->content < tmp->content)
+			if ((*list_stack)->content > tmp->content)
 			{
 				sa(list_stack);
 				write(1, "sa\n", 3);
@@ -44,8 +41,6 @@ t_list	**ft_bubble_sort(t_list **list_stack)
 	}
 	(*list_stack) = (*list_stack)->premier;
 	printf("c = %d\n", c);
-	printf("\nSTACK B\n");
-	ft_print(b);
 	return (list_stack);
 }
 

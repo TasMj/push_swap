@@ -6,7 +6,7 @@
 /*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 11:18:23 by tas               #+#    #+#             */
-/*   Updated: 2022/08/22 01:08:29 by tas              ###   ########.fr       */
+/*   Updated: 2022/08/23 17:50:01 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,11 +79,3 @@ t_list  **attribution_arg(int argc, char **argv)
     return (list_stack_a);
 }
 
-// #include <stdio.h>
-// int main(int argc, char **argv)
-// {
-//     t_list  *list;
-//     list = attribution_arg(argc, argv);
-//     printf("%p\n", list);
-//     return (0);
-// }

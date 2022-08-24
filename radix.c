@@ -6,7 +6,7 @@
 /*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 13:16:33 by tmejri            #+#    #+#             */
-/*   Updated: 2022/08/23 17:17:50 by tas              ###   ########.fr       */
+/*   Updated: 2022/08/23 18:10:33 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,8 @@ void	compare_unite(t_list **list_stack)
 	if (comp_a > comp_b)
 	{
 		sa(list_stack);
+		write(1, "sa\n", 3);
+		
 		standby = (*list_stack)->stockage;
 		(*list_stack)->stockage = tmp->stockage;
 		tmp->stockage = standby;
@@ -87,7 +89,6 @@ void	compare_unite(t_list **list_stack)
 	(*list_stack) = (*list_stack)->next;
 	tmp = (*list_stack)->next;
 }
-
 
 // compare unité puis dizaine puis centaine
 t_list	**ft_pre_radix(t_list **list_stack)

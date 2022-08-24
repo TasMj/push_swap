@@ -6,7 +6,7 @@
 /*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 15:50:01 by tmejri            #+#    #+#             */
-/*   Updated: 2022/08/23 17:19:01 by tas              ###   ########.fr       */
+/*   Updated: 2022/08/23 17:58:39 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ char		*ft_strjoin(char *s1, char *s2);
 char		*ft_resize(char *src, int start);
 
 // GESTION LISTES
-t_list	**decomposer_arg(int argc, char **argv);
-t_list			**attribution_arg(int argc, char **argv);
+t_list		**decomposer_arg(int argc, char **argv);
+t_list		**attribution_arg(int argc, char **argv);
 
 // FONCTIONS LISTES CHAINEES
 t_list		*ft_lstnew(int content);
