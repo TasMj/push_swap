@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 15:50:01 by tmejri            #+#    #+#             */
-/*   Updated: 2022/08/23 17:58:39 by tas              ###   ########.fr       */
+/*   Updated: 2022/09/26 16:28:27 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,8 @@ t_list	**ft_pre_radix(t_list **list_stack);
 t_list	**ft_radix(t_list **list_stack);
 
 // SORT 2, 3 et 5
-t_list  **sort_for_2(t_list **list);
+void	sort_for_2(t_list **list);
+void	sort_for_3(t_list **list);
+void    sort_for_5(t_list **list_a, t_list **list_b);
 
 #endif

@@ -6,12 +6,13 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 13:16:33 by tmejri            #+#    #+#             */
-/*   Updated: 2022/08/24 21:01:08 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/09/26 13:29:15 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+// divise le nombre jusqu'a obtenir uniquement le dernier chiffre
 int unite(int a)
 {
 	while (a > 9)
@@ -19,6 +20,7 @@ int unite(int a)
 	return (a);
 }
 
+// verifie si la liste est dans l'ordre croissant
 int	ordre_croissant(t_list **list_stack)
 {
 	t_list	*tmp;
@@ -37,6 +39,7 @@ int	ordre_croissant(t_list **list_stack)
 	return (0);
 }
 
+// reduit le nombre en supprimant le dernier chiffre
 t_list	**divise_content(t_list **list)
 {
 	while((*list)->next != NULL)
