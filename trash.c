@@ -192,3 +192,28 @@
 // 	list = ft_print(list);
 	
 // }
+
+// SORT FOR 5
+
+// void    *ft_print(t_list **list)
+// {
+    // while (*list)
+    // {
+        // printf("%d\n", (*list)->content);
+        // (*list) = (*list)->next;
+    // }
+    // return (list);
+// }
+// 
+// int main(int argc, char **argv)
+// {
+    // t_list  **list_a;
+    // t_list  **list_b;
+// 
+    // list_b = malloc(sizeof(t_list));
+    // list_a = attribution_arg(argc, argv);
+    // (*list_a) = (*list_a)->premier;
+    // sort_for_5(list_a, list_b);
+    // printf("\nAFTER SORT\n");
+    // ft_print(list_a);
+// }

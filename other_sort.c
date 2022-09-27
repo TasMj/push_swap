@@ -6,7 +6,7 @@
 /*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 02:12:07 by tas               #+#    #+#             */
-/*   Updated: 2022/09/28 01:00:32 by tas              ###   ########.fr       */
+/*   Updated: 2022/09/28 01:03:28 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,25 +148,3 @@ void    sort_for_5(t_list **list_a, t_list **list_b)
     part_2_sort_5(list_a);
 }
 
-// void    *ft_print(t_list **list)
-// {
-    // while (*list)
-    // {
-        // printf("%d\n", (*list)->content);
-        // (*list) = (*list)->next;
-    // }
-    // return (list);
-// }
-// 
-// int main(int argc, char **argv)
-// {
-    // t_list  **list_a;
-    // t_list  **list_b;
-// 
-    // list_b = malloc(sizeof(t_list));
-    // list_a = attribution_arg(argc, argv);
-    // (*list_a) = (*list_a)->premier;
-    // sort_for_5(list_a, list_b);
-    // printf("\nAFTER SORT\n");
-    // ft_print(list_a);
-// }
