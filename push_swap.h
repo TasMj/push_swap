@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 15:50:01 by tmejri            #+#    #+#             */
-/*   Updated: 2022/09/26 16:28:27 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/09/28 01:01:18 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void    	ss(t_list **list_stack_a, t_list **list_stack_b);
 
 // PUSH
 void    	pa(t_list **list_stack_a, t_list **list_stack_b);
-void   		pb(t_list **list_stack_b, t_list **list_stack_a);
+void	   	pb(t_list **list_stack_b, t_list **list_stack_a);
 
 // ROTATE
 t_list    	**ra(t_list **list_stack_a);
@@ -99,6 +99,8 @@ t_list	**ft_radix(t_list **list_stack);
 // SORT 2, 3 et 5
 void	sort_for_2(t_list **list);
 void	sort_for_3(t_list **list);
+void    part_1_sort_5(t_list **list_a);
+void    part_2_sort_5(t_list **list_a);
 void    sort_for_5(t_list **list_a, t_list **list_b);
 
 #endif

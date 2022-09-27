@@ -6,7 +6,7 @@
 /*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 16:44:40 by tas               #+#    #+#             */
-/*   Updated: 2022/08/11 14:59:15 by tas              ###   ########.fr       */
+/*   Updated: 2022/09/27 23:38:06 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,20 @@
 // B ---> A
 void    pa(t_list **list_stack_a, t_list **list_stack_b)
 {
+    
     if (list_stack_b)
     {
         ft_lstadd_front(list_stack_a, ft_lstnew((*list_stack_b)->content));
-        *list_stack_b = (*list_stack_b)->next;
+        if ((*list_stack_b)->next != NULL)
+        {
+            *list_stack_b = (*list_stack_b)->next;
+            (*list_stack_b)->premier = (*list_stack_b);
+        }
+        else
+        {
+            (*list_stack_b) = NULL;
+        }
+        
     }
 }
 
@@ -30,6 +40,10 @@ void    pb(t_list **list_stack_b, t_list **list_stack_a)
     if (list_stack_a)
     {
         ft_lstadd_front(list_stack_b, ft_lstnew((*list_stack_a)->content));
-        *list_stack_a = (*list_stack_a)->next;
+        if ((*list_stack_a)->next != NULL)
+        {
+            *list_stack_a = (*list_stack_a)->next;
+            (*list_stack_a)->premier = (*list_stack_a);
+        }
     }
 }
