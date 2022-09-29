@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 15:50:01 by tmejri            #+#    #+#             */
-/*   Updated: 2022/09/28 01:01:18 by tas              ###   ########.fr       */
+/*   Updated: 2022/09/29 18:21:22 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void    	*ft_print_all(t_list **list);
 void    	*ft_print(t_list **list);
 
 // BUBBLE SORT
-t_list	**ft_bubble_sort(t_list **list_stack);
+void		ft_bubble_sort(t_list **list_stack);
 
 // RADIX SORT
 int		unite(int a);

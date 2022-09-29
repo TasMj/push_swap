@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 17:28:11 by tmejri            #+#    #+#             */
-/*   Updated: 2022/09/28 01:04:56 by tas              ###   ########.fr       */
+/*   Updated: 2022/09/29 17:28:01 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,9 @@ void push_swap(int argc, char **argv)
         if (check_doublon(list) != 0)
         {
             write(2, "Error\n", 6);
-            return;
         }
-        if (argc < 4)
-            sort_for_2(list);
+        else if (argc < 4)
+           sort_for_2(list);
         else if (argc < 5)
             sort_for_3(list);
         else if (argc < 7) 
@@ -49,8 +48,7 @@ void push_swap(int argc, char **argv)
     }
 }
 
-
 // int main(int argc, char **argv)
 // {
-//     push_swap(argc, argv);
+    // push_swap(argc, argv);
 // }

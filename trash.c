@@ -217,3 +217,49 @@
     // printf("\nAFTER SORT\n");
     // ft_print(list_a);
 // }
+
+// FIND BIGGEST
+// 
+// int main (int argc, char **argv)
+// {
+    // t_list  **list;
+// 
+    // list = attribution_arg(argc, argv);
+    // printf("////%d////\n", find_biggest(list));
+// }
+
+
+// BUBBLE
+
+// void	ft_bubble_sort(t_list **list_stack)
+// {
+	// t_list	*tmp;
+	// int		size;
+// 
+	// (*list_stack) = (*list_stack)->premier;
+	// tmp = (*list_stack)->next;
+	// size = ft_lstsize((*list_stack));
+	// while (size > 1)
+	// {
+		// while ((*list_stack)->next != NULL)
+		// {
+			// if ((*list_stack)->content > tmp->content)
+			// {
+				// sa(list_stack);
+				// write(1, "sa\n", 3);
+			// }
+			// ra(list_stack);
+			// write(1, "ra\n", 3);
+			// (*list_stack) = (*list_stack)->next;
+			// tmp = (*list_stack)->next;
+		// }
+		// (*list_stack) = (*list_stack)->premier;
+		// tmp = (*list_stack)->next;
+		// size--;
+	// }
+	// ra(list_stack);
+	// write(1, "ra\n", 3);
+	// (*list_stack) = (*list_stack)->premier;
+	// return (list_stack);
+// }
+// 
