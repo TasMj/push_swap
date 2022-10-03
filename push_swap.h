@@ -6,7 +6,7 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 15:50:01 by tmejri            #+#    #+#             */
-/*   Updated: 2022/09/29 18:21:22 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/10/03 16:56:53 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_list
 	struct s_list	*premier;
 	int				content;
 	int				stockage;
+	int				index;
 	struct s_list	*next;
 }		t_list;
 
