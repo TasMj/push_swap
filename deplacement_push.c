@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   deplacement_push.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 16:44:40 by tas               #+#    #+#             */
-/*   Updated: 2022/09/27 23:38:06 by tas              ###   ########.fr       */
+/*   Updated: 2022/10/05 16:44:19 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void    pb(t_list **list_stack_b, t_list **list_stack_a)
         if ((*list_stack_a)->next != NULL)
         {
             *list_stack_a = (*list_stack_a)->next;
-            (*list_stack_a)->premier = (*list_stack_a);
+            (*list_stack_a)->premier = (*list_stack_a); //premier sur tout les autres aelem de la liste
         }
     }
 }

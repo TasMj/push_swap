@@ -6,7 +6,7 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 15:50:01 by tmejri            #+#    #+#             */
-/*   Updated: 2022/10/03 16:56:53 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/10/05 16:17:21 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void	    rrr(t_list **list_stack_a, t_list **list_stack_b);
 
 // AFFICHAGE
 void    	*ft_print_all(t_list **list);
-void    	*ft_print(t_list **list);
+void    	ft_print(t_list **list);
 
 // BUBBLE SORT
 void		ft_bubble_sort(t_list **list_stack);
