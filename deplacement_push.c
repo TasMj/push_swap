@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   deplacement_push.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 16:44:40 by tas               #+#    #+#             */
-/*   Updated: 2022/10/05 16:44:19 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/10/06 22:24:11 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,15 @@ void    pa(t_list **list_stack_a, t_list **list_stack_b)
     if (list_stack_b)
     {
         ft_lstadd_front(list_stack_a, ft_lstnew((*list_stack_b)->content));
+        (*list_stack_a)->premier = (*list_stack_a);
+        (*list_stack_a)->index = (*list_stack_b)->index;
         if ((*list_stack_b)->next != NULL)
         {
             *list_stack_b = (*list_stack_b)->next;
             (*list_stack_b)->premier = (*list_stack_b);
         }
         else
-        {
             (*list_stack_b) = NULL;
-        }
-        
     }
 }
 
@@ -40,10 +39,14 @@ void    pb(t_list **list_stack_b, t_list **list_stack_a)
     if (list_stack_a)
     {
         ft_lstadd_front(list_stack_b, ft_lstnew((*list_stack_a)->content));
+        (*list_stack_b)->premier = (*list_stack_b);
+        (*list_stack_b)->index = (*list_stack_a)->index;
         if ((*list_stack_a)->next != NULL)
         {
             *list_stack_a = (*list_stack_a)->next;
-            (*list_stack_a)->premier = (*list_stack_a); //premier sur tout les autres aelem de la liste
+            (*list_stack_a)->premier = (*list_stack_a);
         }
+        else
+            (*list_stack_b) = NULL;
     }
 }

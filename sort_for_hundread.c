@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_for_hundread.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 15:20:18 by tmejri            #+#    #+#             */
-/*   Updated: 2022/10/05 16:39:54 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/10/06 23:18:23 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,20 @@ void    *tab_to_sort(t_list **list)
 {
     int     size;
     int		*tab_int;
-	t_list	*temp;
+	t_list	*tmp;
     int 	i;
     
     i = 0;
     size = ft_lstsize(*list);
     tab_int = (int *)malloc(sizeof(int) * size);
-	temp = *list;
+	tmp = *list;
     while (*list)
     {
         tab_int[i] = (*list)->content;
         (*list) = (*list)->next;
         i++;
     }
-	*list = temp;
+	*list = tmp;
     return (tab_int);
 }
 
@@ -76,12 +76,12 @@ void	index_tab(t_list **list, int *tab)
 	int	i;
 	int	size;
 	int size_mem;
-	t_list	*temp;
+	t_list	*tmp;
 	
 	i = 0;
 	size = ft_lstsize(*list);
 	size_mem = size;
-	temp = *list;
+	tmp = *list;
 	while (*list)
 	{
 		while (size > 0)
@@ -101,7 +101,7 @@ void	index_tab(t_list **list, int *tab)
 		i = 0;
 		size = size_mem;
 	}
-	*list = temp;	
+	*list = tmp;	
 }
 
 void    ft_print(t_list **list)
@@ -113,15 +113,15 @@ void    ft_print(t_list **list)
 		return;
     while (tmp)
     {
-        printf("content: %d  \n", tmp->content);
-        // printf("index: %d\n", (*tmp)->index);
+        printf("content: %d  ", tmp->content);
+        printf("index: %d\n", tmp->index);
         tmp = tmp->next;
     }
 }
 
 // Calculer la mediane
 // dans un premier temps compter le nb de nombre si paire -> mediane nb / 2 si impaire (nb + 1/2)
-void seperate_by_mediane(t_list **list, t_list **list_b)
+t_list **seperate_by_mediane(t_list **list, t_list **list_b)
 {
 	t_list	*tmp_a;
 	int		size;
@@ -130,10 +130,10 @@ void seperate_by_mediane(t_list **list, t_list **list_b)
 	tmp_a = *list;
 	size = ft_lstsize(*list);
 	list_b = malloc(sizeof(t_list));
-	if (!(size % 2 == 0))
-		size = size + 1;
+	// if (!(size % 2 == 0))
+	// 	size = size + 1;
 	mediane = size / 2;
-	while (size)
+	while (size > 0)
 	{
 		if (tmp_a->index < mediane)
 		{
@@ -148,6 +148,8 @@ void seperate_by_mediane(t_list **list, t_list **list_b)
 		size--;
 		tmp_a = tmp_a->next;
 	}
+	(*list_b) = (*list_b)->premier;
+	return (list_b);
 }
 
 int main(int argc, char **argv)
@@ -155,20 +157,27 @@ int main(int argc, char **argv)
     t_list  **list;
     t_list  **list_b;
     int    *tab;
+	int i = 0;
 
     list = attribution_arg(argc,argv);
     tab = tab_to_sort(list);
-	tab = tab_sorted(tab);
+	// tab = tab_sorted(tab);
 	list_b = NULL;
 	
-	index_tab(list, tab);
-	// ft_print(list);
-	printf("STACK A BEFORE SORT\n");
-	ft_print(list);
-	seperate_by_mediane(list, list_b);
-	printf("STACK A\n");
-	ft_print(list);
-	printf("STACK B\n");
-	ft_print(list_b);
+	printf("\n\n# # # # # # # # # # # # # # # # # # #\n\n");
+	while (tab[i])
+	{
+		printf("[%d]\n", tab[i]);
+		i++;
+	}
+	printf("\n\n# # # # # # # # # # # # # # # # # # #\n\n");
 	
+	index_tab(list, tab);
+	printf("***STACK A BEFORE SORT***\n");
+	ft_print(list);
+	list_b = seperate_by_mediane(list, list_b);
+	printf("\n********STACK A********\n");
+	ft_print(list);
+	printf("\n********STACK B********\n");
+	ft_print(list_b);
 }

@@ -6,7 +6,7 @@
 /*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 17:16:22 by tas               #+#    #+#             */
-/*   Updated: 2022/08/11 14:49:16 by tas              ###   ########.fr       */
+/*   Updated: 2022/10/06 23:00:49 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,15 @@ t_list    **ra(t_list **list_stack_a)
 {
     t_list  *tmp;
     t_list  *last;
+    int stock_last;
 
+    stock_last = (*list_stack_a)->index;
     last = ft_lstnew((*list_stack_a)->content);
     (*list_stack_a) = (*list_stack_a)->next;
     (*list_stack_a)->premier = (*list_stack_a);
     tmp = (*list_stack_a);
-    last->premier = tmp;    
+    last->premier = tmp;
+    last->index = stock_last;
     while ((*list_stack_a)->next != NULL)
     {
         (*list_stack_a)->premier = tmp;
@@ -34,6 +37,7 @@ t_list    **ra(t_list **list_stack_a)
     (*list_stack_a) = (*list_stack_a)->premier;
     return (list_stack_a);
 }
+
 // décale de 1 toute la stack b
 // le premier devient le dernier
 t_list    **rb(t_list **list_stack_b)

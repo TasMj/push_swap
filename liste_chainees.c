@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   liste_chainees.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 17:33:40 by tmejri            #+#    #+#             */
-/*   Updated: 2022/10/05 16:45:31 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/10/06 20:43:59 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 	{
 		new->next = *lst;
 		*lst = new;
+		// (*lst)->premier = new;
 	}
 }
 
