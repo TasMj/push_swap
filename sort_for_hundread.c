@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_for_hundread.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 15:20:18 by tmejri            #+#    #+#             */
-/*   Updated: 2022/10/06 23:18:23 by tas              ###   ########.fr       */
+/*   Updated: 2022/10/07 12:16:01 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,17 +45,18 @@ int	count_elt_tab(int *tab)
 	return (i);
 }
 
-void	*tab_sorted(int	*tab)
+void	*tab_sorted(int	*tab, int argc)
 {
 	int	i;
 	int	size;
 	int	tmp;
 
 	i = 1;
-	size = count_elt_tab(tab);
+	size = argc - 1;
+	printf("size : %d\n", size);
 	while (size > 1)
 	{
-		while (tab[i])
+		while (i < size)
 		{
 			if (tab[i - 1] > tab[i])
 			{
@@ -161,11 +162,11 @@ int main(int argc, char **argv)
 
     list = attribution_arg(argc,argv);
     tab = tab_to_sort(list);
-	// tab = tab_sorted(tab);
+	tab = tab_sorted(tab, argc);
 	list_b = NULL;
 	
 	printf("\n\n# # # # # # # # # # # # # # # # # # #\n\n");
-	while (tab[i])
+	while (i < (argc - 1))
 	{
 		printf("[%d]\n", tab[i]);
 		i++;
