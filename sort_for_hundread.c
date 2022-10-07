@@ -6,13 +6,11 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 15:20:18 by tmejri            #+#    #+#             */
-/*   Updated: 2022/10/07 12:16:01 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/10/07 14:26:05 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-
 
 void    *tab_to_sort(t_list **list)
 {
@@ -35,15 +33,15 @@ void    *tab_to_sort(t_list **list)
     return (tab_int);
 }
 
-int	count_elt_tab(int *tab)
-{
-	int i;
+// int	count_elt_tab(int *tab)
+// {
+// 	int i;
 
-	i = 0;
-	while (tab[i])
-		i++;
-	return (i);
-}
+// 	i = 0;
+// 	while (tab[i])
+// 		i++;
+// 	return (i);
+// }
 
 void	*tab_sorted(int	*tab, int argc)
 {
@@ -53,7 +51,6 @@ void	*tab_sorted(int	*tab, int argc)
 
 	i = 1;
 	size = argc - 1;
-	printf("size : %d\n", size);
 	while (size > 1)
 	{
 		while (i < size)
@@ -153,32 +150,24 @@ t_list **seperate_by_mediane(t_list **list, t_list **list_b)
 	return (list_b);
 }
 
-int main(int argc, char **argv)
-{
-    t_list  **list;
-    t_list  **list_b;
-    int    *tab;
-	int i = 0;
+// int main(int argc, char **argv)
+// {
+//     t_list  **list;
+//     t_list  **list_b;
+//     int    *tab;
+// 	// int i = 0;
 
-    list = attribution_arg(argc,argv);
-    tab = tab_to_sort(list);
-	tab = tab_sorted(tab, argc);
-	list_b = NULL;
+//     list = attribution_arg(argc,argv);
+//     tab = tab_to_sort(list);
+// 	tab = tab_sorted(tab, argc);
+// 	list_b = NULL;
 	
-	printf("\n\n# # # # # # # # # # # # # # # # # # #\n\n");
-	while (i < (argc - 1))
-	{
-		printf("[%d]\n", tab[i]);
-		i++;
-	}
-	printf("\n\n# # # # # # # # # # # # # # # # # # #\n\n");
-	
-	index_tab(list, tab);
-	printf("***STACK A BEFORE SORT***\n");
-	ft_print(list);
-	list_b = seperate_by_mediane(list, list_b);
-	printf("\n********STACK A********\n");
-	ft_print(list);
-	printf("\n********STACK B********\n");
-	ft_print(list_b);
-}
+// 	index_tab(list, tab);
+// 	printf("***STACK A BEFORE SORT***\n");
+// 	ft_print(list);
+// 	list_b = seperate_by_mediane(list, list_b);
+// 	printf("\n********STACK A********\n");
+// 	ft_print(list);
+// 	printf("\n********STACK B********\n");
+// 	ft_print(list_b);
+// }

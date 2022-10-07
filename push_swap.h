@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 15:50:01 by tmejri            #+#    #+#             */
-/*   Updated: 2022/10/06 22:24:37 by tas              ###   ########.fr       */
+/*   Updated: 2022/10/07 13:45:18 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,5 +103,13 @@ void	sort_for_3(t_list **list);
 void    part_1_sort_5(t_list **list_a);
 void    part_2_sort_5(t_list **list_a);
 void    sort_for_5(t_list **list_a, t_list **list_b);
+
+// SORT FOR HUNDREAD
+void    *tab_to_sort(t_list **list);
+void	*tab_sorted(int	*tab, int argc);
+void	index_tab(t_list **list, int *tab);
+void    ft_print(t_list **list); //A RETIRER
+t_list **seperate_by_mediane(t_list **list, t_list **list_b);
+
 
 #endif
