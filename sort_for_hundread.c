@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_for_hundread.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 15:20:18 by tmejri            #+#    #+#             */
-/*   Updated: 2022/10/07 14:26:05 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/10/09 16:30:25 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,11 +128,11 @@ t_list **seperate_by_mediane(t_list **list, t_list **list_b)
 	tmp_a = *list;
 	size = ft_lstsize(*list);
 	list_b = malloc(sizeof(t_list));
-	// if (!(size % 2 == 0))
-	// 	size = size + 1;
 	mediane = size / 2;
+	printf("uuuuuuuuuuuuu %d\n", (*list)->premier->content);
 	while (size > 0)
 	{
+		printf("tttttttttttttt %d\n", (*list)->content);
 		if (tmp_a->index < mediane)
 		{
 			pb(list_b, list);
