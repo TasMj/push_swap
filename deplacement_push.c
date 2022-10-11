@@ -6,14 +6,14 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 16:44:40 by tas               #+#    #+#             */
-/*   Updated: 2022/10/11 14:35:33 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/10/11 14:59:09 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// push le first elt de b dans la stack A
-// B ---> A
+/* push le first elt de b dans la stack A
+B ---> A*/
 void    pa(t_list **list_stack_a, t_list **list_stack_b)
 {
     (*list_stack_a) = (*list_stack_a)->premier;
@@ -33,8 +33,8 @@ void    pa(t_list **list_stack_a, t_list **list_stack_b)
     write(1, "pa\n", 3);
 }
 
-// // push le first elt de a dans la stack B
-// A ---> B
+/* push le first elt de a dans la stack B
+A ---> B */
 void    pb(t_list **list_stack_b, t_list **list_stack_a)
 {
     if (list_stack_a)

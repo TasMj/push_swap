@@ -6,12 +6,13 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 15:49:44 by tas               #+#    #+#             */
-/*   Updated: 2022/10/11 14:38:47 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/10/11 15:12:58 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+// swap 2 elts d'une liste
 void ft_swap(t_list *first, t_list *second)
 {
 	t_list  *tmp;
@@ -64,7 +65,7 @@ void    *sb(t_list **list_stack_b)
 	return (list_stack_b);
 }
 
-// swap les 2 premiers elts du haut des stacks A et B
+// swap les 2 premiers elts de la stack A et ceux de la stack B
 void    ss(t_list **list_stack_a, t_list **list_stack_b)
 {
 	sa(list_stack_a);

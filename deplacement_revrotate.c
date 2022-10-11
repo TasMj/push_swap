@@ -6,14 +6,14 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 17:20:54 by tas               #+#    #+#             */
-/*   Updated: 2022/10/11 14:44:11 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/10/11 15:01:45 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// décale de 1 toute la stack a
-// le dernier elt devient le premier
+/* décale de 1 toute la stack a
+le dernier elt devient le premier */
 t_list    **rra(t_list **list_stack_a)
 {
     t_list  *last;
@@ -40,8 +40,8 @@ t_list    **rra(t_list **list_stack_a)
     return (list_stack_a);
 }
 
-// // décale de 1 toute la stack b
-// // le dernier elt devient le premier
+/* décale de 1 toute la stack b
+le dernier elt devient le premier */
 t_list    **rrb(t_list **list_stack_b)
 {
     t_list  *last;
@@ -68,8 +68,8 @@ t_list    **rrb(t_list **list_stack_b)
     return (list_stack_b);
 }
 
-// // décale de 1 toutes les stack a & b
-// // le dernier elt devient le premier
+/*décale de 1 les stack a & b
+les derniers elts deviennent les premiers */
 void    rrr(t_list **list_stack_a, t_list **list_stack_b)
 {
     rra(list_stack_a);

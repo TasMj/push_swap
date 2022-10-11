@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   fonctions_utiles.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 15:06:15 by tas               #+#    #+#             */
-/*   Updated: 2022/08/23 17:48:25 by tas              ###   ########.fr       */
+/*   Updated: 2022/10/11 15:17:56 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+// transforme les char* en int
 long int	ft_atoi(char *nptr)
 {
 	long int		res;
@@ -36,6 +37,7 @@ long int	ft_atoi(char *nptr)
 	return (res * sign);
 }
 
+//  return la taille d'une char*
 int	ft_strlen(char *str)
 {
 	int	i;
@@ -46,6 +48,7 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
+// return le nb de chiffre d'un nb
 int	size_nb(int nb)
 {
 	int	i;
@@ -59,6 +62,7 @@ int	size_nb(int nb)
 	return (i);
 }
 
+// ajoute a une char* une autre char*
 char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*dest;
@@ -82,28 +86,5 @@ char	*ft_strjoin(char *s1, char *s2)
 		j++;
 	}
 	dest[i] = '\0';
-	return (dest);
-}
-
-char	*ft_resize(char *src, int start)
-{
-	int		i;
-	int		j;
-    char    *dest;
-
-	i = 0;
-    j = start;
-    dest = malloc(sizeof(char) * ft_strlen(src) - start + 1);
-    if (!dest || !src)
-        return (NULL);
-    else
-    {
-	    while (src[j])
-        {
-            dest[i] = src[j];
-            i++;
-            j++;
-        }
-    }
 	return (dest);
 }

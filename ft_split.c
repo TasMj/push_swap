@@ -6,12 +6,13 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/07 18:06:38 by tmejri            #+#    #+#             */
-/*   Updated: 2022/10/11 14:18:46 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/10/11 15:22:04 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+// return le nb de mots en fonction d'un separateur
 size_t	nb_word(char *s, char c)
 {
 	size_t	n;
@@ -49,6 +50,8 @@ char	*ft_copy(char *dest, char *s, char c)
 	return (dest);
 }
 
+/* en fonction d'un char separateur
+s*/
 char	**ft_split(char *s, char c)
 {
 	char	**s_split;
