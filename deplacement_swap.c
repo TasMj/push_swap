@@ -6,35 +6,31 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 15:49:44 by tas               #+#    #+#             */
-/*   Updated: 2022/10/11 15:12:58 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/10/11 19:13:55 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 // swap 2 elts d'une liste
-void ft_swap(t_list *first, t_list *second)
+void	ft_swap(t_list *first, t_list *second)
 {
-	t_list  *tmp;
+	t_list	*tmp;
 	int		stock_first_index;
 	int		stock_second_index;
 
-    stock_first_index = first->index;
-    stock_second_index = second->index;
-
-	
+	stock_first_index = first->index;
+	stock_second_index = second->index;
 	tmp = malloc(sizeof(t_list));
-
 	tmp->content = first->content;
 	first->content = second->content;
 	second->content = tmp->content;
-
 	first->index = stock_second_index;
 	second->index = stock_first_index;
 }
 
 // swap les 2 premiers elts du haut de la stack A
-void    *sa(t_list **list_stack_a)
+void	*sa(t_list **list_stack_a)
 {
 	t_list	*tmp;
 
@@ -50,7 +46,7 @@ void    *sa(t_list **list_stack_a)
 }
 
 // swap les 2 premiers elts du haut de la stack B
-void    *sb(t_list **list_stack_b)
+void	*sb(t_list **list_stack_b)
 {
 	t_list	*tmp;
 
@@ -66,7 +62,7 @@ void    *sb(t_list **list_stack_b)
 }
 
 // swap les 2 premiers elts de la stack A et ceux de la stack B
-void    ss(t_list **list_stack_a, t_list **list_stack_b)
+void	ss(t_list **list_stack_a, t_list **list_stack_b)
 {
 	sa(list_stack_a);
 	sb(list_stack_b);

@@ -6,7 +6,7 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 17:33:40 by tmejri            #+#    #+#             */
-/*   Updated: 2022/10/11 16:29:49 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/10/11 19:25:56 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,13 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 }
 
 // ajoute un nouvel elt au debut de la liste
+		// (*lst)->premier = new;
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
 	if (lst)
 	{
 		new->next = *lst;
 		*lst = new;
-		// (*lst)->premier = new;
 	}
 }
 
