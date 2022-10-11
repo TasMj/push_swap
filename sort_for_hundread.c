@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_for_hundread.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 15:20:18 by tmejri            #+#    #+#             */
-/*   Updated: 2022/10/10 19:18:54 by tas              ###   ########.fr       */
+/*   Updated: 2022/10/11 14:48:53 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,6 @@ void    *tab_to_sort(t_list **list)
 	*list = tmp;
     return (tab_int);
 }
-
-// int	count_elt_tab(int *tab)
-// {
-// 	int i;
-
-// 	i = 0;
-// 	while (tab[i])
-// 		i++;
-// 	return (i);
-// }
 
 void	*tab_sorted(int	*tab, int argc)
 {
@@ -132,15 +122,9 @@ t_list **seperate_by_mediane(t_list **list, t_list **list_b)
 	while (size > 0)
 	{
 		if (tmp_a->index < mediane)
-		{
 			pb(list_b, list);
-			write(1, "pb\n", 3);
-		}
 		else
-		{
 			ra(list);
-			write(1, "ra\n", 3);
-		}
 		size--;
 		tmp_a = tmp_a->next;
 	}
@@ -148,22 +132,3 @@ t_list **seperate_by_mediane(t_list **list, t_list **list_b)
 	return (list_b);
 }
 
-// int main(int argc, char **argv)
-// {
-//     t_list  **list;
-//     t_list  **list_b;
-//     int    *tab;
-
-//     list = attribution_arg(argc,argv);
-//     tab = tab_to_sort(list);
-// 	tab = tab_sorted(tab, argc);
-// 	list_b = NULL;
-// 	index_tab(list, tab);
-// 	printf("***STACK A BEFORE SORT***\n");
-// 	ft_print(list);
-// 	list_b = seperate_by_mediane(list, list_b);
-// 	printf("\n********STACK A********\n");
-// 	ft_print(list);
-// 	printf("\n********STACK B********\n");
-// 	ft_print(list_b);
-// }

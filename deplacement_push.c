@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   deplacement_push.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 16:44:40 by tas               #+#    #+#             */
-/*   Updated: 2022/10/09 13:20:27 by tas              ###   ########.fr       */
+/*   Updated: 2022/10/11 14:35:33 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void    pa(t_list **list_stack_a, t_list **list_stack_b)
         else
             (*list_stack_b) = NULL;
     }
+    write(1, "pa\n", 3);
 }
 
 // // push le first elt de a dans la stack B
@@ -49,26 +50,5 @@ void    pb(t_list **list_stack_b, t_list **list_stack_a)
         else
             (*list_stack_b) = NULL;
     }
+    write(1, "pb\n", 3);
 }
-
-
-
-
-
-// void    pa(t_list **list_stack_a, t_list **list_stack_b)
-// {
-    // 
-    // if (list_stack_b)
-    // {
-        // ft_lstadd_front(list_stack_a, ft_lstnew((*list_stack_b)->content));
-        // (*list_stack_a)->premier = (*list_stack_a);
-        // (*list_stack_a)->index = (*list_stack_b)->index;
-        // if ((*list_stack_b)->next != NULL)
-        // {
-            // *list_stack_b = (*list_stack_b)->next;
-            // (*list_stack_b)->premier = (*list_stack_b);
-        // }
-        // else
-            // (*list_stack_b) = NULL;
-    // }
-// }

@@ -6,7 +6,7 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 17:28:11 by tmejri            #+#    #+#             */
-/*   Updated: 2022/09/29 17:28:01 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/10/11 14:30:34 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,16 +39,12 @@ void push_swap(int argc, char **argv)
             sort_for_3(list);
         else if (argc < 7) 
             sort_for_5(list, list_b);
-        // else if (argc < 101)
-        // {
-        //     list = ft_bubble_sort(list);
-        // }
-        // else if (argc > 100)
-        //     list = ft_radix(list);
+        else
+            sort_for_hundread(list, argc);
     }
 }
 
 // int main(int argc, char **argv)
 // {
-    // push_swap(argc, argv);
+//     push_swap(argc, argv);
 // }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   deplacement_rotate2.c                              :+:      :+:    :+:   */
+/*   deplacement_revrotate.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 17:20:54 by tas               #+#    #+#             */
-/*   Updated: 2022/08/11 14:55:15 by tas              ###   ########.fr       */
+/*   Updated: 2022/10/11 14:44:11 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ t_list    **rra(t_list **list_stack_a)
     t_list  *first;
     t_list  *tmp;
 
+    (*list_stack_a) = (*list_stack_a)->premier;
     first = malloc(sizeof(t_list));
     first = (*list_stack_a);
     last = malloc(sizeof(t_list));
@@ -35,6 +36,7 @@ t_list    **rra(t_list **list_stack_a)
     }
     (*list_stack_a)->next = NULL;
     (*list_stack_a) = last;
+    write(1, "rra\n", 4);
     return (list_stack_a);
 }
 
@@ -46,6 +48,7 @@ t_list    **rrb(t_list **list_stack_b)
     t_list  *first;
     t_list  *tmp;
 
+    (*list_stack_b) = (*list_stack_b)->premier;
     first = malloc(sizeof(t_list));
     first = (*list_stack_b);
     last = malloc(sizeof(t_list));
@@ -59,9 +62,9 @@ t_list    **rrb(t_list **list_stack_b)
         (*list_stack_b)->premier = tmp;
         (*list_stack_b) = (*list_stack_b)->next;
     }
-    
     (*list_stack_b)->next = NULL;
     (*list_stack_b) = last;
+    write(1, "rrb\n", 4);
     return (list_stack_b);
 }
 
@@ -71,5 +74,6 @@ void    rrr(t_list **list_stack_a, t_list **list_stack_b)
 {
     rra(list_stack_a);
     rrb(list_stack_b);
+    write(1, "rrr\n", 4);
 }
 

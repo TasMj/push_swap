@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_for_hundread_2.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 13:41:27 by tmejri            #+#    #+#             */
-/*   Updated: 2022/10/10 20:19:52 by tas              ###   ########.fr       */
+/*   Updated: 2022/10/11 14:55:16 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void    stack_to_5(t_list **list_a, t_list **list_b)
     while (size_a > 5)
     {
         pb(list_b, list_a);
-        write(1, "pb\n", 3);
         size_a--;
     }
 }
@@ -56,25 +55,22 @@ int up_or_down(t_list **list_a, t_list **list_b)
     int mediane;
 
     mediane = find_mediane_index(list_a);
-    if ((*list_b)->index < (mediane + 1))
+    if ((*list_b)->index < mediane)
         return (1);
     else
         return (2);
 }
 
-void    not_top(t_list **list_a, t_list **list_b)
+void    from_top(t_list **list_a, t_list **list_b)
 {
     int t_index;
     int stock_index;
-    int mediane;
     t_list *tmp;
     
     tmp = *list_a;
     t_index = 0;
     stock_index = 0;
-    mediane = find_mediane_index(list_a);
-    
-    while ((*list_a)->index < mediane)
+    while ((*list_b)->index > (*list_a)->index)
     {
         (*list_a) = (*list_a)->next;
         stock_index++;
@@ -84,16 +80,12 @@ void    not_top(t_list **list_a, t_list **list_b)
     while (stock_index > 0)
     {
         ra(list_a);
-        write(1, "ra\n", 3);
         stock_index--;
     }
     pa(list_a, list_b);
-    sa(list_a);
-    write(1, "pa\nsa\n", 6);
     while (t_index > 0)
     {
         rra(list_a);
-        write(1, "rra\n", 4);
         t_index--;
     }
 }
@@ -102,33 +94,23 @@ void    from_down(t_list **list_a, t_list **list_b)
 {
     int t_index;
     int stock_index;
-    int mediane;
     t_list *tmp;
     
     tmp = *list_a;
     t_index = 0;
-    stock_index = 0;
-    mediane = find_mediane_index(list_a);
-    while ((*list_a)->index < mediane)
-    {
-        (*list_a) = (*list_a)->next;
-        stock_index++;
-    }
-    *list_a = tmp;
-    t_index = stock_index;
-    while (stock_index > 0)
+    stock_index = 1;
+    while ((*list_b)->index < (*list_a)->index)
     {
         rra(list_a);
-        write(1, "rra\n", 4);
-        stock_index--;
+        stock_index++;
     }
+    ra(list_a);
+    *list_a = tmp;
+    t_index = stock_index;
     pa(list_a, list_b);
-    sa(list_a);
-    write(1, "pa\nsa\n", 6);
     while (t_index > 0)
     {
         ra(list_a);
-        write(1, "ra\n", 3);
         t_index--;
     }
 }
@@ -156,54 +138,35 @@ int empty_list(t_list **list)
 //                              ra x meme nb qu au dessus
 void    sort_in_stack_a(t_list **list_a, t_list **list_b)
 {
-    printf("\n\n//////////////////\n\n");
-    ft_print(list_a);
-    printf("\n\n//////////////////B\n\n");
-    ft_print(list_b);
-
     while (*list_b)
     {
         if (up_or_down(list_a, list_b) == 1)
         {
-            printf("\n*************1*************");
             if ((*list_b)->index < (*list_a)->index)
-            {
                 pa(list_a, list_b);
-                write (1, "pa\n", 3);
-            }
             else
-            {
-                pa(list_a, list_b);
-                not_top(list_a, list_b);
-            }
+                from_top(list_a, list_b);
         }
         else if (up_or_down(list_a, list_b) == 2)
         {
-            printf("\n*************2*************");
+            rra(list_a);
             if ((*list_b)->index > (*list_a)->index)
             {
-                printf("\nXXXXXXXXXXXXXXXXXXXX\n");
+                ra(list_a);
                 pa(list_a, list_b);
                 ra(list_a);
-                write (1, "pa\n", 3);
             }
             else
                 from_down(list_a, list_b);
         }
-        printf("\n\nSTACK A\n\n");
-        ft_print(list_a);
-        printf("\n\nSTACK B\n\n");
-        ft_print(list_b);
     }
 }
 
-int main(int argc, char **argv)
+void sort_for_hundread(t_list **list_a, int argc)
 {
-    t_list  **list_a;
-    t_list  **list_b;
+    t_list **list_b;
     int    *tab;
 
-    list_a = attribution_arg(argc,argv);
     tab = tab_to_sort(list_a);
 	tab = tab_sorted(tab, argc);
 	list_b = NULL;
@@ -211,10 +174,17 @@ int main(int argc, char **argv)
 	list_b = seperate_by_mediane(list_a, list_b);
     stack_to_5(list_a, list_b);
     sort_for_5(list_a, list_b);
-
     sort_in_stack_a(list_a, list_b);
     printf("\n\nSTACK A\n\n");
     ft_print(list_a);
     printf("\n\nSTACK B\n\n");
     ft_print(list_b);
+}
+
+int main(int argc, char **argv)
+{
+    t_list **list_a;
+
+    list_a = attribution_arg(argc, argv);
+    sort_for_hundread(list_a, argc);
 }

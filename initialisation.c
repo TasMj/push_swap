@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initialisation.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 16:12:07 by tmejri            #+#    #+#             */
-/*   Updated: 2022/08/23 17:57:41 by tas              ###   ########.fr       */
+/*   Updated: 2022/10/11 14:03:33 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,9 +154,3 @@ int check_signe_moins(char *str)
 		return (1);
 	return (0);
 }
-
-// #include <stdio.h>
-// int main()
-// {
-// 	printf("%d\n", check_signe_moins("--ysfd"));
-// }

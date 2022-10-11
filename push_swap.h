@@ -6,7 +6,7 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 15:50:01 by tmejri            #+#    #+#             */
-/*   Updated: 2022/10/07 13:45:18 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/10/11 14:20:11 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ typedef struct s_list
 {
 	struct s_list	*premier;
 	int				content;
-	int				stockage;
 	int				index;
 	struct s_list	*next;
 }		t_list;
@@ -39,8 +38,8 @@ int		check_doublon(t_list **list);
 int		check_signe_moins(char *str);
 
 // SPLIT
-size_t	nb_word(char *s, char c);
-// char		*ft_copy(char *dest, char const *s, char c);
+size_t		nb_word(char *s, char c);
+char		*ft_copy(char *dest, char *s, char c);
 char		**ft_split(char *s, char c);
 
 // FONCTIONS UTILES
@@ -56,10 +55,10 @@ t_list		**attribution_arg(int argc, char **argv);
 
 // FONCTIONS LISTES CHAINEES
 t_list		*ft_lstnew(int content);
-void		ft_lstadd_front(t_list **lst, t_list *new);
-int			ft_lstsize(t_list *lst);
-t_list		*ft_lstlast(t_list *lst);
 void		ft_lstadd_back(t_list **lst, t_list *new);
+void		ft_lstadd_front(t_list **lst, t_list *new);
+t_list		*ft_lstlast(t_list *lst);
+int			ft_lstsize(t_list *lst);
 
 // SWAP
 void		ft_swap(t_list *first, t_list *second);
@@ -82,20 +81,8 @@ t_list    	**rrb(t_list **list_stack_b);
 void	    rrr(t_list **list_stack_a, t_list **list_stack_b);
 
 // AFFICHAGE
-void    	*ft_print_all(t_list **list);
-void    	ft_print(t_list **list);
-
-// BUBBLE SORT
-void		ft_bubble_sort(t_list **list_stack);
-
-// RADIX SORT
-int		unite(int a);
-int		ordre_croissant(t_list **list_stack);
-t_list	**divise_content(t_list **list);
-void	stockage_unite(t_list **list);
-void	compare_unite(t_list **list_stack);
-t_list	**ft_pre_radix(t_list **list_stack);
-t_list	**ft_radix(t_list **list_stack);
+void    	*ft_print_all(t_list **list); //a suppr
+void    	ft_print(t_list **list); //a suppr
 
 // SORT 2, 3 et 5
 void	sort_for_2(t_list **list);
@@ -108,8 +95,17 @@ void    sort_for_5(t_list **list_a, t_list **list_b);
 void    *tab_to_sort(t_list **list);
 void	*tab_sorted(int	*tab, int argc);
 void	index_tab(t_list **list, int *tab);
-void    ft_print(t_list **list); //A RETIRER
-t_list **seperate_by_mediane(t_list **list, t_list **list_b);
+t_list	**seperate_by_mediane(t_list **list, t_list **list_b);
+void    stack_to_5(t_list **list_a, t_list **list_b);
+int		find_mediane_index(t_list **list);
+int		up_or_down(t_list **list_a, t_list **list_b);
+void    from_top(t_list **list_a, t_list **list_b);
+void    from_down(t_list **list_a, t_list **list_b);
+int		empty_list(t_list **list);
+void    sort_in_stack_a(t_list **list_a, t_list **list_b);
+void	sort_for_hundread(t_list **list_a, int argc);
 
+// MAIN FONCTION
+void push_swap(int argc, char **argv);
 
 #endif
