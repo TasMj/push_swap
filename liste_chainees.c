@@ -6,12 +6,14 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 17:33:40 by tmejri            #+#    #+#             */
-/*   Updated: 2022/10/11 14:05:18 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/10/11 16:29:49 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/* creer un nouveu maillon de la liste
+lui affect le content demande */
 t_list	*ft_lstnew(int content)
 {
 	t_list	*ma_liste;
@@ -24,6 +26,7 @@ t_list	*ft_lstnew(int content)
 	return (ma_liste);
 }
 
+// ajoute un nouvel elt a la fin de la liste
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*dernier;
@@ -40,6 +43,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	}
 }
 
+// ajoute un nouvel elt au debut de la liste
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
 	if (lst)
@@ -50,6 +54,7 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 	}
 }
 
+// return le dernier elt de la liste
 t_list	*ft_lstlast(t_list *lst)
 {
 	while (lst)
@@ -61,6 +66,7 @@ t_list	*ft_lstlast(t_list *lst)
 	return (lst);
 }
 
+// return la taille de la liste (cb d'elts)
 int	ft_lstsize(t_list *lst)
 {
 	int	i;

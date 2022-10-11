@@ -6,14 +6,14 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 11:18:23 by tas               #+#    #+#             */
-/*   Updated: 2022/10/05 16:25:46 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/10/11 16:24:56 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// Dans le cas où argc = 2 (ex: "1 2 3")
-// découpage de l'argv et attribution aux contents de la liste
+/* découpe argv ds le cas ou argc = 2 (ex: "1 2 3")
+et les attribue aux contents de la liste */
 t_list  **decomposer_arg(int argc, char **argv)
 {
     char    **stockage;
@@ -44,7 +44,7 @@ t_list  **decomposer_arg(int argc, char **argv)
     return (list_stack_a);
 }
 
-// donner chacun des arguments au content d'une liste
+// attribue chacun des arguments au content d'une liste
 t_list  **attribution_arg(int argc, char **argv)
 {
     int     i;
@@ -78,4 +78,3 @@ t_list  **attribution_arg(int argc, char **argv)
     }
     return (list_stack_a);
 }
-

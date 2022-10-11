@@ -6,7 +6,7 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 16:12:07 by tmejri            #+#    #+#             */
-/*   Updated: 2022/10/11 14:03:33 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/10/11 16:27:27 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ uniquement d'int et qu'ils soient bien tous compris entre
 int min et int max
 */
 
-//pour argc = 2 on split la liste et on la join par la suite
+/* pour argc = 2 : split en fonction de l'espace
+et la join par la suite */
 char	*creat_list(char *str)
 {
 	char	**stockage;
@@ -35,7 +36,7 @@ char	*creat_list(char *str)
 	return (list);
 }
 
-//vérifie qu'il n'y a que des int
+// vérifie qu'il n'y a que des int
 int check_intru(int argc, char *argv[])
 {
     char    *list;
@@ -137,6 +138,7 @@ int	check_doublon(t_list **list)
 	return (0);
 }
 
+// verifie qu'il n'y a pas 2 fois le meme nombre dans les arguments
 int check_signe_moins(char *str)
 {
 	int	i;

@@ -6,12 +6,13 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 15:20:18 by tmejri            #+#    #+#             */
-/*   Updated: 2022/10/11 14:48:53 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/10/11 16:44:43 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/* recupere tous les elts d'une liste et les range dans un tableau */
 void    *tab_to_sort(t_list **list)
 {
     int     size;
@@ -33,6 +34,7 @@ void    *tab_to_sort(t_list **list)
     return (tab_int);
 }
 
+/* trie dans l'ordre croissant les elts d'un tableau */ 
 void	*tab_sorted(int	*tab, int argc)
 {
 	int	i;
@@ -59,6 +61,8 @@ void	*tab_sorted(int	*tab, int argc)
 	return (tab);
 }
 
+/* attribue a chaque elt un index en fonction 
+de l'indice de ce meme elt dans un tab trie */
 void	index_tab(t_list **list, int *tab)
 {
 	int	i;
@@ -92,23 +96,8 @@ void	index_tab(t_list **list, int *tab)
 	*list = tmp;	
 }
 
-void    ft_print(t_list **list)
-{
-	t_list	*tmp;
-
-	tmp = *list;
-	if (!tmp)
-		return;
-    while (tmp)
-    {
-        printf("content: %d  ", tmp->content);
-        printf("index: %d\n", tmp->index);
-        tmp = tmp->next;
-    }
-}
-
-// Calculer la mediane
-// dans un premier temps compter le nb de nombre si paire -> mediane nb / 2 si impaire (nb + 1/2)
+/* calcule la mediane et push b tous les elt qui ont
+un index inferieur a celui de la mediane */
 t_list **seperate_by_mediane(t_list **list, t_list **list_b)
 {
 	t_list	*tmp_a;
@@ -132,3 +121,15 @@ t_list **seperate_by_mediane(t_list **list, t_list **list_b)
 	return (list_b);
 }
 
+/* pb tous les autres nombres jusqu'a ce qu'il n'en reste plus que 5 ds stack A */
+void    stack_to_5(t_list **list_a, t_list **list_b)
+{
+    int size_a;
+    
+    size_a = ft_lstsize((*list_a));
+    while (size_a > 5)
+    {
+        pb(list_b, list_a);
+        size_a--;
+    }
+}

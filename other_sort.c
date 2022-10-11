@@ -6,7 +6,7 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 02:12:07 by tas               #+#    #+#             */
-/*   Updated: 2022/10/11 14:46:33 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/10/11 16:32:38 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void    sort_for_2(t_list **list)
         sa(list);
 }
 
+/* trie dans l'ordre croissant une liste de 3 elts en fonction
+de tous les differents cas de figures qu'on peut rencontrer */
 void    sort_for_3(t_list **list)
 {
     t_list  *middle;
@@ -52,6 +54,7 @@ void    sort_for_3(t_list **list)
     }
 }
 
+//gere qqus cas du tri de 5
 void    part_1_sort_5(t_list **list_a)
 {
     t_list *trois;
@@ -74,6 +77,7 @@ void    part_1_sort_5(t_list **list_a)
         sa(list_a);
 }
 
+//gere qqus cas du tri de 5
 void    part_2_sort_5(t_list **list_a)
 {
     t_list *deux;
@@ -105,6 +109,8 @@ void    part_2_sort_5(t_list **list_a)
         ra(list_a);
 }
 
+/* trie dans l'ordre croissant une liste de 5 elts en fonction
+de tous les differents cas de figures qu'on peut rencontrer */
 void    sort_for_5(t_list **list_a, t_list **list_b)
 {
     pb(list_b, list_a);
