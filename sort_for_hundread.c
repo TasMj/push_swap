@@ -6,7 +6,7 @@
 /*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 15:20:18 by tmejri            #+#    #+#             */
-/*   Updated: 2022/10/09 16:30:25 by tas              ###   ########.fr       */
+/*   Updated: 2022/10/10 19:18:54 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,10 +129,8 @@ t_list **seperate_by_mediane(t_list **list, t_list **list_b)
 	size = ft_lstsize(*list);
 	list_b = malloc(sizeof(t_list));
 	mediane = size / 2;
-	printf("uuuuuuuuuuuuu %d\n", (*list)->premier->content);
 	while (size > 0)
 	{
-		printf("tttttttttttttt %d\n", (*list)->content);
 		if (tmp_a->index < mediane)
 		{
 			pb(list_b, list);
@@ -155,13 +153,11 @@ t_list **seperate_by_mediane(t_list **list, t_list **list_b)
 //     t_list  **list;
 //     t_list  **list_b;
 //     int    *tab;
-// 	// int i = 0;
 
 //     list = attribution_arg(argc,argv);
 //     tab = tab_to_sort(list);
 // 	tab = tab_sorted(tab, argc);
 // 	list_b = NULL;
-	
 // 	index_tab(list, tab);
 // 	printf("***STACK A BEFORE SORT***\n");
 // 	ft_print(list);

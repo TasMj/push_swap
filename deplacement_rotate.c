@@ -6,7 +6,7 @@
 /*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 17:16:22 by tas               #+#    #+#             */
-/*   Updated: 2022/10/06 23:00:49 by tas              ###   ########.fr       */
+/*   Updated: 2022/10/10 11:19:11 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,30 @@
 
 // décale de 1 toute la stack a
 // le premier devient le dernier
+
+// t_list    **ra(t_list **list_stack_a)
+// {
+//     int stock_index;
+//     t_list *stock_prem;
+    
+//     (*list_stack_a)->premier;
+//     stock_index = (*list_stack_a)->index;
+//     ft_lstadd_back(list_stack_a, (*list_stack_a)->premier);
+//     (*list_stack_a) = (*list_stack_a)->next;
+//     (*list_stack_a)->premier = (*list_stack_a);
+//     stock_prem = (*list_stack_a);
+//     while (*list_stack_a)
+//     {
+//         (*list_stack_a)->premier = stock_prem;
+//         (*list_stack_a) = (*list_stack_a)->next;
+//     }
+//     (*list_stack_a)->premier = stock_prem;
+//     (*list_stack_a)->index = stock_index;
+//     (*list_stack_a) = (*list_stack_a)->premier;
+//     return (list_stack_a);
+// }
+
+
 t_list    **ra(t_list **list_stack_a)
 {
     t_list  *tmp;
