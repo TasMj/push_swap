@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/07 18:06:38 by tmejri            #+#    #+#             */
-/*   Updated: 2022/10/11 16:21:19 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/10/11 23:01:31 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// return le nb de mots en fonction d'un separateur
+/* return le nb de mots en fonction d'un separateur */
 size_t	nb_word(char *s, char c)
 {
 	size_t	n;

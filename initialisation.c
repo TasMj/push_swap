@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initialisation.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 16:12:07 by tmejri            #+#    #+#             */
-/*   Updated: 2022/10/11 19:25:19 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/10/11 23:03:52 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char	*creat_list(char *str)
 	return (list);
 }
 
-// vérifie qu'il n'y a que des int
+/* vérifie qu'il n'y a que des int */
 int	check_intru(int argc, char *argv[])
 {
 	char	*list;
@@ -66,57 +66,103 @@ int	check_intru(int argc, char *argv[])
 	return (0);
 }
 
+int	for_check_int(char **stockage, int argc)
+{
+	int i;
+	int nb;
+
+	i = 0;
+	while (stockage[i])
+	{
+		if (check_signe_moins(stockage[i]) == 1)
+			return (1);
+		nb = ft_atoi(stockage[i]);
+		if (!(nb > INT_MIN && nb < INT_MAX))
+			return (1);
+		else
+		{
+			argc--;
+			i++;
+		}
+	}
+	return (0);
+}
+
+int	for_check_int_2(int argc, char **argv)
+{
+	int	i;
+	int nb;
+	while (argc > 1)
+	{
+		if (check_signe_moins(argv[i]) == 1)
+			return (1);
+		nb = ft_atoi(argv[i]);
+		if (!(nb > INT_MIN && nb < INT_MAX))
+			return (1);
+		else
+		{
+			argc--;
+			i++;
+		}
+	}
+	return (0);
+}
+
 /* transforme les char en int pour verifier qu'il 
 ne s'agit ni d'un min ni d'un max */
 int	check_int(int argc, char **argv)
 {
-	long int	nb;
+	// long int	nb;
 	char		**stockage;
-	int			i;
+	// int			i;
 
-	i = 1;
+	// i = 1;
 	if (check_intru(argc, argv) != 1)
 	{
 		if (argc == 2)
 		{
 			stockage = ft_split(argv[1], ' ');
-			i = 0;
-			while (stockage[i])
-			{
-				if (check_signe_moins(stockage[i]) == 1)
-					return (1);
-				nb = ft_atoi(stockage[i]);
-				if (!(nb >= INT_MIN && nb <= INT_MAX))
-					return (1);
-				else
-				{
-					argc--;
-					i++;
-				}
-			}
-			return (0);
+			for_check_int(stockage, argc);
+			// stockage = ft_split(argv[1], ' ');
+			// i = 0;
+			// while (stockage[i])
+			// {
+			// 	if (check_signe_moins(stockage[i]) == 1)
+			// 		return (1);
+			// 	nb = ft_atoi(stockage[i]);
+			// 	if (!(nb >= INT_MIN && nb <= INT_MAX))
+			// 		return (1);
+			// 	else
+			// 	{
+			// 		argc--;
+			// 		i++;
+			// 	}
+			// }
+			// return (0);
 		}
 		else
 		{
-			while (argc > 1)
-			{
-				if (check_signe_moins(argv[i]) == 1)
-					return (1);
-				nb = ft_atoi(argv[i]);
-				if (!(nb >= INT_MIN && nb <= INT_MAX))
-					return (1);
-				else
-				{
-					argc--;
-					i++;
-				}
-			}
-			return (0);
+			for_check_int_2(argc, argv);
+			// while (argc > 1)
+			// {
+			// 	if (check_signe_moins(argv[i]) == 1)
+			// 		return (1);
+			// 	nb = ft_atoi(argv[i]);
+			// 	if (!(nb >= INT_MIN && nb <= INT_MAX))
+			// 		return (1);
+			// 	else
+			// 	{
+			// 		argc--;
+			// 		i++;
+			// 	}
+			// }
+			// return (0);
 		}
 	}
 	return (1);
 }
 
+/* verifie qu'il n'y a pas 2 fois le meme nombre dans les arguments */
 int	check_doublon(t_list **list)
 {
 	t_list	*tmp;
@@ -139,7 +185,7 @@ int	check_doublon(t_list **list)
 	return (0);
 }
 
-// verifie qu'il n'y a pas 2 fois le meme nombre dans les arguments
+/* return 1 si int neg et 0 si positif */
 int	check_signe_moins(char *str)
 {
 	int	i;

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   fonctions_utiles.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 15:06:15 by tas               #+#    #+#             */
-/*   Updated: 2022/10/11 19:14:37 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/10/11 23:01:11 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// transforme les char* en int
+/* transforme les char* en int */
 long int	ft_atoi(char *nptr)
 {
 	long int		res;
@@ -37,7 +37,7 @@ long int	ft_atoi(char *nptr)
 	return (res * sign);
 }
 
-//  return la taille d'une char*
+/* return la taille d'une char* */
 int	ft_strlen(char *str)
 {
 	int	i;
@@ -48,7 +48,7 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-// return le nb de chiffre d'un nb
+/* return le nb de chiffre d'un nb */
 int	size_nb(int nb)
 {
 	int	i;
@@ -62,7 +62,7 @@ int	size_nb(int nb)
 	return (i);
 }
 
-// ajoute a une char* une autre char*
+/* ajoute a une char* une autre char* */
 char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*dest;

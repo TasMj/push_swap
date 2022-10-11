@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   deplacement_swap.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 15:49:44 by tas               #+#    #+#             */
-/*   Updated: 2022/10/11 19:13:55 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/10/11 23:00:24 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// swap 2 elts d'une liste
+/* swap 2 elts d'une liste */
 void	ft_swap(t_list *first, t_list *second)
 {
 	t_list	*tmp;
@@ -29,7 +29,7 @@ void	ft_swap(t_list *first, t_list *second)
 	second->index = stock_first_index;
 }
 
-// swap les 2 premiers elts du haut de la stack A
+/* swap les 2 premiers elts du haut de la stack A */
 void	*sa(t_list **list_stack_a)
 {
 	t_list	*tmp;
@@ -45,7 +45,7 @@ void	*sa(t_list **list_stack_a)
 	return (list_stack_a);
 }
 
-// swap les 2 premiers elts du haut de la stack B
+/* swap les 2 premiers elts du haut de la stack B */
 void	*sb(t_list **list_stack_b)
 {
 	t_list	*tmp;
@@ -61,7 +61,7 @@ void	*sb(t_list **list_stack_b)
 	return (list_stack_b);
 }
 
-// swap les 2 premiers elts de la stack A et ceux de la stack B
+/* swap les 2 premiers elts de la stack A et ceux de la stack B */
 void	ss(t_list **list_stack_a, t_list **list_stack_b)
 {
 	sa(list_stack_a);

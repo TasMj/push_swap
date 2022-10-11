@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   deplacement_push.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 16:44:40 by tas               #+#    #+#             */
-/*   Updated: 2022/10/11 19:01:09 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/10/11 22:59:08 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 /* push le first elt de b dans la stack A
-B ---> A*/
+B ---> A */
 void	pa(t_list **list_stack_a, t_list **list_stack_b)
 {
 	(*list_stack_a) = (*list_stack_a)->premier;

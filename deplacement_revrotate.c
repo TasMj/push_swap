@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   deplacement_revrotate.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 17:20:54 by tas               #+#    #+#             */
-/*   Updated: 2022/10/11 19:08:03 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/10/11 22:59:20 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ t_list	**rrb(t_list **list_stack_b)
 	return (list_stack_b);
 }
 
-/*décale de 1 les stack a & b
+/* décale de 1 les stack a & b
 les derniers elts deviennent les premiers */
 void	rrr(t_list **list_stack_a, t_list **list_stack_b)
 {

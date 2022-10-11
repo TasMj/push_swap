@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   gestion_listes.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 11:18:23 by tas               #+#    #+#             */
-/*   Updated: 2022/10/11 19:18:02 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/10/11 23:01:40 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ t_list	**decomposer_arg(int argc, char **argv)
 	return (list_stack_a);
 }
 
-// attribue chacun des arguments au content d'une liste
+/* attribue chacun des arguments au content d'une liste */
 t_list	**attribution_arg(int argc, char **argv)
 {
 	int		i;

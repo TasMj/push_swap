@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   other_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 02:12:07 by tas               #+#    #+#             */
-/*   Updated: 2022/10/11 19:29:38 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/10/11 23:05:13 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// swap a et b si a > b, sinon renvoie la liste de départ
+/* swap a et b si a > b, sinon renvoie la liste de départ */
 void	sort_for_2(t_list **list)
 {
 	(*list) = (*list)->premier;
@@ -54,7 +54,7 @@ void	sort_for_3(t_list **list)
 	}
 }
 
-//gere qqus cas du tri de 5
+/* gere qqus cas du tri de 5 */
 void	part_1_sort_5(t_list **list_a)
 {
 	t_list	*trois;
@@ -77,7 +77,7 @@ void	part_1_sort_5(t_list **list_a)
 		sa(list_a);
 }
 
-//gere qqus cas du tri de 5
+/* gere qqus cas du tri de 5 */
 void	part_2_sort_5(t_list **list_a)
 {
 	t_list	*deux;
