@@ -6,7 +6,7 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 19:42:09 by tmejri            #+#    #+#             */
-/*   Updated: 2022/10/11 19:44:30 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/10/12 15:27:34 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,29 +51,22 @@ void	sort_in_stack_a(t_list **list_a, t_list **list_b)
 	}
 }
 
-void	sort_for_hundread(t_list **list_a, int argc)
+void	sort_for_hundread(t_list **list_a, t_list **list_b, int size_list_a)
 {
-	t_list	**list_b;
 	int		*tab;
 
 	tab = tab_to_sort(list_a);
-	tab = tab_sorted(tab, argc);
-	list_b = NULL;
+	tab = tab_sorted(tab, list_a);
 	index_tab(list_a, tab);
 	list_b = seperate_by_mediane(list_a, list_b);
-	stack_to_5(list_a, list_b);
-	sort_for_5(list_a, list_b);
+	if (size_list_a == 6)
+		sort_for_3(list_a);
+	if (size_list_a == 7)
+		sort_for_4(list_a, list_b);
+	else
+	{
+		stack_to_5(list_a, list_b);
+		sort_for_5(list_a, list_b);
+	}
 	sort_in_stack_a(list_a, list_b);
-	printf("\n\nSTACK A\n\n");
-	ft_print(list_a);
-	printf("\n\nSTACK B\n\n");
-	ft_print(list_b);
-}
-
-int	main(int argc, char **argv)
-{
-	t_list	**list_a;
-
-	list_a = attribution_arg(argc, argv);
-	sort_for_hundread(list_a, argc);
 }

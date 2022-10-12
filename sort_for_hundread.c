@@ -6,7 +6,7 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 15:20:18 by tmejri            #+#    #+#             */
-/*   Updated: 2022/10/11 19:50:16 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/10/12 15:02:41 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,14 @@ void	*tab_to_sort(t_list **list)
 }
 
 /* trie dans l'ordre croissant les elts d'un tableau */
-void	*tab_sorted(int	*tab, int argc)
+void	*tab_sorted(int	*tab, t_list **list)
 {
 	int	i;
 	int	size;
 	int	tmp;
 
 	i = 1;
-	size = argc - 1;
+	size = ft_lstsize(*list);
 	while (size > 1)
 	{
 		while (i < size)
@@ -106,7 +106,6 @@ t_list	**seperate_by_mediane(t_list **list, t_list **list_b)
 
 	tmp_a = *list;
 	size = ft_lstsize(*list);
-	list_b = malloc(sizeof(t_list));
 	mediane = size / 2;
 	while (size > 0)
 	{

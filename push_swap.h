@@ -6,7 +6,7 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 15:50:01 by tmejri            #+#    #+#             */
-/*   Updated: 2022/10/11 14:20:11 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/10/12 18:15:20 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ typedef struct s_list
 // INITIALISATION
 char	*creat_list(char *str);
 int		check_intru(int argc, char *argv[]);
+int		for_check_1(char **stockage, char **argv, int argc);
+int		for_check_2(char **argv, int argc);
 int		check_int(int argc, char **argv);
 int		check_doublon(t_list **list);
 int		check_signe_moins(char *str);
@@ -50,8 +52,8 @@ char		*ft_strjoin(char *s1, char *s2);
 char		*ft_resize(char *src, int start);
 
 // GESTION LISTES
-t_list		**decomposer_arg(int argc, char **argv);
-t_list		**attribution_arg(int argc, char **argv);
+t_list		**decomposer_arg(int argc, char **argv, int i);
+t_list		**attribution_arg(int argc, char **argv, int i);
 
 // FONCTIONS LISTES CHAINEES
 t_list		*ft_lstnew(int content);
@@ -84,16 +86,17 @@ void	    rrr(t_list **list_stack_a, t_list **list_stack_b);
 void    	*ft_print_all(t_list **list); //a suppr
 void    	ft_print(t_list **list); //a suppr
 
-// SORT 2, 3 et 5
+// SORT 2, 3, 4 et 5
 void	sort_for_2(t_list **list);
 void	sort_for_3(t_list **list);
 void    part_1_sort_5(t_list **list_a);
 void    part_2_sort_5(t_list **list_a);
+void    sort_for_4(t_list **list_a, t_list **list_b);
 void    sort_for_5(t_list **list_a, t_list **list_b);
 
 // SORT FOR HUNDREAD
 void    *tab_to_sort(t_list **list);
-void	*tab_sorted(int	*tab, int argc);
+void	*tab_sorted(int	*tab, t_list **list);
 void	index_tab(t_list **list, int *tab);
 t_list	**seperate_by_mediane(t_list **list, t_list **list_b);
 void    stack_to_5(t_list **list_a, t_list **list_b);
@@ -103,7 +106,7 @@ void    from_top(t_list **list_a, t_list **list_b);
 void    from_down(t_list **list_a, t_list **list_b);
 int		empty_list(t_list **list);
 void    sort_in_stack_a(t_list **list_a, t_list **list_b);
-void	sort_for_hundread(t_list **list_a, int argc);
+void	sort_for_hundread(t_list **list_a, t_list **list_b, int size_list_a);
 
 // MAIN FONCTION
 void push_swap(int argc, char **argv);

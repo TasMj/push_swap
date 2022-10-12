@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   gestion_listes.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 11:18:23 by tas               #+#    #+#             */
-/*   Updated: 2022/10/11 23:01:40 by tas              ###   ########.fr       */
+/*   Updated: 2022/10/12 16:56:23 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,10 @@
 
 /* découpe argv ds le cas ou argc = 2 (ex: "1 2 3")
 et les attribue aux contents de la liste */
-t_list	**decomposer_arg(int argc, char **argv)
+t_list	**decomposer_arg(int argc, char **argv, int i)
 {
 	char	**stockage;
 	int		nb;
-	int		i;
 	t_list	*ptr;
 	t_list	*start;
 	t_list	**list_stack_a;
@@ -26,7 +25,6 @@ t_list	**decomposer_arg(int argc, char **argv)
 	list_stack_a = malloc(sizeof(t_list) * argc);
 	if (!list_stack_a)
 		return (NULL);
-	i = 1;
 	stockage = ft_split(argv[1], ' ');
 	nb = ft_atoi(stockage[0]);
 	start = ft_lstnew(nb);
@@ -45,35 +43,28 @@ t_list	**decomposer_arg(int argc, char **argv)
 }
 
 /* attribue chacun des arguments au content d'une liste */
-t_list	**attribution_arg(int argc, char **argv)
+t_list	**attribution_arg(int argc, char **argv, int i)
 {
-	int		i;
-	int		nb;
 	t_list	*ptr;
 	t_list	*start;
 	t_list	**list_stack_a;
 
 	if (argc == 2)
-		list_stack_a = decomposer_arg(argc, argv);
+		list_stack_a = decomposer_arg(argc, argv, 1);
 	else
 	{
 		list_stack_a = malloc(sizeof(t_list) * argc);
 		if (!list_stack_a)
 			return (NULL);
-		i = 2;
-		nb = ft_atoi(argv[1]);
-		start = ft_lstnew(nb);
+		start = ft_lstnew(ft_atoi(argv[1]));
 		ft_lstadd_back(list_stack_a, start);
 		start->premier = start;
 		ptr = start->premier;
-		while (argc > 2)
+		while (argc-- > 2)
 		{
-			nb = ft_atoi(argv[i]);
-			start = ft_lstnew(nb);
+			start = ft_lstnew(ft_atoi(argv[i++]));
 			start->premier = ptr;
 			ft_lstadd_back(list_stack_a, start);
-			i++;
-			argc--;
 		}
 	}
 	return (list_stack_a);
