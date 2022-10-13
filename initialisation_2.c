@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   initilisation_2.c                                  :+:      :+:    :+:   */
+/*   initialisation_2.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 18:15:51 by tmejri            #+#    #+#             */
-/*   Updated: 2022/10/12 18:16:26 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/10/13 15:03:19 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@
 int	check_doublon(t_list **list)
 {
 	t_list	*tmp;
+	t_list	*beg;
 
+	beg = *list;
 	tmp = (*list)->next;
 	while ((*list)->next != NULL)
 	{
@@ -32,6 +34,7 @@ int	check_doublon(t_list **list)
 		(*list) = (*list)->next;
 		tmp = (*list)->next;
 	}
+	*list = beg;
 	return (0);
 }
 

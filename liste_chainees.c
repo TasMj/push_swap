@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   liste_chainees.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 17:33:40 by tmejri            #+#    #+#             */
-/*   Updated: 2022/10/11 23:04:38 by tas              ###   ########.fr       */
+/*   Updated: 2022/10/13 15:32:31 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,13 +69,16 @@ t_list	*ft_lstlast(t_list *lst)
 /* return la taille de la liste (cb d'elts) */
 int	ft_lstsize(t_list *lst)
 {
-	int	i;
+	int		i;
+	t_list	*tmp;
 
+	tmp = lst;
 	i = 0;
 	while (lst)
 	{
 		lst = lst->next;
 		i++;
 	}
+	lst = tmp;
 	return (i);
 }

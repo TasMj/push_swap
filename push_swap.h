@@ -6,7 +6,7 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 15:50:01 by tmejri            #+#    #+#             */
-/*   Updated: 2022/10/12 18:15:20 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/10/13 15:48:32 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,15 +88,18 @@ void    	ft_print(t_list **list); //a suppr
 
 // SORT 2, 3, 4 et 5
 void	sort_for_2(t_list **list);
-void	sort_for_3(t_list **list);
+void	sort_for_3(t_list **list, t_list *middle, t_list *last);
+void	position_1(t_list **list_a);
+void	position_2(t_list **list_a);
 void    part_1_sort_5(t_list **list_a);
-void    part_2_sort_5(t_list **list_a);
+void	part_2_sort_5(t_list **list_a);
 void    sort_for_4(t_list **list_a, t_list **list_b);
 void    sort_for_5(t_list **list_a, t_list **list_b);
 
 // SORT FOR HUNDREAD
 void    *tab_to_sort(t_list **list);
 void	*tab_sorted(int	*tab, t_list **list);
+void	search_and_affect(t_list **list, int *size, int *tab, int *i);
 void	index_tab(t_list **list, int *tab);
 t_list	**seperate_by_mediane(t_list **list, t_list **list_b);
 void    stack_to_5(t_list **list_a, t_list **list_b);
@@ -109,6 +112,7 @@ void    sort_in_stack_a(t_list **list_a, t_list **list_b);
 void	sort_for_hundread(t_list **list_a, t_list **list_b, int size_list_a);
 
 // MAIN FONCTION
-void push_swap(int argc, char **argv);
+int		error_free_ret(t_list* list);
+void	direct_sort(int size_list, t_list **list_a, t_list **list_b);
 
 #endif

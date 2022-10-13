@@ -6,59 +6,24 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 15:20:18 by tmejri            #+#    #+#             */
-/*   Updated: 2022/10/12 15:02:41 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/10/13 15:49:41 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* recupere tous les elts d'une liste et les range dans un tableau */
-void	*tab_to_sort(t_list **list)
+void	search_and_affect(t_list **list, int *size, int *tab, int *i)
 {
-	int		size;
-	int		*tab_int;
-	t_list	*tmp;
-	int		i;
-
-	i = 0;
-	size = ft_lstsize(*list);
-	tab_int = (int *)malloc(sizeof(int) * size);
-	tmp = *list;
-	while (*list)
+	if ((*list)->content == tab[*i])
 	{
-		tab_int[i] = (*list)->content;
-		(*list) = (*list)->next;
-		i++;
+		(*list)->index = *i;
+		*size = -1;
 	}
-	*list = tmp;
-	return (tab_int);
-}
-
-/* trie dans l'ordre croissant les elts d'un tableau */
-void	*tab_sorted(int	*tab, t_list **list)
-{
-	int	i;
-	int	size;
-	int	tmp;
-
-	i = 1;
-	size = ft_lstsize(*list);
-	while (size > 1)
+	else
 	{
-		while (i < size)
-		{
-			if (tab[i - 1] > tab[i])
-			{
-				tmp = tab[i];
-				tab[i] = tab[i - 1];
-				tab[i - 1] = tmp;
-			}
-			i++;
-		}
-		i = 1;
-		size--;
+		(*i)++;
+		(*size)--;
 	}
-	return (tab);
 }
 
 /* attribue a chaque elt un index en fonction 
@@ -77,18 +42,7 @@ void	index_tab(t_list **list, int *tab)
 	while (*list)
 	{
 		while (size > 0)
-		{
-			if ((*list)->content == tab[i])
-			{
-				(*list)->index = i;
-				size = -1;
-			}
-			else
-			{
-				i++;
-				size--;
-			}
-		}
+			search_and_affect(list, &size, tab, &i);
 		(*list) = (*list)->next;
 		i = 0;
 		size = size_mem;
