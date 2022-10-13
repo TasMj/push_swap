@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fonctions_utiles.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 15:06:15 by tas               #+#    #+#             */
-/*   Updated: 2022/10/11 23:01:11 by tas              ###   ########.fr       */
+/*   Updated: 2022/10/13 16:39:53 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,14 @@ long int	ft_atoi(char *nptr)
 	i = 0;
 	res = 0;
 	sign = 1;
-	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == ' ')
+	while (nptr && ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == ' '))
 		i++;
-	if (nptr[i] == '-')
+	if (nptr && nptr[i] == '-')
 	{
 		sign = -sign;
 		i++;
 	}
-	while (nptr[i] >= '0' && nptr[i] <= '9')
+	while (nptr && (nptr[i] >= '0' && nptr[i] <= '9'))
 	{
 		res = (res * 10) + (nptr[i] - 48);
 		i++;

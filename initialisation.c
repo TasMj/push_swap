@@ -6,7 +6,7 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 16:12:07 by tmejri            #+#    #+#             */
-/*   Updated: 2022/10/12 18:21:12 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/10/13 16:54:47 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,11 @@ int	for_check_1(char **stockage, char **argv, int argc)
 	{
 		if (check_signe_moins(stockage[i]) == 1)
 			return (1);
+		if (ft_strlen(stockage[i]) == 1)
+		{
+			if (stockage[i][0] == '-')
+				return (1);
+		}
 		nb = ft_atoi(stockage[i]);
 		if (!(nb >= INT_MIN && nb <= INT_MAX))
 			return (1);
@@ -99,6 +104,11 @@ int	for_check_2(char **argv, int argc)
 	{
 		if (check_signe_moins(argv[i]) == 1)
 			return (1);
+		if (ft_strlen(argv[i]) == 1)
+		{
+			if (argv[i][0] == '-')
+				return (1);
+		}
 		nb = ft_atoi(argv[i]);
 		if (!(nb >= INT_MIN && nb <= INT_MAX))
 			return (1);

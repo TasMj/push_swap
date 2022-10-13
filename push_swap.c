@@ -6,7 +6,7 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 17:28:11 by tmejri            #+#    #+#             */
-/*   Updated: 2022/10/13 15:50:00 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/10/13 16:03:46 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,17 +46,19 @@ int	main(int argc, char **argv)
 	t_list	**list_b;
 	int		size_list;
 
+	if (argc < 2)
+		return (1);
 	list_b = malloc(sizeof(t_list));
 	if (check_int(argc, argv))
-		error_free_ret(*list_b);
+		return (error_free_ret(*list_b));
 	else
 	{
 		list_a = attribution_arg(argc, argv, 2);
 		size_list = ft_lstsize(*list_a);
 		if (check_doublon(list_a) != 0)
-			error_free_ret(*list_b);
+			return (error_free_ret(*list_b));
 		else if (size_list == 1)
-			return (1);
+			return (0);
 		direct_sort(size_list, list_a, list_b);
 	}
 }

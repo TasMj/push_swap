@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/07 18:06:38 by tmejri            #+#    #+#             */
-/*   Updated: 2022/10/11 23:01:31 by tas              ###   ########.fr       */
+/*   Updated: 2022/10/13 16:22:31 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ char	**ft_split(char *s, char c)
 	i = 0;
 	j = 0;
 	s_split = (char **)malloc(sizeof(char *) * (nb_word(s, c) + 1));
-	while (s[i])
+	while (s && s[i])
 	{
 		if (s[i] == c)
 			i++;
