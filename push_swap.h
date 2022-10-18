@@ -6,7 +6,7 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 15:50:01 by tmejri            #+#    #+#             */
-/*   Updated: 2022/10/13 15:48:32 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/10/18 15:17:01 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,5 +114,8 @@ void	sort_for_hundread(t_list **list_a, t_list **list_b, int size_list_a);
 // MAIN FONCTION
 int		error_free_ret(t_list* list);
 void	direct_sort(int size_list, t_list **list_a, t_list **list_b);
+
+// BUBBLE
+void	bubble_sort(t_list **list_a, t_list **list_b);
 
 #endif

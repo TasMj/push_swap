@@ -6,7 +6,7 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 11:18:23 by tas               #+#    #+#             */
-/*   Updated: 2022/10/13 18:43:46 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/10/18 17:50:42 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,11 @@ t_list	**decomposer_arg(int argc, char **argv, int i)
 	t_list	*start;
 	t_list	**list_stack_a;
 
-	list_stack_a = malloc(sizeof(t_list) * argc);
+	(void)argc;
+	list_stack_a = malloc(sizeof(t_list));
 	if (!list_stack_a)
 		return (NULL);
+	list_stack_a[0] = NULL;
 	stockage = ft_split(argv[1], ' ');
 	nb = ft_atoi(stockage[0]);
 	start = ft_lstnew(nb);
@@ -53,9 +55,10 @@ t_list	**attribution_arg(int argc, char **argv, int i)
 		list_stack_a = decomposer_arg(argc, argv, 1);
 	else
 	{
-		list_stack_a = malloc(sizeof(t_list) * argc);
+		list_stack_a = malloc(sizeof(t_list));
 		if (!list_stack_a)
 			return (NULL);
+		list_stack_a[0] = NULL;
 		start = ft_lstnew(ft_atoi(argv[1]));
 		ft_lstadd_back(list_stack_a, start);
 		start->premier = start;

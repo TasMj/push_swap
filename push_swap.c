@@ -6,7 +6,7 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 17:28:11 by tmejri            #+#    #+#             */
-/*   Updated: 2022/10/13 16:03:46 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/10/18 18:11:09 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,9 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		return (1);
 	list_b = malloc(sizeof(t_list));
+	if (!list_b)
+		return (1);
+	list_b[0] = NULL;
 	if (check_int(argc, argv))
 		return (error_free_ret(*list_b));
 	else

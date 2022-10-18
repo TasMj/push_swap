@@ -6,7 +6,7 @@
 #    By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/28 15:33:43 by tmejri            #+#    #+#              #
-#    Updated: 2022/10/13 16:31:20 by tmejri           ###   ########.fr        #
+#    Updated: 2022/10/18 15:16:17 by tmejri           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SRCS	= deplacement_push.c deplacement_revrotate.c  deplacement_rotate.c \
 		deplacement_swap.c fonctions_utiles.c ft_split.c gestion_listes.c \
 		initialisation.c initialisation_2.c liste_chainees.c other_sort.c \
 		other_sort_2.c push_swap.c sort_for_hundread.c sort_for_hundread_2.c \
-		sort_for_hundread_3.c \
+		sort_for_hundread_3.c bubble.c \
 
 OBJS			= ${SRCS:.c=.o}
 
