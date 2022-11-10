@@ -6,50 +6,37 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 12:09:56 by tmejri            #+#    #+#             */
-/*   Updated: 2022/10/26 15:00:16 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/11/10 19:23:47 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// return le nb de block
-int	size_block(t_list **list_a)
-{
-    int	size_list;
-	
-    size_list = ft_lstsize(*list_a);
-    if (size_list <= 100)
-		return (size_list / 5);
-    else
-		return (size_list / 10);
-}
-
 /* return le premier indice du block */
-int block(int nb_of_block)
+int block(int nb_of_block, int size_one_block)
 {
     if (nb_of_block == 1)
         return (0);
     else if (nb_of_block == 2)
-        return (19);
+        return (size_one_block);
     else if (nb_of_block == 3)
-        return (39);
+        return (2 * size_one_block);
     else if (nb_of_block == 4)
-        return (59);
+        return (3 *size_one_block);
     else if (nb_of_block == 5)
-        return (79);
+        return (4 * size_one_block);
     else
         return (0);
-
 }
 
 // return 1 si l'indice est compris ds le block 0 sinon
-int is_in_block(t_list **list, int nb_of_block)
+int is_in_block(t_list **list, int num_of_block, int size_one_block)
 {
     int min;
     int max;
 
-    min = block(nb_of_block);
-    max = min + 19;
+    min = block(num_of_block, size_one_block);
+    max = min + size_one_block - 1;
     if ((*list)->index >= min && (*list)->index <= max)
         return (1);
     else
@@ -57,7 +44,7 @@ int is_in_block(t_list **list, int nb_of_block)
 }
 
 /* return la position d'en haut du premier elt du block rencontre */
-int du_haut(t_list **list, int position)
+int du_haut(t_list **list, int position, int size_one_block)
 {
     int c;
     t_list *tmp;
@@ -66,7 +53,7 @@ int du_haut(t_list **list, int position)
     tmp = *list;
     while (*list)
     {
-        if (is_in_block(list, position))
+        if (is_in_block(list, position, size_one_block) == 1)
         {
             *list = tmp;
             return (c);
@@ -77,32 +64,36 @@ int du_haut(t_list **list, int position)
             (*list) = (*list)->next;
         }
     }
-    return (0);
+    return (0); //return autre car 0 peut etre une valeur de c
 }
 
+/* return l'indice de l'elm a l'indice position */
 int ft_end(t_list **list, int position)
 {
-	while (*list && position)
-	{
-		(*list) = (*list)->next;
+    while (position)
+    {
+	    (*list) = (*list)->next;
         position--;
-	}
-	return ((*list)->index);
+    }
+    return ((*list)->index);
 }
 
 /* return la position d'en bas du premier elt du block rencontre */
-int du_bas(t_list **list, int position_from_top)
+int du_bas(t_list **list, int size_one_block)
 {
     int     c;
     int     index_last;
+    int     size_list;
     t_list  *tmp;
 
     c = 0;
     tmp = *list;
+    size_list = ft_lstsize(*list) - 1;
     while (*list)
     {
-        index_last = ft_end(list, position_from_top); 
-        if (is_in_block(list, index_last) == 1)
+        index_last = ft_end(list, size_list);
+        printf("LAST INDEX: %d\n", index_last);
+        if (is_in_block(list, index_last, size_one_block) == 1)
         {
             *list = tmp;   
             return (c);
@@ -110,8 +101,8 @@ int du_bas(t_list **list, int position_from_top)
         else
         {
             c++;
-            position_from_top--;
-            (*list) = (*list)->next;
+            size_list--;
+            *list = tmp;
         }
     }
     return (0);

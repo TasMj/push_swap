@@ -6,7 +6,7 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 15:50:01 by tmejri            #+#    #+#             */
-/*   Updated: 2022/10/26 15:04:46 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/11/10 19:17:41 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,15 +119,16 @@ void	direct_sort(int size_list, t_list **list_a, t_list **list_b);
 void	bubble_sort(t_list **list_a, t_list **list_b);
 
 // NEW SORT
-int	size_block(t_list **list_a);
-int block(int nb_of_block);
-int is_in_block(t_list **list, int nb_of_block);
-int du_haut(t_list **list, int position);
-int ft_end(t_list **list, int position);
-int du_bas(t_list **list, int position_from_top);
-int side(t_list **list, int position);
-void	from_top_to_b(t_list **list_a, t_list **list_b, int num_du_block);
-void	from_down_to_b(t_list **list_a, t_list **list_b, int num_du_block);
+int		size_block(t_list **list_a);
+int 	block(int nb_of_block, int size_one_block);
+int 	is_in_block(t_list **list, int nb_of_block, int size_one_block);
+int 	du_haut(t_list **list, int position, int size_one_block);
+int 	ft_end(t_list **list, int position);
+int 	du_bas(t_list **list, int size_one_block);
+int 	side(t_list **list, int position, int size_one_block);
+void	from_top_to_b(t_list **list_a, t_list **list_b, int num_du_block, int size_one_block);
+void	from_down_to_b(t_list **list_a, t_list **list_b, int num_du_block, int size_one_block);
 void    sort_hundread(t_list **list_a, t_list **list_b, int block_size);
+int five_or_ten(t_list **list_a);
 
 #endif

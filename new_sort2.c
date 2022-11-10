@@ -6,20 +6,22 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 14:21:44 by tmejri            #+#    #+#             */
-/*   Updated: 2022/10/26 15:32:50 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/11/10 19:26:28 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 /* return 1 si on passe par en haut 2 si par en bas */
-int side(t_list **list, int position)
+int side(t_list **list, int position, int size_one_block)
 {
     int up;
     int down;
     
-    up = du_haut(list, position);
-    down = du_bas(list, position);
+    up = du_haut(list, position, size_one_block);
+    printf("up: %d\n", up);
+    down = du_bas(list, size_one_block);
+    printf("down: %d\n", down);
     if (up < down)
         return (1);
     else
@@ -27,11 +29,11 @@ int side(t_list **list, int position)
 }
 
 /* recup l'elt par le haut de la liste */
-void	from_top_to_b(t_list **list_a, t_list **list_b, int num_du_block)
+void	from_top_to_b(t_list **list_a, t_list **list_b, int num_du_block, int size_one_block)
 {
     while (*list_a)
     {
-        if (is_in_block(list_a, num_du_block))
+        if (is_in_block(list_a, num_du_block, size_one_block))
         {
             pb(list_b, list_a);
             break;
@@ -45,11 +47,11 @@ void	from_top_to_b(t_list **list_a, t_list **list_b, int num_du_block)
 }
 
 /* recup l'elt par le bas de la liste */
-void	from_down_to_b(t_list **list_a, t_list **list_b, int num_du_block)
+void	from_down_to_b(t_list **list_a, t_list **list_b, int num_du_block, int size_one_block)
 {
     while (*list_a)
     {
-        if (is_in_block(list_a, num_du_block))
+        if (is_in_block(list_a, num_du_block, size_one_block))
         {
             pb(list_b, list_a);
             break;
@@ -64,31 +66,31 @@ void	from_down_to_b(t_list **list_a, t_list **list_b, int num_du_block)
 
 void    sort_hundread(t_list **list_a, t_list **list_b, int block_size)
 {
-    int num_du_block;
+    // int num_du_block;
     int pos;
     int size_one_block;
+    int save_size_block_beg;
     t_list  *tmp;
 
     pos = 1;
-    size_one_block = 20;
+    size_one_block = size_block(list_a);
+    save_size_block_beg = size_one_block; // regler pb au cas ou block pas plein
     tmp = *list_a;
-    while (block_size > 1)
+    while (block_size > 1)  //faire pour 2 instead of 1
     {
         while (size_one_block > 0)
         {
-            printf("****************************\n\n");
-            num_du_block = block(pos);
-            printf("num du block: %d\n", side(list_a, pos));
-            if (side(list_a, pos) == 1)
+            if (side(list_a, pos, save_size_block_beg) == 1)
             {
-
-                from_top_to_b(list_a, list_b, num_du_block);
+                from_top_to_b(list_a, list_b, pos, size_one_block);
             }
-            else if (side(list_a, num_du_block) == 2)
-                from_down_to_b(list_a, list_b, num_du_block);
+            else if (side(list_a, pos, save_size_block_beg) == 2)
+            {
+                from_down_to_b(list_a, list_b, pos, size_one_block);
+            }
             size_one_block--;
         }
-        size_one_block = 20;
+        size_one_block = save_size_block_beg;
         pos++;
         block_size--;
         *list_a = tmp;
@@ -112,7 +114,7 @@ int main(int argc, char **argv)
 	index_tab(list_a, tab);
     if (ft_lstsize(*list_a) <= 100)
     {
-        block_size = size_block(list_a); 
+        block_size = five_or_ten(list_a);
         sort_hundread(list_a, list_b, block_size);
         // stack_to_5(list_a, list_b);
         // sort_for_5(list_a, list_b);
