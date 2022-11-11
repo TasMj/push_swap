@@ -6,7 +6,7 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 12:09:56 by tmejri            #+#    #+#             */
-/*   Updated: 2022/11/10 19:23:47 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/11/11 18:08:53 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,10 +92,10 @@ int du_bas(t_list **list, int size_one_block)
     while (*list)
     {
         index_last = ft_end(list, size_list);
-        printf("LAST INDEX: %d\n", index_last);
+        // printf("LAST INDEX: %d\n", index_last);
         if (is_in_block(list, index_last, size_one_block) == 1)
         {
-            *list = tmp;   
+            *list = tmp; 
             return (c);
         }
         else
@@ -105,6 +105,7 @@ int du_bas(t_list **list, int size_one_block)
             *list = tmp;
         }
     }
-    return (0);
+    // *list = tmp; 
+    return (c);
 }
 

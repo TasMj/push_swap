@@ -6,7 +6,7 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 15:50:01 by tmejri            #+#    #+#             */
-/*   Updated: 2022/11/10 19:17:41 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/11/11 18:14:09 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,5 +130,6 @@ void	from_top_to_b(t_list **list_a, t_list **list_b, int num_du_block, int size_
 void	from_down_to_b(t_list **list_a, t_list **list_b, int num_du_block, int size_one_block);
 void    sort_hundread(t_list **list_a, t_list **list_b, int block_size);
 int five_or_ten(t_list **list_a);
+
 
 #endif

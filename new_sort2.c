@@ -6,7 +6,7 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 14:21:44 by tmejri            #+#    #+#             */
-/*   Updated: 2022/11/10 19:26:28 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/11/11 19:18:54 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ int side(t_list **list, int position, int size_one_block)
     int down;
     
     up = du_haut(list, position, size_one_block);
-    printf("up: %d\n", up);
+    printf("\nup: %d\n", up);
     down = du_bas(list, size_one_block);
-    printf("down: %d\n", down);
+    printf("down: %d\n\n", down);
     if (up < down)
         return (1);
     else
@@ -57,16 +57,12 @@ void	from_down_to_b(t_list **list_a, t_list **list_b, int num_du_block, int size
             break;
         }
         else
-        {
             rra(list_a);
-            break;
-        }
     }
 }
 
 void    sort_hundread(t_list **list_a, t_list **list_b, int block_size)
 {
-    // int num_du_block;
     int pos;
     int size_one_block;
     int save_size_block_beg;
@@ -74,29 +70,32 @@ void    sort_hundread(t_list **list_a, t_list **list_b, int block_size)
 
     pos = 1;
     size_one_block = size_block(list_a);
-    save_size_block_beg = size_one_block; // regler pb au cas ou block pas plein
+    save_size_block_beg = size_one_block; // regler pb du cas ou block pas plein
     tmp = *list_a;
-    while (block_size > 1)  //faire pour 2 instead of 1
+    while (block_size > 1)  //faire pour 2 instead of 1 //ou pas
     {
         while (size_one_block > 0)
         {
+            printf("size one block: %d\n", size_one_block);
             if (side(list_a, pos, save_size_block_beg) == 1)
             {
+                printf("11111111111111111111111\n");
                 from_top_to_b(list_a, list_b, pos, size_one_block);
             }
-            else if (side(list_a, pos, save_size_block_beg) == 2)
+            else
             {
+                printf("22222222222222222222222\n");
                 from_down_to_b(list_a, list_b, pos, size_one_block);
             }
+            printf("CA SORT\n");
             size_one_block--;
         }
+        printf("*****CHANGE BLOCK*****\n");
         size_one_block = save_size_block_beg;
         pos++;
         block_size--;
         *list_a = tmp;
     }
-    
-    
 }
 
 int main(int argc, char **argv)
