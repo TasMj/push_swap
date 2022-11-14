@@ -6,7 +6,7 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 14:21:44 by tmejri            #+#    #+#             */
-/*   Updated: 2022/11/11 19:18:54 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/11/14 15:51:32 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /* recup l'elt par le haut de la liste */
 int	from_top_to_b(t_list **list_a, t_list **list_b, int num_du_block, int size_one_block)
 {
-    while (*list_a)
+    while (*list_a-index != a)
     {
         if (is_in_block(list_a, num_du_block, size_one_block))
         {
@@ -57,20 +57,21 @@ void    sort_hundread(t_list **list_a, t_list **list_b, int block_size)
     int     save_size_block_beg;
     t_list  *tmp;
     int     c;
-
+    int     a;
+    
     pos = 1;
     size_one_block = size_block(list_a);
     save_size_block_beg = size_one_block; // regler pb du cas ou block pas plein
     tmp = *list_a;
     while (block_size > 1)  //faire pour 2 instead of 1 //ou pas
     {
-        while (size_one_block > 2)
+        while (size_one_block > 0)
         {
             printf("size one block: %d\n", size_one_block);
-            if (side(list_a, pos, save_size_block_beg) == 1)
+            if (side(list_a, pos, save_size_block_beg, &a) == 1)
             {
                 printf("11111111111111111111111\n");
-                c = from_top_to_b(list_a, list_b, pos, size_one_block);
+                c = from_top_to_b(list_a, list_b, pos, size_one_block, a);
             }
             else if (side(list_a, pos, save_size_block_beg) == 2)
             {

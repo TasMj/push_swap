@@ -6,7 +6,7 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 18:47:20 by tmejri            #+#    #+#             */
-/*   Updated: 2022/11/10 18:49:25 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/11/14 15:28:56 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int side(t_list **list, int position, int size_one_block)
     printf("\nup: %d\n", up);
     down = du_bas(list, size_one_block);
     printf("down: %d\n\n", down);
-    if (up < down) // <=
+    if (up <= down) // <=
         return (1);
     else
         return (2);
