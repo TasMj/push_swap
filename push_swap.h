@@ -126,10 +126,10 @@ int 	du_haut(t_list **list, int position, int size_one_block);
 int 	ft_end(t_list **list, int position);
 int 	du_bas(t_list **list, int size_one_block);
 int 	side(t_list **list, int position, int size_one_block);
-void	from_top_to_b(t_list **list_a, t_list **list_b, int num_du_block, int size_one_block);
-void	from_down_to_b(t_list **list_a, t_list **list_b, int num_du_block, int size_one_block);
+int		from_top_to_b(t_list **list_a, t_list **list_b, int num_du_block, int size_one_block);
+int		from_down_to_b(t_list **list_a, t_list **list_b, int num_du_block, int size_one_block);
 void    sort_hundread(t_list **list_a, t_list **list_b, int block_size);
-int five_or_ten(t_list **list_a);
+int 	five_or_ten(t_list **list_a);
 
 
 #endif

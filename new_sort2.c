@@ -12,61 +12,51 @@
 
 #include "push_swap.h"
 
-/* return 1 si on passe par en haut 2 si par en bas */
-int side(t_list **list, int position, int size_one_block)
-{
-    int up;
-    int down;
-    
-    up = du_haut(list, position, size_one_block);
-    printf("\nup: %d\n", up);
-    down = du_bas(list, size_one_block);
-    printf("down: %d\n\n", down);
-    if (up < down)
-        return (1);
-    else
-        return (2);
-}
-
 /* recup l'elt par le haut de la liste */
-void	from_top_to_b(t_list **list_a, t_list **list_b, int num_du_block, int size_one_block)
+int	from_top_to_b(t_list **list_a, t_list **list_b, int num_du_block, int size_one_block)
 {
     while (*list_a)
     {
         if (is_in_block(list_a, num_du_block, size_one_block))
         {
             pb(list_b, list_a);
-            break;
+            return (8);
         }
         else
         {
             ra(list_a);
-            break;
+            return (6);
         }
     }
+    return (0);
 }
 
 /* recup l'elt par le bas de la liste */
-void	from_down_to_b(t_list **list_a, t_list **list_b, int num_du_block, int size_one_block)
+int	from_down_to_b(t_list **list_a, t_list **list_b, int num_du_block, int size_one_block)
 {
     while (*list_a)
     {
         if (is_in_block(list_a, num_du_block, size_one_block))
         {
             pb(list_b, list_a);
-            break;
+            return (8);
         }
         else
+        {
             rra(list_a);
+            return (6);
+        }
     }
+    return (0);
 }
 
 void    sort_hundread(t_list **list_a, t_list **list_b, int block_size)
 {
-    int pos;
-    int size_one_block;
-    int save_size_block_beg;
+    int     pos;
+    int     size_one_block;
+    int     save_size_block_beg;
     t_list  *tmp;
+    int     c;
 
     pos = 1;
     size_one_block = size_block(list_a);
@@ -74,21 +64,25 @@ void    sort_hundread(t_list **list_a, t_list **list_b, int block_size)
     tmp = *list_a;
     while (block_size > 1)  //faire pour 2 instead of 1 //ou pas
     {
-        while (size_one_block > 0)
+        while (size_one_block > 2)
         {
             printf("size one block: %d\n", size_one_block);
             if (side(list_a, pos, save_size_block_beg) == 1)
             {
                 printf("11111111111111111111111\n");
-                from_top_to_b(list_a, list_b, pos, size_one_block);
+                c = from_top_to_b(list_a, list_b, pos, size_one_block);
             }
-            else
+            else if (side(list_a, pos, save_size_block_beg) == 2)
             {
                 printf("22222222222222222222222\n");
-                from_down_to_b(list_a, list_b, pos, size_one_block);
+                c = from_down_to_b(list_a, list_b, pos, size_one_block);
             }
-            printf("CA SORT\n");
-            size_one_block--;
+            printf("THE C MGL: %d\n", c);
+
+            if (c == 8)
+            {
+                size_one_block--;
+            }
         }
         printf("*****CHANGE BLOCK*****\n");
         size_one_block = save_size_block_beg;
@@ -124,7 +118,7 @@ int main(int argc, char **argv)
     // {
     //     // sort_500();
     // }
-    printf("/////////////// LISTE A /////////////////\n\n");
+    printf("/////////////// LISTE A /////////////////\n");
 	while (*list_a)
 	{
 		printf("[%d]\n", (*list_a)->content);

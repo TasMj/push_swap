@@ -52,3 +52,19 @@ int	size_block(t_list **list_a)
             return (div);
     }
 }
+
+/* return 1 si on passe par en haut 2 si par en bas */
+int side(t_list **list, int position, int size_one_block)
+{
+    int up;
+    int down;
+    
+    up = du_haut(list, position, size_one_block);
+    printf("\nup: %d\n", up);
+    down = du_bas(list, size_one_block);
+    printf("down: %d\n\n", down);
+    if (up < down) // <=
+        return (1);
+    else
+        return (2);
+}
