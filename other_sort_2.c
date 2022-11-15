@@ -6,7 +6,7 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 14:17:17 by tmejri            #+#    #+#             */
-/*   Updated: 2022/11/15 16:50:54 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/11/15 18:49:02 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,16 @@ void	sort_for_2(t_list **list)
 de tous les differents cas de figures qu'on peut rencontrer */
 void	sort_for_3(t_list **list)
 {
+	t_list	*tmp;
 	t_list	*middle;
 	t_list	*last;
 	
-	(*list) = (*list)->premier;
+	tmp = *list;
 	middle = (*list)->next;
 	last = (middle)->next;
-	if ((*list)->premier->content > middle->content)
+	if (tmp->content > middle->content)
 	{
-		if ((*list)->premier->content < last->content)
+		if (tmp->content < last->content)
 			sa(list);
 		else if (middle->content > last->content)
 		{
@@ -45,9 +46,9 @@ void	sort_for_3(t_list **list)
 		else if (middle->content < last->content)
 			ra(list);
 	}
-	else if ((*list)->premier->content < middle->content)
+	else if (tmp->content < middle->content)
 	{
-		if ((*list)->premier->content > last->content)
+		if (tmp->content > last->content)
 			rra(list);
 		else if (middle->content > last->content)
 		{

@@ -6,7 +6,7 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 18:47:20 by tmejri            #+#    #+#             */
-/*   Updated: 2022/11/15 15:30:04 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/11/15 18:46:57 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 int five_or_ten(t_list **list_a)
 {
     int	size_list;
-	
+	// 
     size_list = ft_lstsize(*list_a);
     if (size_list <= 100)
         return (5);
@@ -32,25 +32,12 @@ en blocks de 10 si > 100) */
 int	size_block(t_list **list_a)
 {
     int	size_list;
-    int	div;
 	
     size_list = ft_lstsize(*list_a);
     if (size_list <= 100)
-    {
-        div = size_list / 5;
-        if (div * 5 != size_list)
-            return ((size_list / 5) + 1);
-        else
-            return (div);
-    }
+        return (size_list / 5);
     else
-    {
-        div = size_list / 10;
-        if (div * 10 != size_list)
-            return ((size_list / 10) + 1);
-        else
-            return (div);
-    }
+        return (size_list / 10);
 }
 
 /* return 1 si on passe par en haut 2 si par en bas */

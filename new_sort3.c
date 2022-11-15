@@ -6,7 +6,7 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 14:21:44 by tmejri            #+#    #+#             */
-/*   Updated: 2022/11/15 16:53:34 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/11/15 18:49:35 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void    sort_hundread(t_list **list_a, t_list **list_b, int block_size)
             {
                 printf("11111111111111111111111\n");
                 from_top_to_b(list_a, list_b, b);
-                print_list(list_a, list_b);
+                // print_list(list_a, list_b);
             }
             else if (side(list_a, numero_du_block, save_size_block_beg, &a, &b) == 2)
             {
@@ -73,7 +73,7 @@ void    sort_hundread(t_list **list_a, t_list **list_b, int block_size)
         numero_du_block++;
         block_size--;
     }
-    print_list(list_a, list_b);
+    // print_list(list_a, list_b);
 }
 
 void    print_list(t_list **list_a, t_list **list_b)
@@ -110,9 +110,14 @@ void    diminuer(t_list **list_a, t_list **list_b)
     if (size_a == 2)
         sort_for_2(list_a);
     if (size_a == 3)
+    {
+        printf("LLLLLLLLLLLLLLLLLLLLLLL\n");   
         sort_for_3(list_a);
-    // if (size_a == 4)                           PBBBBBB
-        // sort_for_4(list_a, list_b);
+    }
+    if (size_a == 4)
+    {
+        sort_for_4(list_a, list_b);
+    }
     // if (size_a == 5)
         // sort_for_5(list_a, list_b);
     // if (size_a > 5)
