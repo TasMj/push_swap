@@ -1,135 +1,113 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   new_sort2.c                                        :+:      :+:    :+:   */
+/*   new_sort.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/26 14:21:44 by tmejri            #+#    #+#             */
-/*   Updated: 2022/11/14 15:51:32 by tmejri           ###   ########.fr       */
+/*   Created: 2022/10/26 12:09:56 by tmejri            #+#    #+#             */
+/*   Updated: 2022/11/14 15:52:18 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* recup l'elt par le haut de la liste */
-int	from_top_to_b(t_list **list_a, t_list **list_b, int num_du_block, int size_one_block)
+/* return le premier indice du block */
+int block(int numero_du_block, int size_one_block)
 {
-    while (*list_a-index != a)
+    if (numero_du_block == 1)
+        return (0);
+    else if (numero_du_block == 2)
+        return (size_one_block);
+    else if (numero_du_block == 3)
+        return (2 * size_one_block);
+    else if (numero_du_block == 4)
+        return (3 *size_one_block);
+    else if (numero_du_block == 5)
+        return (4 * size_one_block);
+    else
+        return (0);
+}
+
+// return 1 si l'indice est compris ds le block 0 sinon
+int is_in_block(t_list *list, int numero_du_block, int size_one_block)
+{
+    int min;
+    int max;
+
+    min = block(numero_du_block, size_one_block);
+    max = min + size_one_block - 1;
+    // printf("%d <= x <= %d\n", min, max);
+    if (list->index >= min && list->index <= max)
+        return (1);
+    else
+        return (0);
+}
+
+/* return la position d'en haut du premier elt du block rencontre */
+int du_haut(t_list **list, int numero_du_block, int size_one_block, int *b)
+{
+    int c;
+    t_list *tmp;
+
+    c = 0;
+    tmp = *list;
+    printf("num du block: %d\n", numero_du_block);
+    while (*list)
     {
-        if (is_in_block(list_a, num_du_block, size_one_block))
+        if (is_in_block(*list, numero_du_block, size_one_block) == 1)
         {
-            pb(list_b, list_a);
-            return (8);
+            (*b) = (*list)->index;
+            *list = tmp;
+            return (c);
         }
         else
         {
-            ra(list_a);
-            return (6);
+            c++;
+            (*list) = (*list)->next;
         }
     }
-    return (0);
+    return (c); //return autre car 0 peut etre une valeur de c
 }
 
-/* recup l'elt par le bas de la liste */
-int	from_down_to_b(t_list **list_a, t_list **list_b, int num_du_block, int size_one_block)
+/* return l'indice de l'elm a l'indice position */
+void    ft_end(t_list **list, int size_list)
 {
-    while (*list_a)
+    while (size_list > 1)
     {
-        if (is_in_block(list_a, num_du_block, size_one_block))
-        {
-            pb(list_b, list_a);
-            return (8);
-        }
-        else
-        {
-            rra(list_a);
-            return (6);
-        }
+	    (*list) = (*list)->next;
+        size_list--;
     }
-    return (0);
+    // return (*list);
 }
 
-void    sort_hundread(t_list **list_a, t_list **list_b, int block_size)
+/* return la position d'en bas du premier elt du block rencontre */
+int du_bas(t_list **list, int size_one_block, int numero_du_block, int *a)
 {
-    int     pos;
-    int     size_one_block;
-    int     save_size_block_beg;
-    t_list  *tmp;
     int     c;
-    int     a;
-    
-    pos = 1;
-    size_one_block = size_block(list_a);
-    save_size_block_beg = size_one_block; // regler pb du cas ou block pas plein
-    tmp = *list_a;
-    while (block_size > 1)  //faire pour 2 instead of 1 //ou pas
+    int     size_list;
+    t_list  *tmp;
+
+    c = 0;
+    tmp = *list;
+    size_list = ft_lstsize(*list) - 1;
+    while (*list)
     {
-        while (size_one_block > 0)
+        ft_end(list, size_list);
+        printf("------------ %d\n", (*list)->index);
+        if (is_in_block(*list, numero_du_block, size_one_block) == 1)
         {
-            printf("size one block: %d\n", size_one_block);
-            if (side(list_a, pos, save_size_block_beg, &a) == 1)
-            {
-                printf("11111111111111111111111\n");
-                c = from_top_to_b(list_a, list_b, pos, size_one_block, a);
-            }
-            else if (side(list_a, pos, save_size_block_beg) == 2)
-            {
-                printf("22222222222222222222222\n");
-                c = from_down_to_b(list_a, list_b, pos, size_one_block);
-            }
-            printf("THE C MGL: %d\n", c);
-
-            if (c == 8)
-            {
-                size_one_block--;
-            }
+            (*a) = (*list)->index;
+            *list = tmp;
+            return (c);
         }
-        printf("*****CHANGE BLOCK*****\n");
-        size_one_block = save_size_block_beg;
-        pos++;
-        block_size--;
-        *list_a = tmp;
+        else
+        {
+            c++;
+            size_list--;
+            *list = tmp;
+        }
     }
-}
-
-int main(int argc, char **argv)
-{
-    t_list  **list_a;
-    t_list  **list_b;
-    int		*tab;
-    int     block_size;
-
-	list_a = attribution_arg(argc, argv, 2);
-	list_b = malloc(sizeof(t_list));
-	list_b[0] = NULL;
-	tab = tab_to_sort(list_a);
-	tab = tab_sorted(tab, list_a);
-	index_tab(list_a, tab);
-    if (ft_lstsize(*list_a) <= 100)
-    {
-        block_size = five_or_ten(list_a);
-        sort_hundread(list_a, list_b, block_size);
-        // stack_to_5(list_a, list_b);
-        // sort_for_5(list_a, list_b);
-        // sort_in_stack_a(list_a, list_b);
-    }
-    
-    // else if (size_block(list_a) == 10)
-    // {
-    //     // sort_500();
-    // }
-    printf("/////////////// LISTE A /////////////////\n");
-	while (*list_a)
-	{
-		printf("[%d]\n", (*list_a)->content);
-		(*list_a) = (*list_a)->next;
-	}
-	printf("\n////////////// LISTE B //////////////////\n");
-	while (*list_b)
-	{
-		printf("[%d]\n", (*list_b)->content);
-		(*list_b) = (*list_b)->next;
-	}
-	printf("/////////////////////////////////////////\n");
+    *list = tmp;
+    return (c);
 }

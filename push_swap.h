@@ -121,13 +121,13 @@ void	bubble_sort(t_list **list_a, t_list **list_b);
 // NEW SORT
 int		size_block(t_list **list_a);
 int 	block(int nb_of_block, int size_one_block);
-int 	is_in_block(t_list **list, int nb_of_block, int size_one_block);
-int 	du_haut(t_list **list, int position, int size_one_block);
-int 	ft_end(t_list **list, int position);
-int 	du_bas(t_list **list, int size_one_block);
-int 	side(t_list **list, int position, int size_one_block);
-int		from_top_to_b(t_list **list_a, t_list **list_b, int num_du_block, int size_one_block);
-int		from_down_to_b(t_list **list_a, t_list **list_b, int num_du_block, int size_one_block);
+int 	is_in_block(t_list *list, int nb_of_block, int size_one_block);
+int 	du_haut(t_list **list, int position, int size_one_block, int *a);
+void	ft_end(t_list **list, int position);
+int 	du_bas(t_list **list, int numero_du_block, int size_one_block, int *a);
+int 	side(t_list **list, int position, int size_one_block, int *a, int *b);
+void	from_top_to_b(t_list **list_a, t_list **list_b, int a);
+void	from_down_to_b(t_list **list_a, t_list **list_b, int a);
 void    sort_hundread(t_list **list_a, t_list **list_b, int block_size);
 int 	five_or_ten(t_list **list_a);
 
