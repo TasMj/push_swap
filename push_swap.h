@@ -6,7 +6,7 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 15:50:01 by tmejri            #+#    #+#             */
-/*   Updated: 2022/11/11 18:14:09 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/11/15 16:33:14 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void    	ft_print(t_list **list); //a suppr
 
 // SORT 2, 3, 4 et 5
 void	sort_for_2(t_list **list);
-void	sort_for_3(t_list **list, t_list *middle, t_list *last);
+void	sort_for_3(t_list **list);
 void	position_1(t_list **list_a);
 void	position_2(t_list **list_a);
 void    part_1_sort_5(t_list **list_a);

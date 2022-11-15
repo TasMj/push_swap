@@ -6,7 +6,7 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 02:12:07 by tas               #+#    #+#             */
-/*   Updated: 2022/10/18 15:28:12 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/11/15 16:35:55 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void	sort_for_5(t_list **list_a, t_list **list_b)
 	pb(list_b, list_a);
 	if ((*list_a)->next && (*list_a)->next->next)
 	{	
-		sort_for_3(list_a, (*list_a)->next, (*list_a)->next->next);
+		sort_for_3(list_a);
 		pa(list_a, list_b);
 		part_1_sort_5(list_a);
 		pa(list_a, list_b);

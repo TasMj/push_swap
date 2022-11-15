@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   new_sort3.c                                        :+:      :+:    :+:   */
+/*   new_sort.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 18:47:20 by tmejri            #+#    #+#             */
-/*   Updated: 2022/11/14 15:28:56 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/11/15 15:30:04 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,40 @@ int side(t_list **list, int numero_du_block, int size_one_block, int *a, int *b)
     printf("\nup: %d\n", up);
     down = du_bas(list, numero_du_block, size_one_block, a);
     printf("down: %d\n\n", down);
-    if (up <= down)
+    if ((up <= down && up >= 0) || down == -1)
         return (1);
     else
         return (2);
+}
+
+/* return le premier indice du block */
+int block(int numero_du_block, int size_one_block)
+{
+    if (numero_du_block == 1)
+        return (0);
+    else if (numero_du_block == 2)
+        return (size_one_block);
+    else if (numero_du_block == 3)
+        return (2 * size_one_block);
+    else if (numero_du_block == 4)
+        return (3 *size_one_block);
+    else if (numero_du_block == 5)
+        return (4 * size_one_block);
+    else
+        return (0);
+}
+
+// return 1 si l'indice est compris ds le block 0 sinon
+int is_in_block(t_list *list, int numero_du_block, int size_one_block)
+{
+    int min;
+    int max;
+
+    min = block(numero_du_block, size_one_block);
+    max = min + size_one_block - 1;
+    // printf("%d <= x <= %d\n", min, max);
+    if (list->index >= min && list->index <= max)
+        return (1);
+    else
+        return (0);
 }

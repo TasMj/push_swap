@@ -6,7 +6,7 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 17:28:11 by tmejri            #+#    #+#             */
-/*   Updated: 2022/10/25 16:59:21 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/11/15 16:36:12 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	direct_sort(int size_list, t_list **list_a, t_list **list_b)
 	if (size_list == 2)
 		sort_for_2(list_a);
 	else if (size_list == 3)
-		sort_for_3(list_a, (*list_a)->next, (*list_a)->next->next);
+		sort_for_3(list_a);
 	else if (size_list == 4)
 		sort_for_4(list_a, list_b);
 	else if (size_list == 5)

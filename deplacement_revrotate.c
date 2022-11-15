@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   deplacement_revrotate.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 17:20:54 by tas               #+#    #+#             */
-/*   Updated: 2022/10/11 22:59:20 by tas              ###   ########.fr       */
+/*   Updated: 2022/11/15 16:12:15 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 le dernier elt devient le premier */
 t_list	**rra(t_list **list_stack_a)
 {
+	/*
 	t_list	*last;
 	t_list	*first;
 	t_list	*tmp;
@@ -36,7 +37,26 @@ t_list	**rra(t_list **list_stack_a)
 	}
 	(*list_stack_a)->next = NULL;
 	(*list_stack_a) = last;
+	write(1, "rra\n", 4);*/
+	
+	t_list	*front;
+	t_list	*last;
+
+	if ((*list_stack_a)->next != NULL)
+	{
+		front = NULL;
+		last = (*list_stack_a);
+		while (last->next != NULL)
+		{
+			front = last;
+			last = last->next;
+		}
+		front->next = NULL;
+		last->next = (*list_stack_a);
+		(*list_stack_a) = last;
+	}
 	write(1, "rra\n", 4);
+
 	return (list_stack_a);
 }
 

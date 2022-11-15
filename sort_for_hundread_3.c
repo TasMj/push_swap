@@ -6,7 +6,7 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 19:42:09 by tmejri            #+#    #+#             */
-/*   Updated: 2022/10/13 15:36:16 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/11/15 16:36:29 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ void	sort_for_hundread(t_list **list_a, t_list **list_b, int size_list_a)
 	index_tab(list_a, tab);
 	list_b = seperate_by_mediane(list_a, list_b);
 	if (size_list_a == 6)
-		sort_for_3(list_a, (*list_a)->next, (*list_a)->next->next);
+		sort_for_3(list_a);
 	if (size_list_a == 7)
 		sort_for_4(list_a, list_b);
 	else
