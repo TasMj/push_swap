@@ -6,7 +6,7 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 14:17:17 by tmejri            #+#    #+#             */
-/*   Updated: 2022/11/15 16:35:35 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/11/15 16:50:54 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,12 @@
 /* swap a et b si a > b, sinon renvoie la liste de départ */
 void	sort_for_2(t_list **list)
 {
-	(*list) = (*list)->premier;
+	t_list	*tmp;
+
+	tmp = *list;
 	if ((*list)->content > (*list)->next->content)
 		sa(list);
+	*list = tmp;
 }
 
 /* trie dans l'ordre croissant une liste de 3 elts en fonction

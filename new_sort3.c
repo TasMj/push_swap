@@ -6,7 +6,7 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 14:21:44 by tmejri            #+#    #+#             */
-/*   Updated: 2022/11/15 16:43:38 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/11/15 16:53:34 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ void    sort_hundread(t_list **list_a, t_list **list_b, int block_size)
         numero_du_block++;
         block_size--;
     }
+    print_list(list_a, list_b);
 }
 
 void    print_list(t_list **list_a, t_list **list_b)
@@ -100,7 +101,7 @@ void    print_list(t_list **list_a, t_list **list_b)
     
 }
 
-void    diminuer(t_list **list_a)
+void    diminuer(t_list **list_a, t_list **list_b)
 {
     int size_a;
 
@@ -108,9 +109,9 @@ void    diminuer(t_list **list_a)
     printf("SIZE: %d\n", size_a);
     if (size_a == 2)
         sort_for_2(list_a);
-    // if (size_a == 3)
-        // sort_for_3(list_a);
-    // if (size_a == 4)
+    if (size_a == 3)
+        sort_for_3(list_a);
+    // if (size_a == 4)                           PBBBBBB
         // sort_for_4(list_a, list_b);
     // if (size_a == 5)
         // sort_for_5(list_a, list_b);
@@ -139,7 +140,7 @@ int main(int argc, char **argv)
         block_size = five_or_ten(list_a);
         sort_hundread(list_a, list_b, block_size);
         printf("OK C'EEEEEEEEEEEEEEEEESSSSSSSSSSSSSSSSSSST PARTIIIIIIIIIIIIIIIIIIIIIIIIIIIII\n");
-        // diminuer(list_a);
+        diminuer(list_a, list_b);
         // sort_in_stack_a(list_a, list_b);
     }
 
