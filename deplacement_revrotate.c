@@ -14,31 +14,8 @@
 
 /* décale de 1 toute la stack a
 le dernier elt devient le premier */
-t_list	**rra(t_list **list_stack_a)
+void	rra(t_list **list_stack_a)
 {
-	/*
-	t_list	*last;
-	t_list	*first;
-	t_list	*tmp;
-
-	(*list_stack_a) = (*list_stack_a)->premier;
-	first = malloc(sizeof(t_list));
-	first = (*list_stack_a);
-	last = malloc(sizeof(t_list));
-	last = ft_lstlast(*list_stack_a);
-	tmp = last;
-	last->premier = tmp;
-	first->premier = tmp;
-	last->next = first;
-	while ((*list_stack_a)->next != last)
-	{
-		(*list_stack_a)->premier = tmp;
-		(*list_stack_a) = (*list_stack_a)->next;
-	}
-	(*list_stack_a)->next = NULL;
-	(*list_stack_a) = last;
-	write(1, "rra\n", 4);*/
-	
 	t_list	*front;
 	t_list	*last;
 
@@ -56,36 +33,29 @@ t_list	**rra(t_list **list_stack_a)
 		(*list_stack_a) = last;
 	}
 	write(1, "rra\n", 4);
-
-	return (list_stack_a);
 }
 
 /* décale de 1 toute la stack b
 le dernier elt devient le premier */
-t_list	**rrb(t_list **list_stack_b)
+void	rrb(t_list **list_stack_b)
 {
+	t_list	*front;
 	t_list	*last;
-	t_list	*first;
-	t_list	*tmp;
 
-	(*list_stack_b) = (*list_stack_b)->premier;
-	first = malloc(sizeof(t_list));
-	first = (*list_stack_b);
-	last = malloc(sizeof(t_list));
-	last = ft_lstlast(*list_stack_b);
-	tmp = last;
-	last->premier = tmp;
-	first->premier = tmp;
-	last->next = first;
-	while ((*list_stack_b)->next != last)
+	if ((*list_stack_b)->next != NULL)
 	{
-		(*list_stack_b)->premier = tmp;
-		(*list_stack_b) = (*list_stack_b)->next;
+		front = NULL;
+		last = (*list_stack_b);
+		while (last->next != NULL)
+		{
+			front = last;
+			last = last->next;
+		}
+		front->next = NULL;
+		last->next = (*list_stack_b);
+		(*list_stack_b) = last;
 	}
-	(*list_stack_b)->next = NULL;
-	(*list_stack_b) = last;
 	write(1, "rrb\n", 4);
-	return (list_stack_b);
 }
 
 /* décale de 1 les stack a & b

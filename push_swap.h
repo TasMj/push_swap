@@ -73,13 +73,13 @@ void    	pa(t_list **list_stack_a, t_list **list_stack_b);
 void	   	pb(t_list **list_stack_b, t_list **list_stack_a);
 
 // ROTATE
-t_list    	**ra(t_list **list_stack_a);
-t_list    	**rb(t_list **list_stack_b);
+void		ra(t_list **list_stack_a);
+void		rb(t_list **list_stack_b);
 void	    rr(t_list **list_stack_a, t_list **list_stack_b);
 
 // REVERSE ROTATE
-t_list    	**rra(t_list **list_stack_a);
-t_list    	**rrb(t_list **list_stack_b);
+void		rra(t_list **list_stack_a);
+void		rrb(t_list **list_stack_b);
 void	    rrr(t_list **list_stack_a, t_list **list_stack_b);
 
 // AFFICHAGE

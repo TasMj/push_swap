@@ -18,12 +18,12 @@ void	pa(t_list **list_stack_a, t_list **list_stack_b)
 {
 	t_list	*tmp;
 
-	if (*list_stack_a == NULL)
+	if (*list_stack_b == NULL)
 		return ;
-	tmp = *list_stack_a;
-	*list_stack_a = (*list_stack_a)->next;
-	tmp->next = *list_stack_b;
-	*list_stack_b = tmp;
+	tmp = *list_stack_b;
+	*list_stack_b = (*list_stack_b)->next;
+	tmp->next = *list_stack_a;
+	*list_stack_a = tmp;
 	(write(1, "pa\n", 3));
 }
 

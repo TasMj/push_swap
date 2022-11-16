@@ -13,28 +13,6 @@
 #include "push_swap.h"
 
 /* return la position d'en haut du premier elt du block rencontre */
-// int du_haut(t_list **list, int numero_du_block, int size_one_block, int *b)
-// {
-    // int c;
-    // t_list    *tmp;
-// 
-    // c = 0;
-    // tmp = *list;
-    // while (*list)
-    // {
-// 
-    // while (!(is_in_block(*list, numero_du_block, size_one_block) == 1))
-    // {
-        // c++;
-        // (*list) = (*list)->next;
-    // }
-    // if (is_in_block(*list, numero_du_block, size_one_block) == 1)
-        // (*b) = (*list)->index;
-    // }
-    // *list = tmp;
-    // return (c); //return autre car 0 peut etre une valeur de c
-// }
-
 int du_haut(t_list **list, int numero_du_block, int size_one_block, int *b)
 {
     int c;
@@ -56,7 +34,7 @@ int du_haut(t_list **list, int numero_du_block, int size_one_block, int *b)
             (*list) = (*list)->next;
         }
     }
-    return (-1); //return autre car 0 peut etre une valeur de c
+    return (-1);
 }
 
 /* return l'indice de l'elm a l'indice position */
@@ -82,7 +60,6 @@ int du_bas(t_list **list, int numero_du_block, int size_one_block, int *a)
     while (*list)
     {
         ft_end(list, size_list);
-        // printf("------------ %d\n", (*list)->index);
         if (is_in_block(*list, numero_du_block, size_one_block) == 1)
         {
             (*a) = (*list)->index;

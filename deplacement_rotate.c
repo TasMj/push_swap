@@ -14,56 +14,42 @@
 
 /* décale de 1 toute la stack a
 le premier elt devient le dernier */
-t_list	**ra(t_list **list_stack_a)
+void	ra(t_list **list_stack_a)
 {
-	t_list	*tmp;
+	t_list	*front;
 	t_list	*last;
-	int		stock_last;
 
-	stock_last = (*list_stack_a)->index;
-	last = ft_lstnew((*list_stack_a)->content);
-	(*list_stack_a) = (*list_stack_a)->next;
-	(*list_stack_a)->premier = (*list_stack_a);
-	tmp = (*list_stack_a);
-	last->premier = tmp;
-	last->index = stock_last;
-	while ((*list_stack_a)->next != NULL)
+	if ((*list_stack_a)->next != NULL)
 	{
-		(*list_stack_a)->premier = tmp;
-		(*list_stack_a) = (*list_stack_a)->next;
-	}
-	(*list_stack_a)->premier = tmp;
-	(*list_stack_a)->next = last;
-	(*list_stack_a) = (*list_stack_a)->premier;
+		front = *list_stack_a;
+		last = *list_stack_a;
+		while (last->next != NULL)
+			last = last->next;
+		*list_stack_a = front->next;
+		last->next = front;
+		front->next = NULL;
+	}	
 	write(1, "ra\n", 3);
-	return (list_stack_a);
 }
 
 /* décale de 1 toute la stack b
 le premier elt devient le dernier */
-t_list	**rb(t_list **list_stack_b)
+void	rb(t_list **list_stack_b)
 {
-	t_list	*tmp;
+	t_list	*front;
 	t_list	*last;
-	int		stock_last;
 
-	stock_last = (*list_stack_b)->index;
-	last = ft_lstnew((*list_stack_b)->content);
-	(*list_stack_b) = (*list_stack_b)->next;
-	(*list_stack_b)->premier = (*list_stack_b);
-	tmp = (*list_stack_b);
-	last->premier = tmp;
-	last->index = stock_last;
-	while ((*list_stack_b)->next != NULL)
+	if ((*list_stack_b)->next != NULL)
 	{
-		(*list_stack_b)->premier = tmp;
-		(*list_stack_b) = (*list_stack_b)->next;
-	}
-	(*list_stack_b)->premier = tmp;
-	(*list_stack_b)->next = last;
-	(*list_stack_b) = (*list_stack_b)->premier;
+		front = *list_stack_b;
+		last = *list_stack_b;
+		while (last->next != NULL)
+			last = last->next;
+		*list_stack_b = front->next;
+		last->next = front;
+		front->next = NULL;
+	}	
 	write(1, "rb\n", 3);
-	return (list_stack_b);
 }
 
 /* décale de 1 les elts des stacks a et stack b 

@@ -53,7 +53,6 @@ void    sort_hundread(t_list **list_a, t_list **list_b, int block_size)
             {
                 printf("11111111111111111111111\n");
                 from_top_to_b(list_a, list_b, b);
-                // print_list(list_a, list_b);
             }
             else if (side(list_a, numero_du_block, save_size_block_beg, &a, &b) == 2)
             {
@@ -73,16 +72,15 @@ void    sort_hundread(t_list **list_a, t_list **list_b, int block_size)
         numero_du_block++;
         block_size--;
     }
-    // print_list(list_a, list_b);
 }
 
 void    print_list(t_list **list_a, t_list **list_b)
 {
-    t_list *temp;
-    t_list *temp1;
+    t_list *tmp;
+    t_list *tmp1;
     
-    temp = *list_a;
-    temp1 = *list_b;
+    tmp = *list_a;
+    tmp1 = *list_b;
     printf("/////////////// LISTE A /////////////////\n");
 	while (*list_a)
 	{
@@ -96,8 +94,8 @@ void    print_list(t_list **list_a, t_list **list_b)
 		(*list_b) = (*list_b)->next;
 	}
     printf("\n////////////// FIN //////////////////\n");
-    *list_a = temp;
-    *list_b = temp1;
+    *list_a = tmp;
+    *list_b = tmp1;
     
 }
 
@@ -111,11 +109,11 @@ void    diminuer(t_list **list_a, t_list **list_b)
         sort_for_2(list_a);
     if (size_a == 3)
     {
-        printf("LLLLLLLLLLLLLLLLLLLLLLL\n");   
         sort_for_3(list_a);
     }
     if (size_a == 4)
     {
+        printf("LLLLLLLLLLLLLLLLLLLLLLL\n");   
         sort_for_4(list_a, list_b);
     }
     // if (size_a == 5)
