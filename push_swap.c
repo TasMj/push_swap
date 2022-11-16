@@ -6,7 +6,7 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 17:28:11 by tmejri            #+#    #+#             */
-/*   Updated: 2022/11/16 18:44:49 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/11/16 20:10:18 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,4 @@ int	main(int argc, char **argv)
 		direct_sort(size_list, list_a, list_b);
 	}
 	free (*list_b);
-    print_list(list_a, list_b);
 }
