@@ -1,16 +1,65 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_for_hundread.c                                :+:      :+:    :+:   */
+/*   big_sort_tools.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/29 15:20:18 by tmejri            #+#    #+#             */
-/*   Updated: 2022/10/18 17:07:48 by tmejri           ###   ########.fr       */
+/*   Created: 2022/11/16 14:25:30 by tmejri            #+#    #+#             */
+/*   Updated: 2022/11/16 14:33:17 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+/* recupere tous les elts d'une liste et les range dans un tableau */
+void	*tab_to_sort(t_list **list)
+{
+	int		size;
+	int		*tab_int;
+	t_list	*tmp;
+	int		i;
+
+	i = 0;
+	size = ft_lstsize(*list);
+	tab_int = (int *)malloc(sizeof(int) * size);
+	tmp = *list;
+	while (*list)
+	{
+		tab_int[i] = (*list)->content;
+		(*list) = (*list)->next;
+		i++;
+	}
+	*list = tmp;
+	return (tab_int);
+}
+
+/* trie dans l'ordre croissant les elts d'un tableau */
+void	*tab_sorted(int	*tab, t_list **list)
+{
+	int	i;
+	int	size;
+	int	tmp;
+
+	i = 1;
+	size = ft_lstsize(*list);
+	while (size > 1)
+	{
+		while (i < size)
+		{
+			if (tab[i - 1] > tab[i])
+			{
+				tmp = tab[i];
+				tab[i] = tab[i - 1];
+				tab[i - 1] = tmp;
+			}
+			i++;
+		}
+		i = 1;
+		size--;
+	}
+	return (tab);
+}
 
 void	search_and_affect(t_list **list, int *size, int *tab, int *i)
 {
@@ -48,30 +97,6 @@ void	index_tab(t_list **list, int *tab)
 		size = size_mem;
 	}
 	*list = tmp;
-}
-
-/* calcule la mediane et push b tous les elt qui ont
-un index inferieur a celui de la mediane */
-t_list	**seperate_by_mediane(t_list **list, t_list **list_b)
-{
-	t_list	*tmp_a;
-	int		size;
-	int		mediane;
-
-	tmp_a = *list;
-	size = ft_lstsize(*list);
-	mediane = size / 2;
-	while (size > 0)
-	{
-		if (tmp_a->index < mediane)
-			pb(list_b, list);
-		else
-			ra(list);
-		size--;
-		tmp_a = tmp_a->next;
-	}
-	(*list_b) = (*list_b)->premier;
-	return (list_b);
 }
 
 /* pb tous les autres nombres jusqu'a ce qu'il 

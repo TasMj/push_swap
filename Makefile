@@ -6,17 +6,17 @@
 #    By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/28 15:33:43 by tmejri            #+#    #+#              #
-#    Updated: 2022/10/18 15:16:17 by tmejri           ###   ########.fr        #
+#    Updated: 2022/11/16 19:03:07 by tmejri           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			= push_swap
 
-SRCS	= deplacement_push.c deplacement_revrotate.c  deplacement_rotate.c \
+SRCS	= big_sort_tools.c big_sort.c big_sort2.c big_sort3.c big_sort4.c \
+		deplacement_push.c deplacement_revrotate.c deplacement_rotate.c \
 		deplacement_swap.c fonctions_utiles.c ft_split.c gestion_listes.c \
-		initialisation.c initialisation_2.c liste_chainees.c other_sort.c \
-		other_sort_2.c push_swap.c sort_for_hundread.c sort_for_hundread_2.c \
-		sort_for_hundread_3.c bubble.c \
+		initialisation.c initialisation2.c liste_chainees.c push_swap.c \
+		small_sort.c small_sort2.c 
 
 OBJS			= ${SRCS:.c=.o}
 

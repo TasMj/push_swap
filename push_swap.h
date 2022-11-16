@@ -6,7 +6,7 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 15:50:01 by tmejri            #+#    #+#             */
-/*   Updated: 2022/11/15 16:33:14 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/11/16 18:47:10 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,8 +105,8 @@ t_list	**seperate_by_mediane(t_list **list, t_list **list_b);
 void    stack_to_5(t_list **list_a, t_list **list_b);
 int		find_mediane_index(t_list **list);
 int		up_or_down(t_list **list_a, t_list **list_b);
-void    from_top(t_list **list_a, t_list **list_b);
-void    from_down(t_list **list_a, t_list **list_b);
+int    from_top(t_list **list_a, t_list **list_b);
+int    from_down(t_list **list_a, t_list **list_b);
 int		empty_list(t_list **list);
 void    sort_in_stack_a(t_list **list_a, t_list **list_b);
 void	sort_for_hundread(t_list **list_a, t_list **list_b, int size_list_a);
@@ -128,8 +128,9 @@ int 	du_bas(t_list **list, int numero_du_block, int size_one_block, int *a);
 int 	side(t_list **list, int position, int size_one_block, int *a, int *b);
 void	from_top_to_b(t_list **list_a, t_list **list_b, int a);
 void	from_down_to_b(t_list **list_a, t_list **list_b, int a);
-void    sort_hundread(t_list **list_a, t_list **list_b, int block_size);
+void    big_sort(t_list **list_a, t_list **list_b, int block_size);
 int 	five_or_ten(t_list **list_a);
-
+void sort_all_other(t_list **list_a, t_list **list_b);
+void print_list(t_list **list_a, t_list **list_b);
 
 #endif

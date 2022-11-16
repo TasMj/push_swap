@@ -6,7 +6,7 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 18:47:20 by tmejri            #+#    #+#             */
-/*   Updated: 2022/11/15 18:46:57 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/11/16 18:46:22 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 int five_or_ten(t_list **list_a)
 {
     int	size_list;
-	// 
+	
     size_list = ft_lstsize(*list_a);
     if (size_list <= 100)
         return (5);
@@ -47,9 +47,7 @@ int side(t_list **list, int numero_du_block, int size_one_block, int *a, int *b)
     int down;
     
     up = du_haut(list, numero_du_block, size_one_block, b);
-    printf("\nup: %d\n", up);
     down = du_bas(list, numero_du_block, size_one_block, a);
-    printf("down: %d\n\n", down);
     if ((up <= down && up >= 0) || down == -1)
         return (1);
     else
@@ -81,7 +79,6 @@ int is_in_block(t_list *list, int numero_du_block, int size_one_block)
 
     min = block(numero_du_block, size_one_block);
     max = min + size_one_block - 1;
-    // printf("%d <= x <= %d\n", min, max);
     if (list->index >= min && list->index <= max)
         return (1);
     else

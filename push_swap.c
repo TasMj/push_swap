@@ -6,7 +6,7 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 17:28:11 by tmejri            #+#    #+#             */
-/*   Updated: 2022/11/15 16:36:12 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/11/16 18:44:49 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,31 +37,33 @@ void	direct_sort(int size_list, t_list **list_a, t_list **list_b)
 	else if (size_list == 5)
 		sort_for_5(list_a, list_b);
 	else if (size_list > 5)
-		sort_for_hundread(list_a, list_b, size_list);
+		sort_all_other(list_a, list_b);
 }
 
-// int	main(int argc, char **argv)
-// {
-// 	t_list	**list_a;
-// 	t_list	**list_b;
-// 	int		size_list;
+int	main(int argc, char **argv)
+{
+	t_list	**list_a;
+	t_list	**list_b;
+	int		size_list;
 
-// 	if (argc < 2)
-// 		return (1);
-// 	list_b = malloc(sizeof(t_list));
-// 	if (!list_b)
-// 		return (1);
-// 	list_b[0] = NULL;
-// 	if (check_int(argc, argv))
-// 		return (error_free_ret(*list_b));
-// 	else
-// 	{
-// 		list_a = attribution_arg(argc, argv, 2);
-// 		size_list = ft_lstsize(*list_a);
-// 		if (check_doublon(list_a) != 0)
-// 			return (error_free_ret(*list_b));
-// 		else if (size_list == 1)
-// 			return (0);
-// 		direct_sort(size_list, list_a, list_b);
-// 	}
-// }
+	if (argc < 2)
+		return (1);
+	list_b = malloc(sizeof(t_list));
+	if (!list_b)
+		return (1);
+	list_b[0] = NULL;
+	if (check_int(argc, argv))
+		return (error_free_ret(*list_b));
+	else
+	{
+		list_a = attribution_arg(argc, argv, 2);
+		size_list = ft_lstsize(*list_a);
+		if (check_doublon(list_a) != 0)
+			return (error_free_ret(*list_b));
+		else if (size_list == 1)
+			return (0);
+		direct_sort(size_list, list_a, list_b);
+	}
+	free (*list_b);
+    print_list(list_a, list_b);
+}
