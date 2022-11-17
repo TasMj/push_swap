@@ -6,7 +6,7 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 11:18:23 by tas               #+#    #+#             */
-/*   Updated: 2022/10/18 17:50:42 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/11/17 20:25:52 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,13 @@ t_list	**decomposer_arg(int argc, char **argv, int i)
 		ft_lstadd_back(list_stack_a, start);
 		i++;
 	}
+	i = 0; // FAIRE FONCTION POUR CELLE LA
+	while (stockage && stockage[i])
+	{
+		free(stockage[i]);
+		i++;
+	}
+	free(stockage);
 	return (list_stack_a);
 }
 

@@ -6,7 +6,7 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 15:50:01 by tmejri            #+#    #+#             */
-/*   Updated: 2022/11/16 18:47:10 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/11/17 20:29:41 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,8 @@ t_list		*ft_lstlast(t_list *lst);
 int			ft_lstsize(t_list *lst);
 
 // SWAP
-void		ft_swap(t_list *first, t_list *second);
 void    	*sa(t_list **list_stack_a);
 void    	*sb(t_list **list_stack_b);
-void    	ss(t_list **list_stack_a, t_list **list_stack_b);
 
 // PUSH
 void    	pa(t_list **list_stack_a, t_list **list_stack_b);
@@ -75,16 +73,10 @@ void	   	pb(t_list **list_stack_b, t_list **list_stack_a);
 // ROTATE
 void		ra(t_list **list_stack_a);
 void		rb(t_list **list_stack_b);
-void	    rr(t_list **list_stack_a, t_list **list_stack_b);
 
 // REVERSE ROTATE
 void		rra(t_list **list_stack_a);
 void		rrb(t_list **list_stack_b);
-void	    rrr(t_list **list_stack_a, t_list **list_stack_b);
-
-// AFFICHAGE
-void    	*ft_print_all(t_list **list); //a suppr
-void    	ft_print(t_list **list); //a suppr
 
 // SORT 2, 3, 4 et 5
 void	sort_for_2(t_list **list);
@@ -105,18 +97,15 @@ t_list	**seperate_by_mediane(t_list **list, t_list **list_b);
 void    stack_to_5(t_list **list_a, t_list **list_b);
 int		find_mediane_index(t_list **list);
 int		up_or_down(t_list **list_a, t_list **list_b);
-int    from_top(t_list **list_a, t_list **list_b);
-int    from_down(t_list **list_a, t_list **list_b);
+int		from_top(t_list **list_a, t_list **list_b);
+int		from_down(t_list **list_a, t_list **list_b);
 int		empty_list(t_list **list);
 void    sort_in_stack_a(t_list **list_a, t_list **list_b);
 void	sort_for_hundread(t_list **list_a, t_list **list_b, int size_list_a);
 
 // MAIN FONCTION
-int		error_free_ret(t_list* list);
+int		error_free_ret(t_list **list);
 void	direct_sort(int size_list, t_list **list_a, t_list **list_b);
-
-// BUBBLE
-void	bubble_sort(t_list **list_a, t_list **list_b);
 
 // NEW SORT
 int		size_block(t_list **list_a);
@@ -130,7 +119,6 @@ void	from_top_to_b(t_list **list_a, t_list **list_b, int a);
 void	from_down_to_b(t_list **list_a, t_list **list_b, int a);
 void    big_sort(t_list **list_a, t_list **list_b, int block_size);
 int 	five_or_ten(t_list **list_a);
-void sort_all_other(t_list **list_a, t_list **list_b);
-void print_list(t_list **list_a, t_list **list_b);
+void	sort_all_other(t_list **list_a, t_list **list_b);
 
 #endif

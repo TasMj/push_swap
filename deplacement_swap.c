@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   deplacement_swap.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 15:49:44 by tas               #+#    #+#             */
-/*   Updated: 2022/10/11 23:00:24 by tas              ###   ########.fr       */
+/*   Updated: 2022/11/17 15:27:06 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,12 @@
 void	ft_swap(t_list *first, t_list *second)
 {
 	t_list	*tmp;
-	int		stock_first_index;
-	int		stock_second_index;
 
-	stock_first_index = first->index;
-	stock_second_index = second->index;
-	tmp = malloc(sizeof(t_list));
-	tmp->content = first->content;
+	tmp = first;
 	first->content = second->content;
+	first->index = second->index;
 	second->content = tmp->content;
-	first->index = stock_second_index;
-	second->index = stock_first_index;
+	second->index = tmp->index;
 }
 
 /* swap les 2 premiers elts du haut de la stack A */
@@ -38,7 +33,6 @@ void	*sa(t_list **list_stack_a)
 		return (NULL);
 	if ((*list_stack_a)->next == NULL)
 		return (NULL);
-	tmp = malloc(sizeof(t_list));
 	tmp = (*list_stack_a)->next;
 	ft_swap((*list_stack_a), tmp);
 	write(1, "sa\n", 3);
@@ -54,7 +48,6 @@ void	*sb(t_list **list_stack_b)
 		return (NULL);
 	if ((*list_stack_b)->next == NULL)
 		return (NULL);
-	tmp = malloc(sizeof(t_list));
 	tmp = (*list_stack_b)->next;
 	ft_swap((*list_stack_b), tmp);
 	write(1, "sb\n", 3);
