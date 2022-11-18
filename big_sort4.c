@@ -6,7 +6,7 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 14:34:16 by tmejri            #+#    #+#             */
-/*   Updated: 2022/11/18 18:23:01 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/11/18 20:24:06 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,13 @@ void	move_from_down(t_list **list_a, t_list **list_b, int c)
 		pa(list_a, list_b);
 		ra(list_a);
 	}
-	// else if (c == 1)
-	// {
-	// 	rra(list_a);
-	// 	pa(list_a, list_b);
-	// 	ra(list_a);
-	// 	ra(list_a);
-	// }
+	else if (c == 1)
+	{
+		rra(list_a);
+		pa(list_a, list_b);
+		ra(list_a);
+		ra(list_a);
+	}
 	else
 	{
 		while (c > 1)
@@ -118,23 +118,32 @@ int	from_down(t_list **list_a, t_list **list_b)
 	keep_middle = middle;
 	while (middle > 0)
 	{
-		(*list_a) = (*list_a)->next;
+		if ((*list_a)->next)
+			(*list_a) = (*list_a)->next;
 		middle--;
 	}
-	middle = keep_middle;
+	// if (keep_middle % 2 == 0)
+		// middle = keep_middle;
+	// else
+	middle = keep_middle - 1;
 	while ((*list_a) && middle > 0)
 	{
 		if ((*list_b)->index > (*list_a)->index)
 		{
-			(*list_a) = (*list_a)->next;
-			c++;
+			if ((*list_a)->next)
+			{
+				(*list_a) = (*list_a)->next;
+				c++;
+			}
 		}
 		middle--;
 	}
-	if (c == keep_middle && ((*list_b)->index > (*list_a)->index))
+	if (c == (keep_middle - 1) && ((*list_b)->index > (*list_a)->index))
 		r = 0;
+	// else if (keep_middle % 2 == 0)
+		// r = (keep_middle - 1) - c;
 	else
-		r = keep_middle - c - 1;
+		r = keep_middle - c;
 	*list_a = tmp;
 	return (r);
 }
@@ -150,9 +159,13 @@ void	sort_in_stack_a(t_list **list_a, t_list **list_b)
 	{
 		top = from_top(list_a, list_b);
 		down = from_down(list_a, list_b);
+		printf("top == %i\n", top);
+		printf("down == %i\n", down);
+		print_list(list_a, list_b);
 		if (down == 0 || (down < top && down != -1) || top == -1)
 			move_from_down(list_a, list_b, down);
 		else
 			move_from_top(list_a, list_b, top);
+		print_list(list_a, list_b);
 	}
 }

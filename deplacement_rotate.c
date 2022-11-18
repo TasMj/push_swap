@@ -6,7 +6,7 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 17:16:22 by tas               #+#    #+#             */
-/*   Updated: 2022/10/11 19:12:00 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/11/18 19:33:21 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ra(t_list **list_stack_a)
 		last->next = front;
 		front->next = NULL;
 	}	
-	write(1, "ra\n", 3);
+	// write(1, "ra\n", 3);
 }
 
 /* décale de 1 toute la stack b
@@ -49,7 +49,7 @@ void	rb(t_list **list_stack_b)
 		last->next = front;
 		front->next = NULL;
 	}	
-	write(1, "rb\n", 3);
+	// write(1, "rb\n", 3);
 }
 
 /* décale de 1 les elts des stacks a et stack b 
@@ -58,5 +58,5 @@ void	rr(t_list **list_stack_a, t_list **list_stack_b)
 {
 	ra(list_stack_a);
 	rb(list_stack_b);
-	write(1, "rr\n", 3);
+	// write(1, "rr\n", 3);
 }

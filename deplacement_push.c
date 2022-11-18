@@ -6,7 +6,7 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 16:44:40 by tas               #+#    #+#             */
-/*   Updated: 2022/11/15 18:52:26 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/11/18 19:33:01 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	pa(t_list **list_stack_a, t_list **list_stack_b)
 	*list_stack_b = (*list_stack_b)->next;
 	tmp->next = *list_stack_a;
 	*list_stack_a = tmp;
-	(write(1, "pa\n", 3));
+	// (write(1, "pa\n", 3));
 }
 
 /* push le first elt de a dans la stack B
@@ -39,5 +39,5 @@ void	pb(t_list **list_stack_b, t_list **list_stack_a)
 	*list_stack_a = (*list_stack_a)->next;
 	tmp->next = *list_stack_b;
 	*list_stack_b = tmp;
-	(write(1, "pb\n", 3));
+	// (write(1, "pb\n", 3));
 }

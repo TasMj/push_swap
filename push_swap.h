@@ -6,7 +6,7 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 15:50:01 by tmejri            #+#    #+#             */
-/*   Updated: 2022/11/18 18:25:37 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/11/18 19:32:21 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,6 +121,7 @@ void    big_sort(t_list **list_a, t_list **list_b, int block_size);
 int 	five_or_ten(t_list **list_a);
 void	sort_all_other(t_list **list_a, t_list **list_b);
 void	stack_to_3(t_list **list_a, t_list **list_b);
+void    print_list(t_list **list_a, t_list **list_b);
 
 
 #endif
