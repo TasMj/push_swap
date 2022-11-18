@@ -6,7 +6,7 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 15:50:01 by tmejri            #+#    #+#             */
-/*   Updated: 2022/11/17 20:29:41 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/11/18 18:25:37 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,8 @@ t_list		*ft_lstlast(t_list *lst);
 int			ft_lstsize(t_list *lst);
 
 // SWAP
-void    	*sa(t_list **list_stack_a);
-void    	*sb(t_list **list_stack_b);
+void    	sa(t_list **list_stack_a);
+void    	sb(t_list **list_stack_b);
 
 // PUSH
 void    	pa(t_list **list_stack_a, t_list **list_stack_b);
@@ -120,5 +120,7 @@ void	from_down_to_b(t_list **list_a, t_list **list_b, int a);
 void    big_sort(t_list **list_a, t_list **list_b, int block_size);
 int 	five_or_ten(t_list **list_a);
 void	sort_all_other(t_list **list_a, t_list **list_b);
+void	stack_to_3(t_list **list_a, t_list **list_b);
+
 
 #endif

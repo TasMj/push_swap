@@ -6,7 +6,7 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 14:34:16 by tmejri            #+#    #+#             */
-/*   Updated: 2022/11/17 20:23:48 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/11/18 18:23:01 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,16 @@ void	move_from_down(t_list **list_a, t_list **list_b, int c)
 		pa(list_a, list_b);
 		ra(list_a);
 	}
+	// else if (c == 1)
+	// {
+	// 	rra(list_a);
+	// 	pa(list_a, list_b);
+	// 	ra(list_a);
+	// 	ra(list_a);
+	// }
 	else
 	{
-		while (c > 0)
+		while (c > 1)
 		{
 			rra(list_a);
 			c--;
@@ -65,9 +72,9 @@ int	from_top(t_list **list_a, t_list **list_b)
 	t_list	*tmp;
 	int		r;
 
-	tmp = *list_a;
 	c = 0;
 	r = 0;
+	tmp = *list_a;
 	size_a = ft_lstsize(*list_a);
 	if (size_a % 2 == 0)
 		middle = (size_a / 2);
@@ -143,9 +150,9 @@ void	sort_in_stack_a(t_list **list_a, t_list **list_b)
 	{
 		top = from_top(list_a, list_b);
 		down = from_down(list_a, list_b);
-		if (down == 0 || down < top || top == -1)
+		if (down == 0 || (down < top && down != -1) || top == -1)
 			move_from_down(list_a, list_b, down);
-		if (top <= down || down == -1)
+		else
 			move_from_top(list_a, list_b, top);
 	}
 }

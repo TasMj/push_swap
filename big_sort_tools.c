@@ -6,7 +6,7 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 14:25:30 by tmejri            #+#    #+#             */
-/*   Updated: 2022/11/17 17:19:57 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/11/18 18:25:24 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,20 @@ void	stack_to_5(t_list **list_a, t_list **list_b)
 
 	size_a = ft_lstsize((*list_a));
 	while (size_a > 5)
+	{
+		pb(list_b, list_a);
+		size_a--;
+	}
+}
+
+/* pb tous les autres nombres jusqu'a ce qu'il 
+n'en reste plus que 5 ds stack A */
+void	stack_to_3(t_list **list_a, t_list **list_b)
+{
+	int	size_a;
+
+	size_a = ft_lstsize((*list_a));
+	while (size_a > 3)
 	{
 		pb(list_b, list_a);
 		size_a--;
