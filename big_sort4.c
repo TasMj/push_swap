@@ -6,7 +6,7 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 14:34:16 by tmejri            #+#    #+#             */
-/*   Updated: 2022/11/18 20:24:06 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/11/19 13:03:24 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,13 @@ void	move_from_down(t_list **list_a, t_list **list_b, int c)
 		pa(list_a, list_b);
 		ra(list_a);
 	}
-	else if (c == 1)
-	{
-		rra(list_a);
-		pa(list_a, list_b);
-		ra(list_a);
-		ra(list_a);
-	}
+	// else if (c == 1)
+	// {
+	// 	rra(list_a);
+	// 	pa(list_a, list_b);
+	// 	ra(list_a);
+	// 	ra(list_a);
+	// }
 	else
 	{
 		while (c > 1)
@@ -63,9 +63,22 @@ void	move_from_down(t_list **list_a, t_list **list_b, int c)
 	}
 }
 
+int	size_list(t_list **list_a)
+{
+	int size_a;
+	int middle;
+	
+	size_a = ft_lstsize(*list_a);
+	if (size_a % 2 == 0)
+		middle = (size_a / 2);
+	else
+		middle = (size_a / 2) + 1;
+	return (middle);
+}
+
+
 int	from_top(t_list **list_a, t_list **list_b)
 {
-	int		size_a;
 	int		middle;
 	int		keep_middle;
 	int		c;
@@ -75,11 +88,7 @@ int	from_top(t_list **list_a, t_list **list_b)
 	c = 0;
 	r = 0;
 	tmp = *list_a;
-	size_a = ft_lstsize(*list_a);
-	if (size_a % 2 == 0)
-		middle = (size_a / 2);
-	else
-		middle = (size_a / 2) + 1;
+	middle = size_list(list_a);
 	keep_middle = middle;
 	while (middle > 0)
 	{
@@ -98,9 +107,51 @@ int	from_top(t_list **list_a, t_list **list_b)
 	return (r);
 }
 
+int	down_even(t_list **list_a, t_list **list_b, int middle) //paire
+{
+	int	res;
+	int keep_middle;
+	t_list	*tmp;
+
+	res = 0;
+	keep_middle = middle;
+	tmp = *list_a;
+	while (middle > 0)
+	{
+		if ((*list_a)->next)
+			(*list_a) = (*list_a)->next;
+		middle--;
+	}
+	middle = keep_middle;
+	while ((*list_a) && middle > 0)
+	{
+		if ((*list_b)->index > (*list_a)->index)
+		{
+			if ((*list_a)->next)
+			{
+				(*list_a) = (*list_a)->next;
+				c++;
+			}
+		}
+		middle--;
+	}
+	*list_a = tmp;
+	return (res);
+
+
+}
+
+
+// int	down_odd() // impaire
+// {
+	
+// }
+
+
+
+
 int	from_down(t_list **list_a, t_list **list_b)
 {
-	int		size_a;
 	int		middle;
 	int		keep_middle;
 	int		c;
@@ -110,11 +161,7 @@ int	from_down(t_list **list_a, t_list **list_b)
 	c = 0;
 	r = 0;
 	tmp = *list_a;
-	size_a = ft_lstsize(*list_a);
-	if (size_a % 2 == 0)
-		middle = (size_a / 2);
-	else
-		middle = (size_a / 2) + 1;
+	middle = size_list(list_a);
 	keep_middle = middle;
 	while (middle > 0)
 	{
@@ -122,10 +169,10 @@ int	from_down(t_list **list_a, t_list **list_b)
 			(*list_a) = (*list_a)->next;
 		middle--;
 	}
-	// if (keep_middle % 2 == 0)
-		// middle = keep_middle;
-	// else
-	middle = keep_middle - 1;
+	if (keep_middle % 2 == 0)
+		middle = keep_middle;
+	else
+		middle = keep_middle - 1;
 	while ((*list_a) && middle > 0)
 	{
 		if ((*list_b)->index > (*list_a)->index)
