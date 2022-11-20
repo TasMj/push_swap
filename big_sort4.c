@@ -65,9 +65,9 @@ int	from_top(t_list **list_a, t_list **list_b)
 	t_list	*tmp;
 	int		r;
 
-	tmp = *list_a;
-	c = 0;
 	r = 0;
+	c = 0;
+	tmp = *list_a;
 	size_a = ft_lstsize(*list_a);
 	if (size_a % 2 == 0)
 		middle = (size_a / 2);
@@ -127,8 +127,8 @@ int	from_down(t_list **list_a, t_list **list_b)
 		}
 		middle--;
 	}
-	printf("c: %d\n", c);
-	printf("keep middle: %d\n", keep_middle);
+	// printf("c: %d\n", c);
+	// printf("keep middle: %d\n", keep_middle);
 	if (size_a % 2 == 0)
 	{
 		if (c == keep_middle)
@@ -162,11 +162,11 @@ void	sort_in_stack_a(t_list **list_a, t_list **list_b)
 		down = from_down(list_a, list_b);
 		// printf("top == %i\n", top);
 		// printf("down == %i\n", down);
-		print_list(list_a, list_b);
+		// print_list(list_a, list_b);
 		if (down == 0 || (down < top && down != -1) || top == -1)
 			move_from_down(list_a, list_b, down);
 		else
 			move_from_top(list_a, list_b, top);
-		print_list(list_a, list_b);
+		// print_list(list_a, list_b);
 	}
 }

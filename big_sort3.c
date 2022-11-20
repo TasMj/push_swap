@@ -87,6 +87,7 @@ void	sort_all_other(t_list **list_a, t_list **list_b)
 	index_tab(list_a, tab);
 	free(tab);
 	block_size = five_or_ten(list_a);
+	printf("size: %d\n", block_size);
 	big_sort(list_a, list_b, block_size);
 	diminuer(list_a, list_b);
 	sort_in_stack_a(list_a, list_b);

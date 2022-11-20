@@ -67,6 +67,16 @@ int	block(int numero_du_block, int size_one_block)
 		return (3 * size_one_block);
 	else if (numero_du_block == 5)
 		return (4 * size_one_block);
+	else if (numero_du_block == 6)
+		return (5 * size_one_block);
+	else if (numero_du_block == 7)
+		return (6 * size_one_block);
+	else if (numero_du_block == 8)
+		return (7 * size_one_block);
+	else if (numero_du_block == 9)
+		return (8 * size_one_block);
+	else if (numero_du_block == 10)
+		return (9 * size_one_block);
 	else
 		return (0);
 }
