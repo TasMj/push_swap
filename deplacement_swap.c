@@ -37,7 +37,7 @@ void	sa(t_list **list_a)
 		temp = (*list_a)->next;
 		ft_swap(list_a, temp);
 	}
-	// write(1, "sa\n", 3);
+	write(1, "sa\n", 3);
 }	
 
 /* swap les 2 premiers elts du haut de la stack B */
@@ -50,7 +50,7 @@ void	sb(t_list **list_b)
 		temp = (*list_b)->next;
 		ft_swap(list_b, temp);
 	}
-	// write(1, "sb\n", 3);
+	write(1, "sb\n", 3);
 }
 
 /* swap les 2 premiers elts de la stack A et ceux de la stack B */
@@ -58,5 +58,5 @@ void	ss(t_list **list_a, t_list **list_b)
 {
 	sa(list_a);
 	sb(list_b);
-	// write(1, "ss\n", 3);
+	write(1, "ss\n", 3);
 }

@@ -56,24 +56,24 @@ void	move_from_down(t_list **list_a, t_list **list_b, int c)
 	}
 }
 
-int	from_top(t_list **list_a, t_list **list_b)
+int	middle_size(t_list **list_a)
 {
-	int		size_a;
-	int		middle;
-	int		keep_middle;
-	int		c;
-	t_list	*tmp;
-	int		r;
+	int	size_a;
+	int	middle;
 
-	r = 0;
-	c = 0;
-	tmp = *list_a;
 	size_a = ft_lstsize(*list_a);
 	if (size_a % 2 == 0)
 		middle = (size_a / 2);
 	else
 		middle = (size_a / 2) + 1;
-	keep_middle = middle;
+	return (middle);
+}
+
+int find_rank(t_list **list_a, t_list **list_b, int middle)
+{
+	int	c;
+
+	c = 0;
 	while (middle > 0)
 	{
 		if ((*list_b)->index > (*list_a)->index)
@@ -83,6 +83,22 @@ int	from_top(t_list **list_a, t_list **list_b)
 		}
 		middle--;
 	}
+	return (c);
+}
+
+int	from_top(t_list **list_a, t_list **list_b)
+{
+	int		middle;
+	int		keep_middle;
+	int		c;
+	t_list	*tmp;
+	int		r;
+
+	r = 0;
+	tmp = *list_a;
+	middle = middle_size(list_a);
+	keep_middle = middle;
+	c = find_rank(list_a, list_b, middle);
 	if (c == keep_middle)
 		r = -1;
 	else
@@ -91,50 +107,15 @@ int	from_top(t_list **list_a, t_list **list_b)
 	return (r);
 }
 
-int	from_down(t_list **list_a, t_list **list_b)
+int down_even_odd(int keep_middle, int size_a, int c)
 {
-	int		size_a;
-	int		middle;
-	int		keep_middle;
-	int		c;
-	t_list	*tmp;
-	int		r;
+	int r;
 
-	c = 0;
 	r = 0;
-	tmp = *list_a;
-	size_a = ft_lstsize(*list_a);
-	if (size_a % 2 == 0)
-		middle = (size_a / 2);
-	else
-		middle = (size_a / 2) + 1;
-	keep_middle = middle;
-	while (middle > 0)
-	{
-		(*list_a) = (*list_a)->next;
-		middle--;
-	}
-	if (size_a % 2 == 0)
-		middle = keep_middle;
-	else
-		middle = keep_middle - 1;
-	while ((*list_a) && middle > 0)
-	{
-		if ((*list_b)->index > (*list_a)->index)
-		{
-			(*list_a) = (*list_a)->next;
-			c++;
-		}
-		middle--;
-	}
-	// printf("c: %d\n", c);
-	// printf("keep middle: %d\n", keep_middle);
 	if (size_a % 2 == 0)
 	{
 		if (c == keep_middle)
-		{
 			r = 0;
-		}
 		else
 			r = ((keep_middle + 1) - c);
 	}
@@ -145,8 +126,34 @@ int	from_down(t_list **list_a, t_list **list_b)
 		else
 			r = (keep_middle - c);
 	}
-	*list_a = tmp;
 	return (r);
+}
+
+int	from_down(t_list **list_a, t_list **list_b)
+{
+	int		size_a;
+	int		middle;
+	int		keep_middle;
+	int		c;
+	t_list	*tmp;
+
+	tmp = *list_a;
+	size_a = ft_lstsize(*list_a);
+	middle = middle_size(list_a);
+	keep_middle = middle;
+	while (middle > 0)
+	{
+		(*list_a) = (*list_a)->next;
+		middle--;
+	}
+	if (size_a % 2 == 0)
+		middle = keep_middle;
+	else
+		middle = keep_middle - 1;
+	c = find_rank(list_a, list_b, middle);
+	c = down_even_odd(keep_middle, size_a, c);
+	*list_a = tmp;
+	return (c);
 }
 
 void	sort_in_stack_a(t_list **list_a, t_list **list_b)
@@ -160,13 +167,9 @@ void	sort_in_stack_a(t_list **list_a, t_list **list_b)
 	{
 		top = from_top(list_a, list_b);
 		down = from_down(list_a, list_b);
-		// printf("top == %i\n", top);
-		// printf("down == %i\n", down);
-		// print_list(list_a, list_b);
 		if (down == 0 || (down < top && down != -1) || top == -1)
 			move_from_down(list_a, list_b, down);
 		else
 			move_from_top(list_a, list_b, top);
-		// print_list(list_a, list_b);
 	}
 }

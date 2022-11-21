@@ -32,11 +32,11 @@ void	from_down_to_b(t_list **list_a, t_list **list_b, int a)
 
 void	big_sort(t_list **list_a, t_list **list_b, int block_size)
 {
+	int	a;
+	int	b;
 	int	numero_du_block;
 	int	size_one_block;
 	int	save_size_block_beg;
-	int	a;
-	int	b;
 
 	numero_du_block = 1;
 	size_one_block = size_block(list_a);
@@ -87,7 +87,6 @@ void	sort_all_other(t_list **list_a, t_list **list_b)
 	index_tab(list_a, tab);
 	free(tab);
 	block_size = five_or_ten(list_a);
-	printf("size: %d\n", block_size);
 	big_sort(list_a, list_b, block_size);
 	diminuer(list_a, list_b);
 	sort_in_stack_a(list_a, list_b);

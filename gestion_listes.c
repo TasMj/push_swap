@@ -41,7 +41,7 @@ t_list	**decomposer_arg(int argc, char **argv, int i)
 		ft_lstadd_back(list_stack_a, start);
 		i++;
 	}
-	i = 0; // FAIRE FONCTION POUR CELLE LA
+	i = 0;
 	while (stockage && stockage[i])
 	{
 		free(stockage[i]);

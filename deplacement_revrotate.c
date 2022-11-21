@@ -32,7 +32,7 @@ void	rra(t_list **list_stack_a)
 		last->next = (*list_stack_a);
 		(*list_stack_a) = last;
 	}
-	// write(1, "rra\n", 4);
+	write(1, "rra\n", 4);
 }
 
 /* décale de 1 toute la stack b
@@ -55,7 +55,7 @@ void	rrb(t_list **list_stack_b)
 		last->next = (*list_stack_b);
 		(*list_stack_b) = last;
 	}
-	// write(1, "rrb\n", 4);
+	write(1, "rrb\n", 4);
 }
 
 /* décale de 1 les stack a & b
@@ -64,5 +64,5 @@ void	rrr(t_list **list_stack_a, t_list **list_stack_b)
 {
 	rra(list_stack_a);
 	rrb(list_stack_b);
-	// write(1, "rrr\n", 4);
+	write(1, "rrr\n", 4);
 }

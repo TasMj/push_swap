@@ -24,7 +24,7 @@ void	pa(t_list **list_stack_a, t_list **list_stack_b)
 	*list_stack_b = (*list_stack_b)->next;
 	tmp->next = *list_stack_a;
 	*list_stack_a = tmp;
-	// (write(1, "pa\n", 3));
+	(write(1, "pa\n", 3));
 }
 
 /* push le first elt de a dans la stack B
@@ -39,5 +39,5 @@ void	pb(t_list **list_stack_b, t_list **list_stack_a)
 	*list_stack_a = (*list_stack_a)->next;
 	tmp->next = *list_stack_b;
 	*list_stack_b = tmp;
-	// (write(1, "pb\n", 3));
+	(write(1, "pb\n", 3));
 }

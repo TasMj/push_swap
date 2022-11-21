@@ -34,7 +34,6 @@ int	du_haut(t_list **list, int numero_du_block, int size_one_block, int *b)
 			(*list) = (*list)->next;
 		}
 	}
-	printf("dddddddd\n");
 	return (-1);
 }
 
@@ -69,12 +68,11 @@ int	du_bas(t_list **list, int numero_du_block, int size_one_block, int *a)
 		}
 		else
 		{
-		c++;
+			c++;
 			size_list--;
 			*list = tmp;
 		}
 	}
-	printf("ttttttt\n");
 	*list = tmp;
 	return (-1);
 }
