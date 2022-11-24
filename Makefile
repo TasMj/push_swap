@@ -16,7 +16,7 @@ SRCS	= big_sort_tools.c big_sort.c big_sort2.c big_sort3.c big_sort4.c \
 		deplacement_push.c deplacement_revrotate.c deplacement_rotate.c \
 		deplacement_swap.c fonctions_utiles.c ft_split.c gestion_listes.c \
 		initialisation.c initialisation2.c liste_chainees.c push_swap.c \
-		small_sort.c small_sort2.c 
+		small_sort.c small_sort2.c big_sort5.c
 
 OBJS			= ${SRCS:.c=.o}
 

@@ -123,5 +123,20 @@ void	sort_all_other(t_list **list_a, t_list **list_b);
 void	stack_to_3(t_list **list_a, t_list **list_b);
 void    print_list(t_list **list_a, t_list **list_b);
 
+// BIG SORT
+void	move_from_top(t_list **list_a, t_list **list_b, int c);
+void	move_from_down(t_list **list_a, t_list **list_b, int c);
+int		middle_size(t_list **list_a);
+t_list	*last_elt(t_list **list, int size_list);
+t_list	*index_middle(t_list **list_a, int middle);
+int		biggest(t_list	**list_a);
+int		smallest(t_list	**list_a);
+int		from_top(t_list **list_a, t_list **list_b);
+int		down_even_odd(int keep_middle, int size_a, int c);
+int		from_down(t_list **list_a, t_list **list_b);
+void	sort_in_stack_a(t_list **list_a, t_list **list_b);
+int		find_rank_top(t_list **list_a, t_list **list_b, int middle);
+int		find_rank_down(t_list **list_a, t_list **list_b, int middle, t_list	*last_top, t_list *tmp, int max_full_list);
+
 
 #endif
