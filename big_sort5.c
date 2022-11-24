@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   big_sort5.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 14:34:16 by tmejri            #+#    #+#             */
-/*   Updated: 2022/11/22 20:23:54 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/11/25 00:29:01 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,12 +137,10 @@ int	from_top(t_list **list_a, t_list **list_b)
 	middle = middle_size(list_a);
 	keep_middle = middle;
 	c = find_rank_top(list_a, list_b, middle);
-	printf("c: %d\n", c);
 	if (c == keep_middle)
 		r = -1;
 	else
 		r = c;
-	printf("r: %d\n", r);
 	*list_a = tmp;
 	return (r);
 }
@@ -199,12 +197,10 @@ int	from_down(t_list **list_a, t_list **list_b)
 	else
 		middle = keep_middle - 1;
 	c = find_rank_down(list_a, list_b, middle, last_top, tmp, max);
-	printf("c: %d\n", c);
 	if (c == -1)
 		r = -1;
 	else
 		r = down_even_odd(keep_middle, size_a, c);
-	printf("r: %d\n", r);
 	*list_a = tmp;
 	return (r);
 }
@@ -219,14 +215,12 @@ void	sort_in_stack_a(t_list **list_a, t_list **list_b)
 	final_size = ft_lstsize(*list_a) + ft_lstsize(*list_b);
 	while (ft_lstsize(*list_a) != final_size)
 	{
-		// print_list(list_a, list_b);
 		top = from_top(list_a, list_b);
 		down = from_down(list_a, list_b);
-		printf("TOP: %d   DOWN: %d\n", top, down);
 		if (down == 0 || (down < top && down != -1) || top == -1)
 			move_from_down(list_a, list_b, down);
 		else
 			move_from_top(list_a, list_b, top);
-		print_list(list_a, list_b);
 	}
+	order(list_a);
 }

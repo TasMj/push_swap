@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 15:50:01 by tmejri            #+#    #+#             */
-/*   Updated: 2022/11/18 19:32:21 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/11/24 22:57:17 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,6 +137,9 @@ int		from_down(t_list **list_a, t_list **list_b);
 void	sort_in_stack_a(t_list **list_a, t_list **list_b);
 int		find_rank_top(t_list **list_a, t_list **list_b, int middle);
 int		find_rank_down(t_list **list_a, t_list **list_b, int middle, t_list	*last_top, t_list *tmp, int max_full_list);
+int		find_start_top(t_list **list);
+int		find_start_down(t_list **list);
+void    order(t_list **list);
 
 
 #endif
