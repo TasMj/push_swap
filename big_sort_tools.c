@@ -6,7 +6,7 @@
 /*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 14:25:30 by tmejri            #+#    #+#             */
-/*   Updated: 2022/11/25 09:59:40 by tas              ###   ########.fr       */
+/*   Updated: 2022/11/25 13:09:03 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,16 +112,3 @@ void	stack_to_5(t_list **list_a, t_list **list_b)
 		size_a--;
 	}
 }
-
-
-// void	stack_min_5(t_list **list_a, t_list **list_b)
-// {
-// 	int	size_a;
-
-// 	size_a = ft_lstsize((*list_a));
-// 	while (size_a < 6)
-// 	{
-// 		pa(list_b, list_a);
-// 		size_a++;
-// 	}
-// }
