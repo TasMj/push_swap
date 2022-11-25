@@ -6,7 +6,7 @@
 /*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 22:25:13 by tas               #+#    #+#             */
-/*   Updated: 2022/11/24 23:57:12 by tas              ###   ########.fr       */
+/*   Updated: 2022/11/25 11:35:35 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,52 +15,73 @@
 int find_start_top(t_list **list)
 {
     int c;
+    int size;    
     t_list  *tmp;
 
     c = 0;
     tmp = *list;
-    while((*list)->index != 0)
+    size = ft_lstsize(*list) / 2;
+    while(size)
     {
-        (*list) = (*list)->next;
-        c++;
+        if ((*list)->index == 0)
+        {
+            *list = tmp;
+            return (c);
+        }
+        else
+        {
+            (*list) = (*list)->next;
+            c++;
+            size--;
+        }
     }
     *list = tmp;
-    return (c);
+    return (-1);
 }
 
 int find_start_down(t_list **list)
 {
     int c;
-    int size;
+    int size_a;
     int size_block_down;
+    int save_size_block_down;
     t_list  *tmp;
 
+    c = 0;
     tmp = *list;
-    size = middle_size(list);
-	size_block_down = size;
-    while (size)
+    size_a = ft_lstsize(*list) / 2;
+    size_block_down = middle_size(list);
+    save_size_block_down = size_block_down;
+    while (size_a)
     {
         (*list) = (*list)->next;
-		size--;
+		size_a--;
     }
-    c = find_start_top(list);
-    *list = tmp;
-    return (size_block_down - c);
+    while(size_block_down)
+    {
+        if ((*list)->index == 0)
+        {
+            *list = tmp;
+            return (save_size_block_down - c);
+        }
+        else
+        {
+            (*list) = (*list)->next;
+            c++;
+            size_block_down--;
+        }
+    }
+    return (-1);
 }
 
 void    order(t_list **list)
 {
     int top;
     int down;
-    int size;
 
-	size = ft_lstsize(*list);
     top = find_start_top(list);
-	if (size % 2 == 0)
-		down = find_start_down(list);
-	else
-		down = find_start_down(list) - 1;
-    if (top < down)
+	down = find_start_down(list);
+    if ((top < down && top != -1) || down == -1)
     {
         while (top > 0)
         {

@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   big_sort4.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/16 14:34:16 by tmejri            #+#    #+#             */
-/*   Updated: 2022/11/25 00:31:38 by tas              ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "push_swap.h"
 
 
@@ -176,7 +164,7 @@ int find_rank_down(t_list **list_a, t_list **list_b, int middle, t_list	*last_to
 			printf("22222222222222222222\n");	
 			return (0);
 		}
-		if ((*list_a)->index == max_a && (*list_b)->index > (*list_a)->next->index)
+		if ((middle > 1) && (*list_a)->index == max_a && (*list_b)->index > (*list_a)->next->index)
 		{
 			(*list_a) = (*list_a)->next;
 			c++;

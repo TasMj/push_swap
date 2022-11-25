@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   big_sort_tools.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 14:25:30 by tmejri            #+#    #+#             */
-/*   Updated: 2022/11/18 18:25:24 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/11/25 09:59:40 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,16 +113,15 @@ void	stack_to_5(t_list **list_a, t_list **list_b)
 	}
 }
 
-/* pb tous les autres nombres jusqu'a ce qu'il 
-n'en reste plus que 5 ds stack A */
-void	stack_to_3(t_list **list_a, t_list **list_b)
-{
-	int	size_a;
 
-	size_a = ft_lstsize((*list_a));
-	while (size_a > 3)
-	{
-		pb(list_b, list_a);
-		size_a--;
-	}
-}
+// void	stack_min_5(t_list **list_a, t_list **list_b)
+// {
+// 	int	size_a;
+
+// 	size_a = ft_lstsize((*list_a));
+// 	while (size_a < 6)
+// 	{
+// 		pa(list_b, list_a);
+// 		size_a++;
+// 	}
+// }

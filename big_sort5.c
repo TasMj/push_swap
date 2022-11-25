@@ -6,7 +6,7 @@
 /*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 14:34:16 by tmejri            #+#    #+#             */
-/*   Updated: 2022/11/25 00:29:01 by tas              ###   ########.fr       */
+/*   Updated: 2022/11/25 11:38:18 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,6 +175,7 @@ int	from_down(t_list **list_a, t_list **list_b)
 	int		c;
 	int		r;
 	int		max;
+	// int		min;
 	t_list	*tmp;
 	t_list	*last_top;
 
@@ -184,6 +185,7 @@ int	from_down(t_list **list_a, t_list **list_b)
 	size_a = ft_lstsize(*list_a);
 	middle = middle_size(list_a);
 	max = biggest(list_a);
+	// min = smallest(list_a);
 	keep_middle = middle;
 	while (middle > 1)
 	{
@@ -211,7 +213,6 @@ void	sort_in_stack_a(t_list **list_a, t_list **list_b)
 	int	down;
 	int	final_size;
 
-	print_list(list_a, list_b);
 	final_size = ft_lstsize(*list_a) + ft_lstsize(*list_b);
 	while (ft_lstsize(*list_a) != final_size)
 	{
@@ -222,5 +223,7 @@ void	sort_in_stack_a(t_list **list_a, t_list **list_b)
 		else
 			move_from_top(list_a, list_b, top);
 	}
-	order(list_a);
+	// print_list(list_a, list_b);
+	if ((*list_a)->index != 0)
+		order(list_a);
 }

@@ -6,7 +6,7 @@
 /*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 15:50:01 by tmejri            #+#    #+#             */
-/*   Updated: 2022/11/24 22:57:17 by tas              ###   ########.fr       */
+/*   Updated: 2022/11/25 10:47:37 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,11 +135,12 @@ int		from_top(t_list **list_a, t_list **list_b);
 int		down_even_odd(int keep_middle, int size_a, int c);
 int		from_down(t_list **list_a, t_list **list_b);
 void	sort_in_stack_a(t_list **list_a, t_list **list_b);
-int		find_rank_top(t_list **list_a, t_list **list_b, int middle);
+int		find_rank_top(t_list **list_a, t_list **list_b, int middle);	
 int		find_rank_down(t_list **list_a, t_list **list_b, int middle, t_list	*last_top, t_list *tmp, int max_full_list);
 int		find_start_top(t_list **list);
 int		find_start_down(t_list **list);
 void    order(t_list **list);
+void	stack_min_5(t_list **list_a, t_list **list_b);
 
 
 #endif
