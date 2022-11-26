@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   big_sort3.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 14:21:44 by tmejri            #+#    #+#             */
-/*   Updated: 2022/11/25 10:41:25 by tas              ###   ########.fr       */
+/*   Updated: 2022/11/26 19:52:05 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,25 +34,25 @@ void	big_sort(t_list **list_a, t_list **list_b, int block_size)
 {
 	int	a;
 	int	b;
-	int	numero_du_block;
+	int	num_b;
 	int	size_one_block;
 	int	save_size_block_beg;
 
-	numero_du_block = 1;
+	num_b = 1;
 	size_one_block = size_block(list_a);
 	save_size_block_beg = size_one_block;
 	while (block_size > 1)
 	{
 		while (size_one_block > 0)
 		{
-			if (side(list_a, numero_du_block, save_size_block_beg, &a, &b) == 1)
+			if (side(list_a, num_b, save_size_block_beg, &a, &b) == 1)
 				from_top_to_b(list_a, list_b, b);
-			else if (side(list_a, numero_du_block, save_size_block_beg, &a, &b) == 2)
+			else if (side(list_a, num_b, save_size_block_beg, &a, &b) == 2)
 				from_down_to_b(list_a, list_b, a);
 			size_one_block--;
 		}
 		size_one_block = save_size_block_beg;
-		numero_du_block++;
+		num_b++;
 		block_size--;
 	}
 }

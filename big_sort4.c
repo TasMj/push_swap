@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   big_sort4.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 14:52:05 by tas               #+#    #+#             */
-/*   Updated: 2022/11/25 14:53:19 by tas              ###   ########.fr       */
+/*   Updated: 2022/11/26 15:08:26 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_list	*last_elt(t_list **list, int size_list)
 {
 	t_list	*tmp;
 	t_list	*last;
-	
+
 	tmp = *list;
 	last = *list;
 	while (size_list > 1)
@@ -45,8 +45,8 @@ t_list	*last_elt(t_list **list, int size_list)
 
 t_list	*index_middle(t_list **list_a, int middle)
 {
-	t_list *midd;
-	t_list *tmp;
+	t_list	*midd;
+	t_list	*tmp;
 
 	tmp = *list_a;
 	midd = *list_a;

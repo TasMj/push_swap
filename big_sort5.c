@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   big_sort5.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 14:34:16 by tmejri            #+#    #+#             */
-/*   Updated: 2022/11/25 14:54:11 by tas              ###   ########.fr       */
+/*   Updated: 2022/11/26 18:43:02 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "push_swap.h"
 
@@ -62,9 +61,9 @@ int	from_top(t_list **list_a, t_list **list_b)
 	return (r);
 }
 
-int down_even_odd(int keep_middle, int size_a, int c)
+int	down_even_odd(int keep_middle, int size_a, int c)
 {
-	int r;
+	int	r;
 
 	r = 0;
 	if (size_a % 2 == 0)
@@ -86,58 +85,36 @@ int down_even_odd(int keep_middle, int size_a, int c)
 
 int	from_down(t_list **list_a, t_list **list_b)
 {
-	int		size_a;
-	int		middle;
-	int		keep_middle;
-	int		c;
-	int		r;
-	int		max;
-	t_list	*tmp;
-	t_list	*last_top;
+	int			size_a;
+	int			keep_middle;
+	int			c;
+	int			r;
+	t_full_list	full_list;
 
 	r = 0;
-	tmp = *list_a;
-	last_top = *list_a;
+	full_list.tmp = *list_a;
 	size_a = ft_lstsize(*list_a);
-	middle = middle_size(list_a);
-	max = biggest(list_a);
-	keep_middle = middle;
-	while (middle > 1)
+	full_list.middle =middle_size(list_a);
+	full_list.last_top = *list_a;
+	full_list.max_full_list = biggest(list_a);
+	full_list.last_elt = last_elt(list_a, size_a);
+	keep_middle = full_list.middle;
+	while (full_list.middle > 1)
 	{
 		(*list_a) = (*list_a)->next;
-		last_top = (*list_a);
-		middle--;
+		full_list.last_top = (*list_a);
+		full_list.middle--;
 	}
 	(*list_a) = (*list_a)->next;
 	if (size_a % 2 == 0)
-		middle = keep_middle;
+		full_list.middle = keep_middle;
 	else
-		middle = keep_middle - 1;
-	c = find_rank_down(list_a, list_b, middle, last_top, tmp, max);
+		full_list.middle = keep_middle - 1;
+	c = find_rank_down(list_a, list_b, full_list);
 	if (c == -1)
 		r = -1;
 	else
 		r = down_even_odd(keep_middle, size_a, c);
-	*list_a = tmp;
+	*list_a = full_list.tmp;
 	return (r);
-}
-
-void	sort_in_stack_a(t_list **list_a, t_list **list_b)
-{
-	int	top;
-	int	down;
-	int	final_size;
-
-	final_size = ft_lstsize(*list_a) + ft_lstsize(*list_b);
-	while (ft_lstsize(*list_a) != final_size)
-	{
-		top = from_top(list_a, list_b);
-		down = from_down(list_a, list_b);
-		if (down == 0 || (down < top && down != -1) || top == -1)
-			move_from_down(list_a, list_b, down);
-		else
-			move_from_top(list_a, list_b, top);
-	}
-	if ((*list_a)->index != 0)
-		order(list_a);
 }

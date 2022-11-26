@@ -3,99 +3,95 @@
 /*                                                        :::      ::::::::   */
 /*   rank_down.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 14:04:40 by tas               #+#    #+#             */
-/*   Updated: 2022/11/25 14:21:54 by tas              ###   ########.fr       */
+/*   Updated: 2022/11/26 19:35:12 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int find_rank_down(t_list **list_a, t_list **list_b, int middle, t_list	*last_top, t_list *tmp, int max_full_list)
+int	first(t_list **list_a, t_list **list_b, t_full_list full_list, t_info info)
 {
-	int		c;
-	int		max_a;
-	int		min_a;
-	int		size_a;
-	t_list	*last;
+	if (((*list_b)->index > full_list.last_top->index))
+		return (0);
+	if ((*list_a)->index == info.min_a
+		&& full_list.last_top->index == full_list.max_full_list)
+		return (0);
+	if (((*list_b)->index > full_list.last_elt->index)
+		&& ((*list_a)->index < info.max_a))
+		return (-1);
+	if (((*list_b)->index > full_list.last_elt->index)
+		&& ((*list_b)->index > full_list.tmp->index))
+		return (-1);
+	return (-3);
+}
+
+int	b_big(t_list **list_a, t_list **list_b, t_full_list full_list, t_info info)
+{
+	int	c;
 
 	c = 0;
-	size_a = ft_lstsize(*list_a);
-	last = last_elt(list_a, size_a);
-	max_a = biggest(list_a);
-	min_a = smallest(list_a);
-	if (((*list_b)->index > max_full_list) && (last->index == max_full_list))
-		return (-1);
-	else if ((*list_b)->index < (*list_a)->index)
+	if ((*list_a)->index == info.min_a
+		&& (*list_b)->index > full_list.max_full_list)
+		return (0);
+	if ((full_list.middle > 0) && (*list_a))
 	{
-		if (((*list_b)->index > last_top->index))
-			return (0);
-		if ((*list_a)->index == min_a && last_top->index == max_full_list)
-			return (0);
-		if ((middle > 1) && (*list_a)->index == max_a && (*list_b)->index > (*list_a)->next->index)
-		{
-			(*list_a) = (*list_a)->next;
-			c++;
-			middle--;
-		}
-		else if (((*list_b)->index > last->index) && ((*list_a)->index < max_a))
+		while (((*list_b)->index > (*list_a)->index)
+			&& ((*list_a)->index < info.max_a))
+			go(list_a, &full_list.middle, &c);
+		if ((full_list.middle == 1) && ((*list_b)->index > (*list_a)->index))
 			return (-1);
-		else if (((*list_b)->index > last->index) && ((*list_b)->index > tmp->index))
-			return (-1);
-		else
-		{
-			while ((middle > 0) && (*list_a))
-			{
-				while (((*list_b)->index < (*list_a)->index) && ((*list_a)->index < max_a))
-				{
-					(*list_a) = (*list_a)->next;
-					c++;
-					middle--;
-				}
-				if ((middle == 1) && ((*list_b)->index < (*list_a)->index))
-					return (-1);
-				else
-				{
-					(*list_a) = (*list_a)->next;
-					c++;
-					middle--;
-				}
-				while ((*list_b)->index > (*list_a)->index)
-				{
-					(*list_a) = (*list_a)->next;
-					c++;
-					middle--;
-				}
-				if ((middle == 0) && ((*list_b)->index < (*list_a)->index))
-					return (-1);
-				return (c);
-			}
-			return (c);
-		}
+		if ((((*list_a)->index == info.max_a)
+				&& (*list_b)->index > (*list_a)->index)
+			|| ((*list_a)->index == info.max_a
+				&& (*list_b)->index > (*list_a)->index))
+			return (c + 1);
+		return (c);
+	}
+	return (c);
+}
 
-	}
-	else if((*list_b)->index > (*list_a)->index)
+int	b_smal(t_list **list_a, t_list **list_b, t_full_list full_list, t_info info)
+{
+	int	c;
+
+	c = 0;
+	if ((full_list.middle > 1) && (*list_a)->index == info.max_a
+		&& (*list_b)->index > (*list_a)->next->index)
+		go(list_a, &full_list.middle, &c);
+	if (first(list_a, list_b, full_list, info) != -3)
+		return (first(list_a, list_b, full_list, info));
+	if ((full_list.middle > 0) && (*list_a))
 	{
-		if ((*list_a)->index == min_a && (*list_b)->index > max_full_list)
-			return (0);
-		while ((middle > 0) && (*list_a))
-		{
-			while (((*list_b)->index > (*list_a)->index) && ((*list_a)->index < max_a))
-			{
-				(*list_a) = (*list_a)->next;
-				c++;
-				middle--;
-			}
-			if ((middle == 1) && ((*list_b)->index > (*list_a)->index))
-				return (-1);
-			if (((*list_a)->index == max_a) && (*list_b)->index > (*list_a)->index)
-				return (c + 1);
-			if ((*list_a)->index == max_a && (*list_b)->index > (*list_a)->index)
-				return (c + 1);
-			return (c);
-		}
-		return (-1);
+		while (((*list_b)->index < (*list_a)->index)
+			&& ((*list_a)->index < info.max_a))
+			go(list_a, &full_list.middle, &c);
+		if ((full_list.middle == 1) && ((*list_b)->index < (*list_a)->index))
+			return (-1);
+		go(list_a, &full_list.middle, &c);
+		while ((*list_b)->index > (*list_a)->index)
+			go(list_a, &full_list.middle, &c);
+		if ((full_list.middle == 0) && ((*list_b)->index < (*list_a)->index))
+			return (-1);
 	}
-	return (-1);
+	return (c);
+}
+
+int	find_rank_down(t_list **list_a, t_list **list_b, t_full_list full_list)
+{
+	t_info	info;
+
+	info.max_a = biggest(list_a);
+	info.min_a = smallest(list_a);
+	info.size_a = ft_lstsize(*list_a);
+	if (((*list_b)->index > full_list.max_full_list)
+		&& (full_list.last_elt->index == full_list.max_full_list))
+		return (-1);
+	if ((*list_b)->index < (*list_a)->index)
+		return (b_smal(list_a, list_b, full_list, info));
+	if ((*list_b)->index > (*list_a)->index)
+		return (b_big(list_a, list_b, full_list, info));
+	return (0);
 }

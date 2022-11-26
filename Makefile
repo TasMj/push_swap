@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tas <tas@student.42.fr>                    +#+  +:+       +#+         #
+#    By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/28 15:33:43 by tmejri            #+#    #+#              #
-#    Updated: 2022/11/25 14:52:24 by tas              ###   ########.fr        #
+#    Updated: 2022/11/26 16:07:05 by tmejri           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ SRCS	= big_sort_tools.c big_sort.c big_sort2.c big_sort3.c \
 		deplacement_swap.c fonctions_utiles.c ft_split.c gestion_listes.c \
 		initialisation.c initialisation2.c liste_chainees.c push_swap.c \
 		small_sort.c small_sort2.c big_sort5.c sort_from_start.c \
-		rank_top.c rank_down.c  big_sort4.c \
+		rank_top.c rank_down.c  big_sort4.c big_sort6.c initialisation3.c\
 
 OBJS			= ${SRCS:.c=.o}
 

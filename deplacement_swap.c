@@ -6,12 +6,11 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 15:49:44 by tas               #+#    #+#             */
-/*   Updated: 2022/11/18 19:33:30 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/11/26 15:11:33 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 /* swap 2 elts d'une liste */
 void	ft_swap(t_list **first, t_list *second)

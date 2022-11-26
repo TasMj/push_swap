@@ -6,7 +6,7 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 16:12:07 by tmejri            #+#    #+#             */
-/*   Updated: 2022/11/17 20:26:36 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/11/26 16:06:12 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,22 @@ char	*creat_list(char *str)
 	return (list);
 }
 
+int	for_check_intru(char *list, int i)
+{
+	while (list[i])
+	{
+		if (!((list[i] >= '0' && list[i] <= '9') || list[i] == '-'))
+		{
+			free(list);
+			return (1);
+		}
+		else
+			i++;
+	}
+	free(list);
+	return (0);
+}
+
 /* vérifie qu'il n'y a que des int */
 int	check_intru(int argc, char *argv[])
 {
@@ -67,17 +83,7 @@ int	check_intru(int argc, char *argv[])
 		}
 	}
 	i = 0;
-	while (list[i])
-	{
-		if (!((list[i] >= '0' && list[i] <= '9') || list[i] == '-'))
-		{
-			free(list);
-			return (1);
-		}
-		else
-			i++;
-	}
-	free(list);
+	for_check_intru(list, i);
 	return (0);
 }
 
@@ -141,50 +147,4 @@ int	for_check_2(char **argv, int argc)
 		}
 	}
 	return (0);
-}
-
-/* transforme les char en int pour verifier qu'il 
-ne s'agit ni d'un min ni d'un max */
-int	check_int(int argc, char **argv)
-{
-	char	**stockage;
-	int		i;
-
-	if (check_intru(argc, argv) != 1)
-	{
-		if (argc == 2)
-		{
-			stockage = ft_split(argv[1], ' ');
-			if (for_check_1(stockage, argv, argc) == 1)
-			{
-				i = 0;
-				while (stockage && stockage[i])
-				{
-					free(stockage[i]);
-					i++;
-				}
-				free(stockage);
-				return (1);
-			}
-			else
-			{
-				i = 0;
-				while (stockage && stockage[i])
-				{
-					free(stockage[i]);
-					i++;
-				}
-				free(stockage);
-				return (0);
-			}
-		}		
-		else
-		{
-			if (for_check_2(argv, argc) == 1)
-				return (1);
-			else
-				return (0);
-		}
-	}
-	return (1);
 }

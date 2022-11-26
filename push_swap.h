@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 15:50:01 by tmejri            #+#    #+#             */
-/*   Updated: 2022/11/26 03:49:59 by tas              ###   ########.fr       */
+/*   Updated: 2022/11/26 19:50:18 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,13 @@
 # define INT_MIN -2147483648
 # define INT_MAX 2147483647
 
+typedef	struct s_info
+{
+	int	size_a;
+	int max_a;
+	int min_a;
+}	t_info;
+
 typedef struct s_list
 {
 	struct s_list	*premier;
@@ -29,6 +36,15 @@ typedef struct s_list
 	int				index;
 	struct s_list	*next;
 }		t_list;
+
+typedef struct s_full_list
+{
+	t_list	*tmp;
+	t_list	*last_top;
+	t_list	*last_elt;
+	int 	max_full_list;
+	int		middle;
+}	t_full_list;
 
 // BIG SORT TOOLS
 void	*tab_to_sort(t_list **list);
@@ -60,8 +76,8 @@ void	sort_all_other(t_list **list_a, t_list **list_b);
 int	middle_size(t_list **list_a);
 t_list	*last_elt(t_list **list, int size_list);
 t_list	*index_middle(t_list **list_a, int middle);
-int	biggest(t_list	**list_a);
-int	smallest(t_list	**list_a);
+int		biggest(t_list	**list_a);
+int		smallest(t_list	**list_a);
 
 // BIG SORT 5
 void	move_from_top(t_list **list_a, t_list **list_b, int c);
@@ -103,11 +119,14 @@ char		*ft_copy(char *dest, char *s, char c);
 char		**ft_split(char *s, char c);
 
 // GESTION LISTES
+void		complete_list(t_list **list_stack_a, t_list *start, int nb, char **stockage);
 t_list		**decomposer_arg(int argc, char **argv, int i);
 t_list		**attribution_arg(int argc, char **argv, int i);
 
+
 // INITIALISATION
 char	*creat_list(char *str);
+int		for_check_intru(char *list, int i);
 int		check_intru(int argc, char *argv[]);
 int		for_check_1(char **stockage, char **argv, int argc);
 int		for_check_2(char **argv, int argc);
@@ -138,10 +157,16 @@ int		error_free_ret(t_list **list);
 void	direct_sort(int size_list, t_list **list_a, t_list **list_b);
 void	free_list(t_list **list);
 
+// RANK TOP
+void	go(t_list **list_a, int *middle, int *c);
+int		first_position(t_list **list_a, t_list **list_b, int middle, t_info info);
+int		middle_position(t_list **list_a, t_list **list_b, int middle, t_info info);
+int		other_position(t_list **list_a, t_list **list_b, int middle, t_info info);
+int		find_rank_top(t_list **list_a, t_list **list_b, int middle);
+
 // AUTRE
 
-int		find_rank_top(t_list **list_a, t_list **list_b, int middle);	
-int		find_rank_down(t_list **list_a, t_list **list_b, int middle, t_list	*last_top, t_list *tmp, int max_full_list);
+int		find_rank_down(t_list **list_a, t_list **list_b, t_full_list full_list);
 int		find_start_top(t_list **list);
 int		find_start_down(t_list **list);
 void    order(t_list **list);
