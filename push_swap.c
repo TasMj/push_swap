@@ -6,7 +6,7 @@
 /*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 17:28:11 by tmejri            #+#    #+#             */
-/*   Updated: 2022/11/25 13:08:09 by tas              ###   ########.fr       */
+/*   Updated: 2022/11/26 03:37:08 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,29 +56,29 @@ void	direct_sort(int size_list, t_list **list_a, t_list **list_b)
 		sort_all_other(list_a, list_b);
 }
 
-void    print_list(t_list **list_a, t_list **list_b)
-{	
- 	   t_list  *tmp;
- 	   t_list  *tmp1;
+// void    print_list(t_list **list_a, t_list **list_b)
+// {	
+//  	   t_list  *tmp;
+//  	   t_list  *tmp1;
 	
- 	   tmp = *list_a;
- 	   tmp1 = *list_b;
- 	   printf("/////////////// LISTE A /////////////////\n");
- 	   while (*list_a)
- 	   {
- 	       printf("[%d] -> %d\n", (*list_a)->content, (*list_a)->index);
- 	       (*list_a) = (*list_a)->next;
- 	   }
- 	   printf("\n////////////// LISTE B //////////////////\n");
- 	   while (*list_b)
- 	   {
- 	       printf("[%d] -> %d\n", (*list_b)->content, (*list_b)->index);
- 	       (*list_b) = (*list_b)->next;
- 	   }
- 	   printf("\n////////////// FIN //////////////////\n");
- 	   *list_a = tmp;
- 	   *list_b = tmp1;
-}	
+//  	   tmp = *list_a;
+//  	   tmp1 = *list_b;
+//  	   printf("/////////////// LISTE A /////////////////\n");
+//  	   while (*list_a)
+//  	   {
+//  	       printf("[%d] -> %d\n", (*list_a)->content, (*list_a)->index);
+//  	       (*list_a) = (*list_a)->next;
+//  	   }
+//  	   printf("\n////////////// LISTE B //////////////////\n");
+//  	   while (*list_b)
+//  	   {
+//  	       printf("[%d] -> %d\n", (*list_b)->content, (*list_b)->index);
+//  	       (*list_b) = (*list_b)->next;
+//  	   }
+//  	   printf("\n////////////// FIN //////////////////\n");
+//  	   *list_a = tmp;
+//  	   *list_b = tmp1;
+// }	
 
 int	main(int argc, char **argv)
 {
@@ -113,7 +113,7 @@ int	main(int argc, char **argv)
 			return (0);
 		}
 		direct_sort(size_list, list_a, list_b);
-		print_list(list_a, list_b);
+		// print_list(list_a, list_b);
 	}
 	free_list(list_a);
 	free_list(list_b);
