@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   small_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 14:17:17 by tmejri            #+#    #+#             */
-/*   Updated: 2022/11/17 20:28:22 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/11/27 03:34:03 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,34 +23,35 @@ void	sort_for_2(t_list **list)
 	*list = tmp;
 }
 
+void	annex_sort_3(t_list **list, t_full_list full_list)
+{
+	if (full_list.tmp->content < full_list.last_elt->content)
+		sa(list);
+	else if (full_list.midd->content > full_list.last_elt->content)
+	{
+		sa(list);
+		rra(list);
+	}
+	else if (full_list.midd->content < full_list.last_elt->content)
+		ra(list);
+}
+
 /* trie dans l'ordre croissant une liste de 3 elts en fonction
 de tous les differents cas de figures qu'on peut rencontrer */
 void	sort_for_3(t_list **list)
 {
-	t_list	*tmp;
-	t_list	*middle;
-	t_list	*last;
+	t_full_list	full_list;
 
-	tmp = *list;
-	middle = (*list)->next;
-	last = (middle)->next;
-	if (tmp->content > middle->content)
+	full_list.tmp = *list;
+	full_list.midd = (*list)->next;
+	full_list.last_elt = full_list.midd->next;
+	if (full_list.tmp->content > full_list.midd->content)
+		annex_sort_3(list, full_list);
+	else if (full_list.tmp->content < full_list.midd->content)
 	{
-		if (tmp->content < last->content)
-			sa(list);
-		else if (middle->content > last->content)
-		{
-			sa(list);
+		if (full_list.tmp->content > full_list.last_elt->content)
 			rra(list);
-		}
-		else if (middle->content < last->content)
-			ra(list);
-	}
-	else if (tmp->content < middle->content)
-	{
-		if (tmp->content > last->content)
-			rra(list);
-		else if (middle->content > last->content)
+		else if (full_list.midd->content > full_list.last_elt->content)
 		{
 			sa(list);
 			ra(list);

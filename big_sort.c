@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   big_sort.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 18:47:20 by tmejri            #+#    #+#             */
-/*   Updated: 2022/11/26 19:51:53 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/11/27 01:43:12 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,13 @@ int	size_block(t_list **list_a)
 }
 
 /* return 1 si on passe par en haut 2 si par en bas */
-int	side(t_list **list, int numero_du_block, int size_one_block, int *a, int *b)
+int	side(t_list **list, int num_block, int size_one_block, int *a, int *b)
 {
 	int	up;
 	int	down;
 
-	up = du_haut(list, numero_du_block, size_one_block, b);
-	down = du_bas(list, numero_du_block, size_one_block, a);
+	up = du_haut(list, num_block, size_one_block, b);
+	down = du_bas(list, num_block, size_one_block, a);
 	if ((up <= down && up >= 0) || down == -1)
 		return (1);
 	return (2);

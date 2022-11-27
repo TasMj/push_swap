@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   big_sort5.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 14:34:16 by tmejri            #+#    #+#             */
-/*   Updated: 2022/11/26 18:43:02 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/11/27 03:42:16 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,16 +85,16 @@ int	down_even_odd(int keep_middle, int size_a, int c)
 
 int	from_down(t_list **list_a, t_list **list_b)
 {
-	int			size_a;
-	int			keep_middle;
 	int			c;
 	int			r;
+	int			size_a;
+	int			keep_middle;
 	t_full_list	full_list;
 
 	r = 0;
 	full_list.tmp = *list_a;
 	size_a = ft_lstsize(*list_a);
-	full_list.middle =middle_size(list_a);
+	full_list.middle = middle_size(list_a);
 	full_list.last_top = *list_a;
 	full_list.max_full_list = biggest(list_a);
 	full_list.last_elt = last_elt(list_a, size_a);
@@ -110,7 +110,7 @@ int	from_down(t_list **list_a, t_list **list_b)
 		full_list.middle = keep_middle;
 	else
 		full_list.middle = keep_middle - 1;
-	c = find_rank_down(list_a, list_b, full_list);
+	c = find_down(list_a, list_b, full_list);
 	if (c == -1)
 		r = -1;
 	else

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initialisation.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 16:12:07 by tmejri            #+#    #+#             */
-/*   Updated: 2022/11/26 16:06:12 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/11/27 03:31:46 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,8 +89,8 @@ int	check_intru(int argc, char *argv[])
 
 int	for_check_1(char **stockage, char **argv, int argc)
 {
-	long int	nb;
 	int			i;
+	long int	nb;
 
 	stockage = ft_split(argv[1], ' ');
 	i = 0;
@@ -106,18 +106,12 @@ int	for_check_1(char **stockage, char **argv, int argc)
 		nb = ft_atoi(stockage[i]);
 		if (!(nb >= INT_MIN && nb <= INT_MAX))
 			return (1);
-		else
-		{
-			argc--;
-			i++;
-		}
-	}
-	i = 0;
-	while (stockage && stockage[i])
-	{
-		free(stockage[i]);
+		argc--;
 		i++;
 	}
+	i = 0;
+	while (stockage && stockage[i++])
+		free(stockage[i++]);
 	free(stockage);
 	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_from_start.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 22:25:13 by tas               #+#    #+#             */
-/*   Updated: 2022/11/26 15:19:45 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/11/27 02:54:02 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,35 +41,28 @@ int	find_start_top(t_list **list)
 
 int	find_start_down(t_list **list)
 {
-	int		c;
-	int		size_a;
-	int		size_block_down;
-	int		save_size_block_down;
-	t_list	*tmp;
+	int			c;
+	t_info		info;
+	t_full_list	full_list;
 
 	c = 0;
-	tmp = *list;
-	size_a = ft_lstsize(*list) / 2;
-	size_block_down = middle_size(list);
-	save_size_block_down = size_block_down;
-	while (size_a)
+	full_list.tmp = *list;
+	info.size_a = ft_lstsize(*list) / 2;
+	full_list.middle = middle_size(list);
+	full_list.max_full_list = middle_size(list);
+	while (info.size_a)
 	{
 		(*list) = (*list)->next;
-		size_a--;
+		info.size_a--;
 	}
-	while (size_block_down)
+	while (full_list.middle)
 	{
 		if ((*list)->index == 0)
 		{
-			*list = tmp;
-			return (save_size_block_down - c);
+			*list = full_list.tmp;
+			return (full_list.max_full_list - c);
 		}
-		else
-		{
-			(*list) = (*list)->next;
-			c++;
-			size_block_down--;
-		}
+		go(list, &full_list.middle, &c);
 	}
 	return (-1);
 }

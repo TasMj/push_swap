@@ -3,23 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   gestion_listes.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 11:18:23 by tas               #+#    #+#             */
-/*   Updated: 2022/11/26 15:41:40 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/11/27 01:56:24 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	complete_list(t_list **list_a, t_list *start, int nb, char **stockage)
+void	complete_list(t_list **list_a, t_list *start, int nb, char **stock)
 {
 	int	i;
 
 	i = 1;
-	while (stockage[i])
+	while (stock[i])
 	{
-		nb = ft_atoi(stockage[i]);
+		nb = ft_atoi(stock[i]);
 		start = ft_lstnew(nb);
 		ft_lstadd_back(list_a, start);
 		i++;

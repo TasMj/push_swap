@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rank_top.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 14:18:26 by tas               #+#    #+#             */
-/*   Updated: 2022/11/26 17:20:46 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/11/27 02:01:18 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	go(t_list **list_a, int *middle, int *c)
 	(*c)++;
 }
 
-int	first_position(t_list **list_a, t_list **list_b, int middle, t_info info)
+int	fst_pos(t_list **list_a, t_list **list_b, int middle, t_info info)
 {
 	int		c;
 	t_list	*last;
@@ -48,7 +48,7 @@ int	first_position(t_list **list_a, t_list **list_b, int middle, t_info info)
 	return (-3);
 }
 
-int	middle_position(t_list **list_a, t_list **list_b, int middle, t_info info)
+int	mid_pos(t_list **list_a, t_list **list_b, int middle, t_info info)
 {
 	int	c;
 
@@ -66,7 +66,7 @@ int	middle_position(t_list **list_a, t_list **list_b, int middle, t_info info)
 	return (c);
 }
 
-int	other_position(t_list **list_a, t_list **list_b, int middle, t_info info)
+int	other_p(t_list **list_a, t_list **list_b, int middle, t_info info)
 {
 	int	c;
 
@@ -105,15 +105,15 @@ int	find_rank_top(t_list **list_a, t_list **list_b, int middle)
 		return (0);
 	if ((*list_b)->index < (*list_a)->index)
 	{
-		c = first_position(list_a, list_b, middle, info);
+		c = fst_pos(list_a, list_b, middle, info);
 		if (c != -3)
 			return (c);
 		c = 0;
 		if (((*list_b)->index < last->index))
-			c = middle_position(list_a, list_b, middle, info);
+			c = mid_pos(list_a, list_b, middle, info);
 		return (c);
 	}
 	if ((*list_b)->index > (*list_a)->index)
-		c = other_position(list_a, list_b, middle, info);
+		c = other_p(list_a, list_b, middle, info);
 	return (c);
 }

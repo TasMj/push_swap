@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rank_down.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 14:04:40 by tas               #+#    #+#             */
-/*   Updated: 2022/11/26 19:35:12 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/11/27 02:04:30 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int	b_smal(t_list **list_a, t_list **list_b, t_full_list full_list, t_info info)
 	return (c);
 }
 
-int	find_rank_down(t_list **list_a, t_list **list_b, t_full_list full_list)
+int	find_down(t_list **list_a, t_list **list_b, t_full_list full_list)
 {
 	t_info	info;
 

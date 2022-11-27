@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fonctions_utiles.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 15:06:15 by tas               #+#    #+#             */
-/*   Updated: 2022/11/17 20:25:03 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/11/27 02:29:27 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,4 +89,10 @@ char	*ft_strjoin(char *s1, char *s2)
 	}
 	dest[i] = '\0';
 	return (dest);
+}
+
+void	free_2_lists(t_list **list_a, t_list **list_b)
+{
+	free_list(list_a);
+	free_list(list_b);
 }
