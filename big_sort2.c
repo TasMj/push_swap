@@ -6,14 +6,14 @@
 /*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 12:09:56 by tmejri            #+#    #+#             */
-/*   Updated: 2022/11/27 01:54:22 by tas              ###   ########.fr       */
+/*   Updated: 2022/11/28 01:10:43 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 /* return la position d'en haut du premier elt du block rencontre */
-int	du_haut(t_list **list, int num_block, int size_one_block, int *b)
+int	du_haut(t_list **list, t_elt elt, int *b)
 {
 	int		c;
 	t_list	*tmp;
@@ -22,7 +22,7 @@ int	du_haut(t_list **list, int num_block, int size_one_block, int *b)
 	tmp = *list;
 	while (*list)
 	{
-		if (is_in_block(*list, num_block, size_one_block) == 1)
+		if (is_in_block(*list, elt) == 1)
 		{
 			(*b) = (*list)->index;
 			*list = tmp;
@@ -48,7 +48,7 @@ void	ft_end(t_list **list, int size_list)
 }
 
 /* return la position d'en bas du premier elt du block rencontre */
-int	du_bas(t_list **list, int numero_du_block, int size_one_block, int *a)
+int	du_bas(t_list **list, t_elt elt, int *a)
 {
 	int		c;
 	int		size_list;
@@ -60,7 +60,7 @@ int	du_bas(t_list **list, int numero_du_block, int size_one_block, int *a)
 	while (*list)
 	{
 		ft_end(list, size_list);
-		if (is_in_block(*list, numero_du_block, size_one_block) == 1)
+		if (is_in_block(*list, elt) == 1)
 		{
 			(*a) = (*list)->index;
 			*list = tmp;

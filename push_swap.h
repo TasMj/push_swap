@@ -6,7 +6,7 @@
 /*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 15:50:01 by tmejri            #+#    #+#             */
-/*   Updated: 2022/11/27 03:17:59 by tas              ###   ########.fr       */
+/*   Updated: 2022/11/28 01:31:34 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,13 @@
 
 # define INT_MIN -2147483648
 # define INT_MAX 2147483647
+
+typedef struct s_elt
+{
+	int	num_block;
+	int	size_one_block;
+	int	save_size_beg;
+}	t_elt;
 
 typedef struct s_info
 {
@@ -45,6 +52,7 @@ typedef struct s_full_list
 	t_list	*midd;
 	int		max_full_list;
 	int		middle;
+	int		size;
 }	t_full_list;
 
 // BIG SORT TOOLS
@@ -57,14 +65,14 @@ void		stack_to_5(t_list **list_a, t_list **list_b);
 // BIG SORT
 int			five_or_ten(t_list **list_a);
 int			size_block(t_list **list_a);
-int			side(t_list **list, int num_block, int size_one_block, int *a, int *b);
-int			block(int numero_du_block, int size_one_block);
-int			is_in_block(t_list *list, int numero_du_block, int size_one_block);
+int			side(t_list **list, t_elt elt, int *a, int *b);
+int			block(t_elt elt);
+int			is_in_block(t_list *list, t_elt elt);
 
 // BIG SORT 2
-int			du_haut(t_list **list, int num_block, int size_one_block, int *b);
+int			du_haut(t_list **list, t_elt elt, int *b);
 void		ft_end(t_list **list, int size_list);
-int			du_bas(t_list **list, int num_block, int size_one_block, int *a);
+int			du_bas(t_list **list, t_elt elt, int *a);
 
 // BIG SORT 3
 void		from_top_to_b(t_list **list_a, t_list **list_b, int b);

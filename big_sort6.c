@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   big_sort6.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 15:09:56 by tmejri            #+#    #+#             */
-/*   Updated: 2022/11/26 15:10:28 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/11/28 01:41:16 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,22 @@ void	sort_in_stack_a(t_list **list_a, t_list **list_b)
 	}
 	if ((*list_a)->index != 0)
 		order(list_a);
+}
+
+int	from_down(t_list **list_a, t_list **list_b)
+{
+	int			r;
+	int			keep_middle;
+	t_full_list	full_list;
+
+	full_list.tmp = *list_a;
+	full_list.size = ft_lstsize(*list_a);
+	full_list.middle = middle_size(list_a);
+	full_list.last_top = *list_a;
+	full_list.max_full_list = biggest(list_a);
+	full_list.last_elt = last_elt(list_a, full_list.size);
+	keep_middle = full_list.middle;
+	r = annex_down(list_a, list_b, full_list, keep_middle);
+	*list_a = full_list.tmp;
+	return (r);
 }

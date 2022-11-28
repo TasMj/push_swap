@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   big_sort3.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 14:21:44 by tmejri            #+#    #+#             */
-/*   Updated: 2022/11/26 19:52:05 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/11/28 01:21:42 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,27 +32,25 @@ void	from_down_to_b(t_list **list_a, t_list **list_b, int a)
 
 void	big_sort(t_list **list_a, t_list **list_b, int block_size)
 {
-	int	a;
-	int	b;
-	int	num_b;
-	int	size_one_block;
-	int	save_size_block_beg;
+	int		a;
+	int		b;
+	t_elt	elt;
 
-	num_b = 1;
-	size_one_block = size_block(list_a);
-	save_size_block_beg = size_one_block;
+	elt.num_block = 1;
+	elt.size_one_block = size_block(list_a);
+	elt.save_size_beg = size_block(list_a);
 	while (block_size > 1)
 	{
-		while (size_one_block > 0)
+		while (elt.size_one_block > 0)
 		{
-			if (side(list_a, num_b, save_size_block_beg, &a, &b) == 1)
+			if (side(list_a, elt, &a, &b) == 1)
 				from_top_to_b(list_a, list_b, b);
-			else if (side(list_a, num_b, save_size_block_beg, &a, &b) == 2)
+			else if (side(list_a, elt, &a, &b) == 2)
 				from_down_to_b(list_a, list_b, a);
-			size_one_block--;
+			elt.size_one_block--;
 		}
-		size_one_block = save_size_block_beg;
-		num_b++;
+		elt.size_one_block = elt.save_size_beg;
+		elt.num_block++;
 		block_size--;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 18:47:20 by tmejri            #+#    #+#             */
-/*   Updated: 2022/11/27 01:43:12 by tas              ###   ########.fr       */
+/*   Updated: 2022/11/28 01:13:16 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,52 +39,52 @@ int	size_block(t_list **list_a)
 }
 
 /* return 1 si on passe par en haut 2 si par en bas */
-int	side(t_list **list, int num_block, int size_one_block, int *a, int *b)
+int	side(t_list **list, t_elt elt, int *a, int *b)
 {
 	int	up;
 	int	down;
 
-	up = du_haut(list, num_block, size_one_block, b);
-	down = du_bas(list, num_block, size_one_block, a);
+	up = du_haut(list, elt, b);
+	down = du_bas(list, elt, a);
 	if ((up <= down && up >= 0) || down == -1)
 		return (1);
 	return (2);
 }
 
 /* return le premier indice du block */
-int	block(int numero_du_block, int size_one_block)
+int	block(t_elt elt)
 {
-	if (numero_du_block == 1)
+	if (elt.num_block == 1)
 		return (0);
-	else if (numero_du_block == 2)
-		return (size_one_block);
-	else if (numero_du_block == 3)
-		return (2 * size_one_block);
-	else if (numero_du_block == 4)
-		return (3 * size_one_block);
-	else if (numero_du_block == 5)
-		return (4 * size_one_block);
-	else if (numero_du_block == 6)
-		return (5 * size_one_block);
-	else if (numero_du_block == 7)
-		return (6 * size_one_block);
-	else if (numero_du_block == 8)
-		return (7 * size_one_block);
-	else if (numero_du_block == 9)
-		return (8 * size_one_block);
-	else if (numero_du_block == 10)
-		return (9 * size_one_block);
+	else if (elt.num_block == 2)
+		return (elt.save_size_beg);
+	else if (elt.num_block == 3)
+		return (2 * elt.save_size_beg);
+	else if (elt.num_block == 4)
+		return (3 * elt.save_size_beg);
+	else if (elt.num_block == 5)
+		return (4 * elt.save_size_beg);
+	else if (elt.num_block == 6)
+		return (5 * elt.save_size_beg);
+	else if (elt.num_block == 7)
+		return (6 * elt.save_size_beg);
+	else if (elt.num_block == 8)
+		return (7 * elt.save_size_beg);
+	else if (elt.num_block == 9)
+		return (8 * elt.save_size_beg);
+	else if (elt.num_block == 10)
+		return (9 * elt.save_size_beg);
 	return (0);
 }
 
 // return 1 si l'indice est compris ds le block 0 sinon
-int	is_in_block(t_list *list, int numero_du_block, int size_one_block)
+int	is_in_block(t_list *list, t_elt elt)
 {
 	int	min;
 	int	max;
 
-	min = block(numero_du_block, size_one_block);
-	max = min + size_one_block - 1;
+	min = block(elt);
+	max = min + elt.save_size_beg - 1;
 	if (list->index >= min && list->index <= max)
 		return (1);
 	return (0);
