@@ -6,7 +6,7 @@
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 16:12:07 by tmejri            #+#    #+#             */
-/*   Updated: 2022/11/28 19:16:05 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/11/28 20:58:41 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,8 @@ int	check_intru(int argc, char *argv[])
 		}
 	}
 	i = 0;
-	for_check_intru(list, i);
+	if (for_check_intru(list, i) == 1)
+		return (1);
 	return (0);
 }
 

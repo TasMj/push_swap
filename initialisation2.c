@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   initialisation_2.c                                 :+:      :+:    :+:   */
+/*   initialisation2.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 18:15:51 by tmejri            #+#    #+#             */
-/*   Updated: 2022/10/13 15:03:19 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/11/28 20:10:18 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,21 +20,18 @@ int	check_doublon(t_list **list)
 
 	beg = *list;
 	tmp = (*list)->next;
-	while ((*list)->next != NULL)
+	while (beg != NULL)
 	{
-		while (tmp->next != NULL)
+		tmp = beg->next;
+		while (tmp != NULL)
 		{
-			if ((*list)->content == tmp->content)
+			if (beg->content == tmp->content)
 				return (1);
 			else
 				tmp = tmp->next;
 		}
-		if ((*list)->content == tmp->content)
-			return (1);
-		(*list) = (*list)->next;
-		tmp = (*list)->next;
+		beg = beg->next;
 	}
-	*list = beg;
 	return (0);
 }
 

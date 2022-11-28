@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   big_sort5.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 14:34:16 by tmejri            #+#    #+#             */
-/*   Updated: 2022/11/28 01:41:21 by tas              ###   ########.fr       */
+/*   Updated: 2022/11/28 20:38:06 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ int	down_even_odd(int keep_middle, int size_a, int c)
 	return (r);
 }
 
-int	annex_down(t_list **list_a, t_list **list_b, t_full_list f_l, int keep_m)
+int	annex_down(t_list **l_a, t_list **l_b, t_full_list f_l, int keep_m)
 {
 	int	r;
 	int	c;
@@ -92,16 +92,16 @@ int	annex_down(t_list **list_a, t_list **list_b, t_full_list f_l, int keep_m)
 	c = 0;
 	while (f_l.middle > 1)
 	{
-		(*list_a) = (*list_a)->next;
-		f_l.last_top = (*list_a);
+		(*l_a) = (*l_a)->next;
+		f_l.last_top = (*l_a);
 		f_l.middle--;
 	}
-	(*list_a) = (*list_a)->next;
+	(*l_a) = (*l_a)->next;
 	if (f_l.size % 2 == 0)
 		f_l.middle = keep_m;
 	else
 		f_l.middle = keep_m - 1;
-	c = find_down(list_a, list_b, f_l);
+	c = find_down(l_a, l_b, f_l);
 	if (c == -1)
 		r = -1;
 	r = down_even_odd(keep_m, f_l.size, c);
