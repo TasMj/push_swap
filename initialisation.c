@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initialisation.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 16:12:07 by tmejri            #+#    #+#             */
-/*   Updated: 2022/11/27 03:31:46 by tas              ###   ########.fr       */
+/*   Updated: 2022/11/28 19:16:05 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ int	for_check_1(char **stockage, char **argv, int argc)
 		i++;
 	}
 	i = 0;
-	while (stockage && stockage[i++])
+	while (stockage && stockage[i])
 		free(stockage[i++]);
 	free(stockage);
 	return (0);
