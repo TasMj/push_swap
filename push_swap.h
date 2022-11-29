@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 15:50:01 by tmejri            #+#    #+#             */
-/*   Updated: 2022/11/29 01:07:30 by tas              ###   ########.fr       */
+/*   Updated: 2022/11/29 15:11:00 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,6 @@ void		sort_in_stack_a(t_list **list_a, t_list **list_b);
 int			annex_down(t_list **l_a, t_list **l_b, t_full_list f_l, int keep_m);
 int			is_sorted(t_list **list);
 
-
 // PUSH
 void		pa(t_list **list_stack_a, t_list **list_stack_b);
 void		pb(t_list **list_stack_b, t_list **list_stack_a);
@@ -181,5 +180,6 @@ int			find_down(t_list **list_a, t_list **list_b, t_full_list full_list);
 int			find_start_top(t_list **list);
 int			find_start_down(t_list **list);
 void		order(t_list **list);
+int			for_exit(t_list **list_a, t_list **list_b, int size_list);
 
 #endif

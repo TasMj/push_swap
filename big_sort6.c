@@ -3,14 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   big_sort6.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 15:09:56 by tmejri            #+#    #+#             */
-/*   Updated: 2022/11/29 01:09:38 by tas              ###   ########.fr       */
+/*   Updated: 2022/11/29 15:10:21 by tmejri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	for_exit(t_list **list_a, t_list **list_b, int size_list)
+{
+	if (free_if_wrong(list_a, list_b, size_list))
+		return (1);
+	if (size_list < 2)
+		return (1);
+	if (is_sorted(list_a) == 0)
+	{
+		free_2_lists(list_a, list_b);
+		return (1);
+	}
+	return (0);
+}
 
 void	sort_in_stack_a(t_list **list_a, t_list **list_b)
 {
@@ -53,17 +67,17 @@ int	from_down(t_list **list_a, t_list **list_b)
 int	is_sorted(t_list **list)
 {
 	t_list	*tmp;
-	
+
 	tmp = *list;
 	while ((*list)->next)
 	{
 		if (!((*list)->content < (*list)->next->content))
 		{
-			*list = tmp;	
+			*list = tmp;
 			return (1);
 		}
 		(*list) = (*list)->next;
 	}
-	*list = tmp;				
+	*list = tmp;
 	return (0);
 }
