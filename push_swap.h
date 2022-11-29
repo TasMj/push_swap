@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 15:50:01 by tmejri            #+#    #+#             */
-/*   Updated: 2022/11/28 20:36:42 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/11/29 01:07:30 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,8 @@ int			down_even_odd(int keep_middle, int size_a, int c);
 int			from_down(t_list **list_a, t_list **list_b);
 void		sort_in_stack_a(t_list **list_a, t_list **list_b);
 int			annex_down(t_list **l_a, t_list **l_b, t_full_list f_l, int keep_m);
+int			is_sorted(t_list **list);
+
 
 // PUSH
 void		pa(t_list **list_stack_a, t_list **list_stack_b);

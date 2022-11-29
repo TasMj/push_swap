@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   big_sort6.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 15:09:56 by tmejri            #+#    #+#             */
-/*   Updated: 2022/11/28 18:22:26 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/11/29 01:09:38 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,22 @@ int	from_down(t_list **list_a, t_list **list_b)
 	r = annex_down(list_a, list_b, full_list, keep_middle);
 	*list_a = full_list.tmp;
 	return (r);
+}
+
+int	is_sorted(t_list **list)
+{
+	t_list	*tmp;
+	
+	tmp = *list;
+	while ((*list)->next)
+	{
+		if (!((*list)->content < (*list)->next->content))
+		{
+			*list = tmp;	
+			return (1);
+		}
+		(*list) = (*list)->next;
+	}
+	*list = tmp;				
+	return (0);
 }

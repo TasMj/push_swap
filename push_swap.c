@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 17:28:11 by tmejri            #+#    #+#             */
-/*   Updated: 2022/11/28 21:27:56 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/11/29 01:14:54 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	free_list(t_list **list)
 
 int	error_free_ret(t_list **list)
 {
-	write(2, "Error\n", 8);
+	write(2, "Error\n", 6	);
 	free_list(list);
 	return (1);
 }
@@ -86,6 +86,11 @@ int	main(int argc, char **argv)
 			return (1);
 		if (size_list < 2)
 			return (1);
+		if (is_sorted(list_a) == 0)
+		{
+			free_2_lists(list_a, list_b);	
+			return (1);
+		}
 		direct_sort(size_list, list_a, list_b);
 	}
 	free_2_lists(list_a, list_b);
