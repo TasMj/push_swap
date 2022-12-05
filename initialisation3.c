@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initialisation3.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmejri <tmejri@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tas <tas@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 15:48:08 by tmejri            #+#    #+#             */
-/*   Updated: 2022/11/28 21:10:01 by tmejri           ###   ########.fr       */
+/*   Updated: 2022/12/05 13:35:11 by tas              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,8 @@ int	check_int(int argc, char **argv)
 		if (argc == 2)
 		{
 			stockage = ft_split(argv[1], ' ');
-			annex(stockage, argv, argc, i);
+			if (annex(stockage, argv, argc, i) == 1)
+				return (1);
 		}		
 		if (for_check_2(argv, argc) == 1)
 			return (1);
